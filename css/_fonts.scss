@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400&display=swap');
+
+// default font variables
+$defaultBodyFont: 'Montserrat', sans-serif;
+$mainMenuFont: 'Roboto Mono', monospace;
+$logoFont: 'Poppins', sans-serif;
+
+
+// section font size variables
+$defaultFontSize: 16px;
+$mainTitle: 2.5rem;
+$subHeading: 2rem;
+$bodyContent: 1.2rem;
+$logoText: .75rem;
+
+// font weight variables
+
+$lightWeight: 200;
+$midWeight: 500;
+$heavyWeight: 900;
