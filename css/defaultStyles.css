@@ -1,9 +1,19 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;800;900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400&display=swap");
-*,
-*:before,
-*:after {
+:root {
+  --background_Base: #ffffff;
+  --background_section1: #235664;
+  --background_section2: #5aabc238;
+  --background_section3: #112e6b;
+  --background_hero: #235664;
+  --background_mainMenu: #235664;
+  --background_footer: #235664;
+  --menu_font: #000;
+  --menu_font_size: 1em;
+}
+
+*, *:before, *:after {
   margin: 0;
   padding: 0;
   -webkit-box-sizing: border-box;
@@ -11,8 +21,9 @@
 }
 
 body {
+  background-color: var(--background_Base);
   font-family: "Montserrat", sans-serif;
   font-weight: 200;
-  font-size: 16px;
+  font-size: 10px;
 }
 /*# sourceMappingURL=defaultStyles.css.map */
