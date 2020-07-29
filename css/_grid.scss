@@ -1,0 +1,21 @@
+.pageContentWrapper {
+    display: grid;
+    height: 100vh;
+    header.homePageHeader {
+        height: 10vh;
+        background-color: green;
+        .logo{
+            width: 2em;
+            height: 2em;
+            background-color: blue;
+        }
+        nav.site-navigation {
+            height: 10vh;
+            .main-navigation {
+                display: flex;
+            }
+        }
+
+    }
+    
+}

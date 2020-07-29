@@ -1,1 +1,65 @@
-/* No CSS *//*# sourceMappingURL=styles.css.map */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400&display=swap");
+:root {
+  font-size: 16px;
+  --background_Base: #ffffff;
+  --background_section1: #235664;
+  --background_section2: #5aabc238;
+  --background_section3: #112e6b;
+  --background_hero: #235664;
+  --background_mainMenu: #235664;
+  --background_footer: #235664;
+  --menu_font: #000;
+  --menu_font_size: 1rem;
+  --defaultFontSize: 10px;
+  --mainTitle: 2.5rem;
+  --subHeading: 2rem;
+  --bodyContent: 1.2rem;
+  --logoText: .75rem;
+  --lightWeight: 200;
+  --midWeight: 500;
+  --heavyWeight: 900;
+}
+
+*, *:before, *:after {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  background-color: var(--background_Base);
+  font-family: "Montserrat", sans-serif;
+  font-weight: 200;
+  font-size: 1rem;
+}
+
+.pageContentWrapper {
+  display: -ms-grid;
+  display: grid;
+  height: 100vh;
+}
+
+.pageContentWrapper header.homePageHeader {
+  height: 10vh;
+  background-color: green;
+}
+
+.pageContentWrapper header.homePageHeader .logo {
+  width: 2em;
+  height: 2em;
+  background-color: blue;
+}
+
+.pageContentWrapper header.homePageHeader nav.site-navigation {
+  height: 10vh;
+}
+
+.pageContentWrapper header.homePageHeader nav.site-navigation .main-navigation {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+/*# sourceMappingURL=styles.css.map */

@@ -1,1 +1,17 @@
+@import '_root';
+@import '_fonts';
 @import '_mediaqueries';
+
+*, *:before, *:after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--background_Base);
+    font-family: $defaultBodyFont;
+    font-weight: $lightWeight;
+    font-size: $defaultFontSize;
+}
+@import '_grid';
