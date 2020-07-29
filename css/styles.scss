@@ -1,6 +1,10 @@
-@import '_root';
+:root {
+    font-size: 16px;
+}
+@import '_defaultstyles';
 @import '_fonts';
 @import '_mediaqueries';
+@import '_grid';
 
 *, *:before, *:after {
     margin: 0;
@@ -9,9 +13,8 @@
 }
 
 body {
-    background-color: var(--background_Base);
+    background-color: $background_Base;
     font-family: $defaultBodyFont;
     font-weight: $lightWeight;
     font-size: $defaultFontSize;
 }
-@import '_grid';
