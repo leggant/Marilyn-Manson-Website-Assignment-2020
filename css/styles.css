@@ -5,33 +5,6 @@
   font-size: 16px;
 }
 
-.pageContentWrapper {
-  display: -ms-grid;
-  display: grid;
-  height: 100vh;
-}
-
-.pageContentWrapper header.homePageHeader {
-  height: 10vh;
-  background-color: green;
-}
-
-.pageContentWrapper header.homePageHeader .logo {
-  width: 2em;
-  height: 2em;
-  background-color: blue;
-}
-
-.pageContentWrapper header.homePageHeader nav.site-navigation {
-  height: 10vh;
-}
-
-.pageContentWrapper header.homePageHeader nav.site-navigation .main-navigation {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-
 *, *:before, *:after {
   margin: 0;
   padding: 0;
@@ -39,10 +12,21 @@
           box-sizing: border-box;
 }
 
-body {
-  background-color: #ffffff;
-  font-family: "Montserrat", sans-serif;
-  font-weight: 200;
-  font-size: 1rem;
+img {
+  width: 100%;
+}
+
+.pageContentWrapper {
+  display: -ms-grid;
+  display: grid;
+  height: 100vh;
+}
+
+.homePageHeader {
+  height: 10vh;
+}
+
+.hero-section {
+  height: 90vh;
 }
 /*# sourceMappingURL=styles.css.map */
