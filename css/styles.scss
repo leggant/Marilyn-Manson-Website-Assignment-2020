@@ -3,3 +3,205 @@
 @import '_colours';
 @import '_grid';
 @import '_mediaqueries';
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@900&family=Rowdies:wght@700&display=swap');
+  body{
+    background-color: #000C19;
+    color: #ffffff;
+  }
+  img {
+    max-width: 100%;
+  }
+  header{
+    font-family: 'Nunito Sans', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: .3rem;
+    font-size: 1.2rem;
+    min-height: 10vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #303036;
+    margin-bottom: 1rem;
+  }
+  .main-nav, .main-nav-links {
+      letter-spacing: 0;
+      font-size: 1rem;
+      display: flex;
+      justify-content: space-around;
+      width:30vw;
+      align-items: center;
+    a {
+        
+        color: white;
+        text-decoration: none;
+    }
+    li{
+      list-style: none;
+    }
+  }
+  .img-area {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(200px, 20%)) 3fr;
+      grid-column-gap: 20px;
+      grid-row-gap: 5px;
+      justify-items: stretch;
+      align-items: start;
+  }
+  .col {
+    font-family: 'Rowdies', cursive;
+    height: 100vh;
+    //border: 1px dotted green;
+    overflow:hidden;
+  }
+  
+  .hero-cta{
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    font-size: 4rem;
+    padding: 2rem 2rem 2rem 3rem;
+  }
+  .userInput{
+    margin-top: 4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+  }
+  .col-left img{
+    animation: animation-Frames linear 10s;
+    animation-iteration-count: infinite;
+    transform-origin: 50% 50%;
+    -webkit-animation: animation-Frames linear 10s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-transform-origin: 50% 50%;
+    -moz-animation: animation-Frames linear 10s;
+    -moz-animation-iteration-count: infinite;
+    -moz-transform-origin: 50% 50%;
+    -o-animation: animation-Frames linear 10s;
+    -o-animation-iteration-count: infinite;
+    -o-transform-origin: 50% 50%;
+    -ms-animation: animation-Frames linear 10s;
+    -ms-animation-iteration-count: infinite;
+    -ms-transform-origin: 50% 50%;
+  
+  }
+  @keyframes animation-Frames{
+    0% {
+      transform:  translate(0px,-50px);
+    }
+    100% {
+      transform:  translate(0px, -2200px); 
+    }
+  }
+  .left-col:hover{
+    animation: animationslow linear 3s;
+    animation-iteration-count: infinite;
+    transform-origin: 50% 50%;
+    -webkit-animation: animationslow linear 10s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-transform-origin: 50% 50%;
+    -moz-animation: animationslow linear 10s;
+    -moz-animation-iteration-count: infinite;
+    -moz-transform-origin: 50% 50%;
+    -o-animation: animationslow linear 10s;
+    -o-animation-iteration-count: infinite;
+    -o-transform-origin: 50% 50%;
+    -ms-animation: animationslow linear 10s;
+    -ms-animation-iteration-count: infinite;
+    -ms-transform-origin: 50% 50%;
+  }
+  @keyframes animationslow {
+    0%{
+      transform: translate(0px, 0px);
+    }
+    100% {
+      transform: translate(0px, 0px);
+    }
+  }
+  .col-right img{
+    animation: animationFrames linear 10s;
+    animation-iteration-count: infinite;
+    transform-origin: 50% 50%;
+    -webkit-animation: animationFrames linear 10s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-transform-origin: 50% 50%;
+    -moz-animation: animationFrames linear 10s;
+    -moz-animation-iteration-count: infinite;
+    -moz-transform-origin: 50% 50%;
+    -o-animation: animationFrames linear 10s;
+    -o-animation-iteration-count: infinite;
+    -o-transform-origin: 50% 50%;
+    -ms-animation: animationFrames linear 10s;
+    -ms-animation-iteration-count: infinite;
+    -ms-transform-origin: 50% 50%;
+  }
+  @keyframes animationFrames{
+    0% {
+      transform:  translate(0px,-2100px);
+    }
+    100% {
+      transform:  translate(0px, -50px); 
+    }
+  }
+  .menu-btn{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80px;
+    height: 80px;
+    cursor: pointer;
+    transition: all .3s ease-in-out;
+    .menu_burger {
+      width: 50px;
+      height: 6px;
+      background-color: #ED33B9;
+      border-radius: 5px;
+      transition: all .3s ease-in-out;
+     }
+  }
+  .menu_burger::before,
+  .menu_burger::after {
+    content:'';
+    position: absolute;
+    width: 50px;
+    height: 6px;
+    background-color: #ED33B9;
+    border-radius: 5px;
+    transition: all .3s ease-in-out;
+  }
+  .menu_burger::before {
+    transform: translateY(-16px);
+  }
+  .menu_burger::after {
+    transform: translateY(16px);
+  }
+  .menu-btn.open .menu_burger{
+    transform: translateX(-50px);
+    background-color: transparent;
+  }
+  .menu-btn.open .menu_burger::before{
+    transform: rotate(45deg) translate(35px, -35px);
+  }
+  .menu-btn.open .menu_burger::after{
+    transform: rotate(-45deg) translate(35px, 35px);
+  }
+  #NewAlbum{
+    background-color: grey;
+    height: 100vh;
+    color: white
+  }
+  #song-titles{
+    background-color: white;
+    height: 100vh;
+    color: black;
+  }
+  footer{
+    background-color: blue;
+  }
