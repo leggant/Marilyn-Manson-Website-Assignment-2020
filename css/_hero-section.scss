@@ -1,0 +1,72 @@
+/* -------------------------------------------------------------------------- */
+/*                             HERO SECTION LAYOUT                            */
+/* -------------------------------------------------------------------------- */
+
+.hero-container {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(200px, 20%)) 3fr;
+    grid-column-gap: 20px;
+    grid-row-gap: 5px;
+    justify-items: stretch;
+    align-items: start;
+}
+.hero-img-area {
+    overflow:hidden;
+}
+.hero-cta{
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    font-size: 4rem;
+    padding: 2rem 2rem 2rem 3rem;
+}
+.userInput{
+    margin-top: 4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+
+/* -------------------------------------------------------------------------- */
+/*                           HERO SECTION ANIMATION                           */
+/* -------------------------------------------------------------------------- */
+
+/* .col-left img{
+animation: animation-Frames linear 10s;
+animation-iteration-count: infinite;
+transform-origin: 50% 50%;
+}
+@keyframes animation-Frames{
+0% {
+    transform:  translate(0px,-50px);
+}
+100% {
+    transform:  translate(0px, -2200px); 
+}
+}
+.left-col:hover{
+animation: animationslow linear 3s;
+animation-iteration-count: infinite;
+transform-origin: 50% 50%;
+}
+@keyframes animationslow {
+0%{
+    transform: translate(0px, 0px);
+}
+100% {
+    transform: translate(0px, 0px);
+}
+}
+.col-right img{
+animation: animationFrames linear 10s;
+animation-iteration-count: infinite;
+transform-origin: 50% 50%;
+}
+@keyframes animationFrames{
+0% {
+    transform:  translate(0px,-2100px);
+}
+100% {
+    transform:  translate(0px, -50px); 
+}
+} */
