@@ -1,37 +1,18 @@
 @import '_variables';
-@import '_defaults';
-@import '_layout';
 
-header{
-  font-family: 'Nunito Sans', sans-serif;
-  text-transform: uppercase;
-  letter-spacing: .3rem;
-  font-size: 1.2rem;
-  min-height: 10vh;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  background-color: #303036;
-  margin-bottom: 1rem;
-}
+@import '_defaults';
 
 @import '_main_navigation';
 
+/* HOME PAGE STYLES */
+
 @import '_hero-section';
 
+@import '_newAlbum';
 
-#NewAlbum {
-  background-color: grey;
-  height: 100vh;
-  color: white
-}
-#song-titles{
-  background-color: white;
-  height: 100vh;
-  color: black;
-}
-footer {
-  background-color: blue;
-}
+@import '_songTitles';
 
-@import '_mediaqueries';
+
+/* Main Footer Styles */
+
+@import '_main_footer';

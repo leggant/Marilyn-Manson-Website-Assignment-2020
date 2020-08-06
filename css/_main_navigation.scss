@@ -1,14 +1,42 @@
-.main-nav, .main-nav-links {
+header {
+    font-family: 'Nunito Sans', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: .3rem;
+    font-size: 1.2rem;
+    min-height: 10vh;
+    background-color:transparent;
+    margin-bottom: 1rem;
+}
+#site-logo {
+    padding: 1rem;
+}
+img#site-logo::after {
+    content: '';
+    width: 50px;
+    height: 6px;
+    background-color: $mansonPink-color;
+}
+.main-nav {
+   width: 80vw;
+   margin: auto;
+    display: flex;
+    justify-content: space-around;
+    img {
+        max-width: 30%;
+    }
+} 
+.main-nav-links {
 letter-spacing: 0;
 font-size: 1rem;
 display: flex;
-justify-content: space-around;
-width:30vw;
+justify-content: space-between;
+width:50vw;
 align-items: center;
-    a {
-        color: white;
-    }
 }
+
+
+/*  Menu Burger Styles */
+
 .menu-btn {
     position: relative;
     display: flex;
@@ -51,4 +79,59 @@ content:'';
 }
 .menu-btn.open .menu_burger::after{
     transform: rotate(-45deg) translate(35px, 35px);
+}
+
+@media screen and (max-width: 720px) {
+    .main-nav {
+        width: 95vw;
+        padding: 2vh 2vw;
+        align-items: center;
+        height: 20vh;
+    }
+    #site-logo {
+        max-width: 50%;
+    }
+    .main-nav-links {
+        display: none;
+    }
+    .open-mobile-main-menu {
+        flex-direction: column-reverse;
+        align-items: flex-end;
+        justify-content: flex-end;
+        width: 100vw;
+        height: 100vh;
+        background-color: $GRYBlue;
+        z-index: 10;
+        img {
+            display: none;
+        }
+        .menu-btn {
+            z-index: 10;
+        }
+        .main-nav-links {
+            display: flex;
+            margin: 3rem 3rem 0 0;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: flex-end;
+            width: 100vw;
+            li{
+                margin-bottom: 3rem;
+                a{
+                    font-size: 3rem;
+                }
+            }
+        }   
+    }
+}
+
+/*  Navigation Media Queries */
+
+@media screen and (min-width: 721px){
+    .menu-btn{
+        display: none;
+    }
+    .main-nav-links {
+        display: flex;
+    }
 }

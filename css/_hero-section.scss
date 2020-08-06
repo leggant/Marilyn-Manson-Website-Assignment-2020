@@ -9,11 +9,10 @@
     grid-row-gap: 5px;
     justify-items: stretch;
     align-items: start;
-}
-.hero-img-area {
+    height: 100vh;
     overflow:hidden;
 }
-.hero-cta{
+.hero-cta {
     display: grid;
     justify-content: center;
     align-content: center;
@@ -25,6 +24,13 @@
     display: flex;
     flex-direction: column;
     align-items: start;
+}
+
+.col-item {
+    width: 100%;
+    height: calc(100vh - 60%);
+    background-color: white;
+    border-radius: 1.5rem;
 }
 
 /* -------------------------------------------------------------------------- */
@@ -70,3 +76,12 @@ transform-origin: 50% 50%;
     transform:  translate(0px, -50px); 
 }
 } */
+
+
+/* -------------------------------------------------------------------------- */
+/*                         HERO SECTION MEDIA QUERIES                         */
+/* -------------------------------------------------------------------------- */
+
+@media screen and (max-width:500px) {
+
+}
