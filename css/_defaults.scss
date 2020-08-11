@@ -1,5 +1,6 @@
 :root {
     font-size: 10px;
+
 }
 *, *::before, *::after 
 {
@@ -20,8 +21,5 @@ li {
 body {
     background-color: $DKBlue_BG;
     overflow-x: hidden;
-    min-width: 300px;
-}
-.container-wrapper{
-    
+    max-width: 1920px;
 }
