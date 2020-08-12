@@ -29,47 +29,58 @@ body {
   max-width: 1920px;
 }
 
+.content-wrapper {
+  width: 90vw;
+  margin: 0 auto;
+}
+
 /* -------------------------------------------------------------------------- */
 /*                   WEBSITE MAIN HEADER AND NAVIGATION AREA                  */
 /* -------------------------------------------------------------------------- */
-header {
-  background-color: transparent;
-  margin-bottom: 1rem;
-}
-
-.main-nav {
-  width: 90vw;
-  margin: 0 auto;
+.site-main-header {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  background-color: transparent;
   padding: 3rem 0;
 }
 
-.main-nav a.logo-link {
-  flex: 2;
+.main-nav {
   display: flex;
-  flex-direction: row;
   align-items: center;
-  justify-content: flex-start;
 }
 
-.main-nav .main-nav-links {
+.main-nav-links {
   font-family: "Poppins", sans-serif;
   letter-spacing: .1rem;
   font-size: 2rem;
   display: flex;
   justify-content: flex-end;
-  flex: 2;
+  flex: 5;
   gap: 1rem;
   align-items: center;
 }
 
-.main-nav .main-nav-links li {
+.main-nav-links li {
   text-align: center;
-  flex-grow: 1;
+  flex-grow: 5;
   flex-shrink: 1;
   flex-basis: 10%;
+}
+
+#site-logo {
+  flex: 1;
+}
+
+a.logo-link::after {
+  content: '';
+  position: relative;
+  width: 150px;
+  height: 10px;
+  border-radius: 5px;
+  background-color: #ED33B9;
+  top: 100px;
+  left: 150px;
+  z-index: 10;
 }
 
 /* -------------------------------------------------------------------------- */
@@ -78,8 +89,8 @@ header {
 .menu-btn {
   position: relative;
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   width: 80px;
   height: 80px;
   cursor: pointer;
@@ -129,83 +140,6 @@ header {
 /* -------------------------------------------------------------------------- */
 /*                  SITE HEADER AND NAVIGATION MEDIA QUERIES                  */
 /* -------------------------------------------------------------------------- */
-@media screen and (min-width: 200px) and (max-width: 400px) {
-  img#site-logo {
-    width: 70%;
-  }
-}
-
-@media screen and (min-width: 401px) {
-  .main-nav {
-    padding: 2vh 2vw;
-  }
-  img#site-logo {
-    width: 60%;
-  }
-}
-
-@media screen and (max-width: 720px) {
-  .main-nav {
-    width: 90vw;
-    padding: 2vh 2vw;
-  }
-  .main-nav .main-nav-links {
-    display: none;
-  }
-  .open-mobile-main-menu {
-    flex-direction: column-reverse;
-    align-items: flex-end;
-    justify-content: flex-end;
-    width: 100vw;
-    height: 100vh;
-    background-color: #2B2D42;
-    z-index: 10;
-  }
-  .open-mobile-main-menu img {
-    display: none;
-  }
-  .open-mobile-main-menu .menu-btn {
-    z-index: 10;
-  }
-  .open-mobile-main-menu .main-nav-links {
-    display: flex;
-    margin: 3rem 3rem 0 0;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: flex-end;
-    width: 100vw;
-  }
-  .open-mobile-main-menu .main-nav-links li {
-    margin-bottom: 3rem;
-  }
-  .open-mobile-main-menu .main-nav-links li a {
-    font-size: 3rem;
-  }
-}
-
-@media screen and (min-width: 721px) {
-  .menu-btn {
-    display: none;
-  }
-  .main-nav {
-    width: 90vw;
-    padding: 2vh 2vw;
-  }
-  .main-nav .main-nav-links {
-    flex: 5;
-    letter-spacing: 0;
-  }
-  .main-nav img {
-    flex: 2;
-  }
-}
-
-@media screen and (min-width: 1200px) {
-  img#site-logo {
-    width: 40%;
-  }
-}
-
 /* -------------------------------------------------------------------------- */
 /*                             HERO SECTION LAYOUT                            */
 /* -------------------------------------------------------------------------- */
