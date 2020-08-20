@@ -1,0 +1,49 @@
+{
+    "WEARECHAOSALBUM_PREORDER-INFO": 
+    [
+        {
+            "option": "1",
+            "title" : "We Are Chaos",
+            "edition": "Limited Edition Picture Disc",
+            "price": "10.99",
+            "format": "Vinyl",
+            "image": "#",
+            "url": "#"
+        },
+        {
+            "option": "2",
+            "title" : "We Are Chaos",
+            "edition": "Standard CD + MP3 Download",
+            "price": "$",
+            "format": "CD",
+            "image": "#"
+
+        },
+        {
+            "option": "3",
+            "title" : "We Are Chaos",
+            "edition": "Standard CD + MP3 Download",
+            "price": "$",
+            "format": "CD",
+            "image": "#"
+
+        },
+        {
+            "option": "4",
+            "title" : "We Are Chaos",
+            "edition": "Standard CD + MP3 Download",
+            "price": "$",
+            "format": "CD",
+            "image": "#"
+
+        },
+        {
+            "option": "5",
+            "title" : "We Are Chaos",
+            "edition": "Standard CD + MP3 Download",
+            "price": "$",
+            "format": "CD",
+            "image": "#"
+        }
+    ]
+}

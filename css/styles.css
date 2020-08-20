@@ -1,18 +1,23 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;800;900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;600&display=swap");
 :root {
   font-size: 10px;
 }
 
-*, *::before, *::after {
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   color: white;
 }
 
+body {
+  background-color: #000C19;
+}
+
 img {
   width: 100%;
+  height: auto;
 }
 
 a {
@@ -23,13 +28,7 @@ li {
   list-style: none;
 }
 
-body {
-  background-color: #000C19;
-  overflow-x: hidden;
-  max-width: 1920px;
-}
-
-.content-wrapper {
+.content-inner-wrapper {
   width: 90vw;
   margin: 0 auto;
 }
@@ -38,49 +37,97 @@ body {
 /*                   WEBSITE MAIN HEADER AND NAVIGATION AREA                  */
 /* -------------------------------------------------------------------------- */
 .site-main-header {
+  position: absolute;
+  top: 0px;
   display: flex;
+  align-items: center;
   justify-content: space-between;
-  background-color: transparent;
-  padding: 3rem 0;
+  height: 100px;
+  width: 100%;
+  padding: 0 10%;
+  margin: 0 0 3rem 0;
+  z-index: 100;
+  font-family: "Poppins", sans-serif, sans-serif;
+  font-weight: 500;
+  background: white;
+  background: linear-gradient(360deg, rgba(255, 255, 255, 0) 10%, #2b2d42 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffffff",endColorstr="#2b2d42",GradientType=1);
 }
 
-.main-nav {
-  display: flex;
-  align-items: center;
-}
-
-.main-nav-links {
-  font-family: "Poppins", sans-serif;
-  letter-spacing: .1rem;
-  font-size: 2rem;
-  display: flex;
-  justify-content: flex-end;
-  flex: 5;
-  gap: 1rem;
-  align-items: center;
-}
-
-.main-nav-links li {
-  text-align: center;
-  flex-grow: 5;
-  flex-shrink: 1;
-  flex-basis: 10%;
-}
-
-#site-logo {
-  flex: 1;
-}
-
-a.logo-link::after {
-  content: '';
+.site-main-header a.logo-link {
+  width: 180px;
+  margin-right: 3rem;
   position: relative;
-  width: 150px;
-  height: 10px;
+  top: 0px;
+}
+
+.site-main-header a.logo-link img {
+  cursor: pointer;
+}
+
+.site-main-header a.logo-link .logo-accent {
+  display: block;
+  width: 27%;
+  height: 4px;
+  background-color: #E5478C;
+  position: absolute;
   border-radius: 5px;
-  background-color: #ED33B9;
-  top: 100px;
-  left: 150px;
-  z-index: 10;
+  left: 3px;
+  top: -2px;
+}
+
+.site-main-header .main-nav-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .8rem;
+  font-size: 1.6rem;
+}
+
+.site-main-header .main-nav-links li.main-nav-item {
+  padding: 0 2rem;
+}
+
+.site-main-header .main-nav-links li.main-nav-item a {
+  display: block;
+  transition: color 0.2s ease-in 0s;
+  padding-bottom: 1px;
+}
+
+.site-main-header .main-nav-links li.main-nav-item a:hover {
+  color: #E5478C;
+  border-bottom: 1px solid #E5478C;
+  padding-bottom: -1px;
+}
+
+.site-main-header .main-nav-links li:nth-child(4) {
+  display: flex;
+  gap: .5rem;
+  align-items: center;
+}
+
+.site-main-header .main-nav-links li:nth-child(4) .menu-alert {
+  line-height: 1.5;
+  font-size: 1rem;
+  color: #fff;
+  background-color: #E5478C;
+  border-radius: .5rem;
+  padding: 0 0.4rem;
+  margin-bottom: .7rem;
+}
+
+.site-main-header .main-nav-links li:nth-child(5) {
+  border-left: 1px solid white;
+}
+
+.menu-btn.desktop-active {
+  display: none;
+}
+
+.scroll-up {
+  position: fixed;
+  background-color: #fff;
+  margin-top: 0;
 }
 
 /* -------------------------------------------------------------------------- */
@@ -98,8 +145,8 @@ a.logo-link::after {
 }
 
 .menu-btn .menu_burger {
-  width: 50px;
-  height: 6px;
+  width: 40px;
+  height: 5px;
   background-color: #ED33B9;
   border-radius: 5px;
   transition: all .3s ease-in-out;
@@ -109,23 +156,23 @@ a.logo-link::after {
 .menu_burger::after {
   content: '';
   position: absolute;
-  width: 50px;
-  height: 6px;
+  width: 40px;
+  height: 5px;
   background-color: #ED33B9;
   border-radius: 5px;
   transition: all .3s ease-in-out;
 }
 
 .menu_burger::before {
-  transform: translateY(-16px);
+  transform: translateY(-12px);
 }
 
 .menu_burger::after {
-  transform: translateY(16px);
+  transform: translateY(12px);
 }
 
 .menu-btn.open .menu_burger {
-  transform: translateX(-50px);
+  transform: translateX(-40px);
   background-color: transparent;
 }
 
@@ -140,6 +187,39 @@ a.logo-link::after {
 /* -------------------------------------------------------------------------- */
 /*                  SITE HEADER AND NAVIGATION MEDIA QUERIES                  */
 /* -------------------------------------------------------------------------- */
+/* @media screen and (max-width: 720px) {
+    .main-nav-links {
+        display: none;
+    }
+    .open-mobile-main-menu {
+        flex-direction: column-reverse;
+        width: 100vw;
+        height: 100vh;
+        background-color: $GRYBlue;
+        z-index: 10;
+        img {
+            display: none;
+        }
+        .menu-btn {
+            z-index: 10;
+        }
+        .main-nav-links {
+            display: flex;
+            margin: 3rem 3rem 0 0;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: flex-end;
+            width: 100vw;
+            li{
+                margin-bottom: 3rem;
+                a{
+                    font-size: 3rem;
+                }
+            }
+        }   
+    }
+}
+ */
 /* -------------------------------------------------------------------------- */
 /*                             HERO SECTION LAYOUT                            */
 /* -------------------------------------------------------------------------- */
@@ -147,52 +227,77 @@ a.logo-link::after {
   display: grid;
   grid-template-columns: repeat(2, minmax(200px, 20%)) 3fr;
   grid-column-gap: 20px;
-  grid-row-gap: 5px;
-  justify-items: stretch;
-  align-items: start;
   height: 100vh;
-  overflow: hidden;
+  overflow-y: hidden;
+  font-family: "Montserrat", sans-serif, sans-serif;
+  font-weight: 600;
+  padding: 0px 2rem;
 }
 
 .hero-cta {
-  display: grid;
+  display: flex;
+  font-size: 6rem;
+  font-weight: 200;
+  align-items: center;
   justify-content: center;
-  align-content: center;
-  font-size: 4rem;
-  padding: 2rem 2rem 2rem 3rem;
+  position: absolute;
+  top: 110px;
+  bottom: 0;
+  left: 50vw;
+}
+
+.hero-cta h2 {
+  font-size: 10rem;
+  font-weight: 800;
+  letter-spacing: -.5rem;
+  word-spacing: 1.5rem;
+  line-height: 1;
+}
+
+.hero-cta h3 {
+  font-weight: 300;
 }
 
 .userInput {
   margin-top: 4rem;
-  display: flex;
-  flex-direction: column;
-  align-items: start;
 }
 
-.col-item {
+.col-img {
   width: 100%;
-  height: calc(100vh - 60%);
+  height: 300px;
+  margin-bottom: 16px;
   background-color: white;
-  border-radius: 1.5rem;
+  border-radius: 16px;
+}
+
+.col-left {
+  transform: translateY(-75px);
+}
+
+.col-right {
+  transform: translateY(75px);
 }
 
 /* -------------------------------------------------------------------------- */
 /*                           HERO SECTION ANIMATION                           */
 /* -------------------------------------------------------------------------- */
-/* .col-left img{
-animation: animation-Frames linear 10s;
-animation-iteration-count: infinite;
-transform-origin: 50% 50%;
+.col-left .col-img {
+  animation: left-col-animation linear 10s;
+  animation-iteration-count: infinite;
+  transform-origin: 50% 50%;
 }
-@keyframes animation-Frames{
-0% {
-    transform:  translate(0px,-50px);
+
+@keyframes left-col-animation {
+  0% {
+    transform: translate(0px, -50px);
+  }
+  100% {
+    transform: translate(0px, -2200px);
+  }
 }
-100% {
-    transform:  translate(0px, -2200px); 
-}
-}
-.left-col:hover{
+
+/*
+.col-left:hover{
 animation: animationslow linear 3s;
 animation-iteration-count: infinite;
 transform-origin: 50% 50%;
@@ -204,20 +309,22 @@ transform-origin: 50% 50%;
 100% {
     transform: translate(0px, 0px);
 }
+}*/
+.col-right .col-img {
+  animation: animationFrames linear 10s;
+  animation-iteration-count: infinite;
+  transform-origin: 50% 50%;
 }
-.col-right img{
-animation: animationFrames linear 10s;
-animation-iteration-count: infinite;
-transform-origin: 50% 50%;
+
+@keyframes animationFrames {
+  0% {
+    transform: translate(0px, -2100px);
+  }
+  100% {
+    transform: translate(0px, -50px);
+  }
 }
-@keyframes animationFrames{
-0% {
-    transform:  translate(0px,-2100px);
-}
-100% {
-    transform:  translate(0px, -50px); 
-}
-} */
+
 /* -------------------------------------------------------------------------- */
 /*                         HERO SECTION MEDIA QUERIES                         */
 /* -------------------------------------------------------------------------- */
@@ -229,6 +336,18 @@ transform-origin: 50% 50%;
   height: 100vh;
 }
 
+/* -------------------------------------------------------------------------- */
+/*                 Famous Marilyn Manson Quotes Section Styles                */
+/* -------------------------------------------------------------------------- */
+/* 5 cards that take up 100% of the section width and height
+each is clickable to change or will change on their own on a timer
+large text 
+small circular image 
+name, position 
+clickable bars or buttons that transition in sync with the timer
+Will require javascript to contol change between quotes
+
+*/
 .main-footer {
   background-color: transparent;
   width: 90vw;

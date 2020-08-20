@@ -3,45 +3,88 @@
 /* -------------------------------------------------------------------------- */
 
 .site-main-header {
+    position: absolute;
+    top: 0px;
     display: flex;
+    align-items: center;
     justify-content: space-between;
-    background-color:transparent;
-    padding: 3rem 0;
-}
-.main-nav {
-    display: flex;
-    align-items: center;
-}
-
-.main-nav-links {
-    font-family: $menuFont;
-    letter-spacing: .1rem;
-    font-size: 2rem;
-    display: flex;
-    justify-content: flex-end;
-    flex: 5;
-    gap: 1rem;
-    align-items: center;
-    li {
-        text-align: center;
-        flex-grow: 5;
-        flex-shrink: 1;
-        flex-basis: 10%;
+    height: 100px;
+    width: 100%;
+    padding: 0 10%;
+    margin: 0 0 3rem 0;
+    z-index: 100;
+    font-family: $menuFont, sans-serif;
+    font-weight: 500;
+    background: rgb(255,255,255);
+    background: -moz-linear-gradient(360deg, rgba(255,255,255,0) 10%, rgba(43,45,66,1) 100%);
+    background: -webkit-linear-gradient(360deg, rgba(255,255,255,0) 10%, rgba(43,45,66,1) 100%);
+    background: linear-gradient(360deg, rgba(255,255,255,0) 10%, rgba(43,45,66,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffffff",endColorstr="#2b2d42",GradientType=1);
+    a.logo-link{
+        width: 180px;
+        margin-right: 3rem;
+        position: relative;
+        top:0px;
+        img{
+            cursor: pointer;
+        }
+        .logo-accent{
+            display: block;
+            width: 27%;
+            height: 4px;
+            background-color: $mansonLessPink;
+            position: absolute;
+            border-radius: 5px;
+            left: 3px;
+            top: -2px;
+        }
+    }
+    .main-nav-links{
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: .8rem;
+        font-size: 1.6rem;
+        li.main-nav-item {
+            padding: 0 2rem;
+            a{
+                display: block;
+                transition: color 0.2s ease-in 0s;
+                padding-bottom: 1px;
+            }
+            a:hover{
+                color: $mansonLessPink;
+                border-bottom: 1px solid $mansonLessPink;
+                padding-bottom: -1px;
+            }
+        }
+        li:nth-child(4){
+            //position: relative;
+            display: flex;
+            gap: .5rem;
+            align-items: center;
+            .menu-alert{
+                line-height: 1.5;
+                font-size: 1rem;
+                color: #fff;
+                background-color: $mansonLessPink;
+                border-radius: .5rem;
+                padding: 0 0.4rem;
+                margin-bottom: .7rem;
+            }
+        }   
+        li:nth-child(5){
+            border-left: 1px solid white;
+        }
     }
 }
-#site-logo {
-    flex: 1;
+.menu-btn.desktop-active {
+    display: none;
 }
-a.logo-link::after {
-    content: '';
-    position: relative;
-    width: 150px;
-    height: 10px;
-    border-radius: 5px;
-    background-color: $mansonPink-color;
-    top: 100px;
-    left: 150px;
-    z-index: 10;
+.scroll-up {
+    position: fixed;
+    background-color: #fff;
+    margin-top: 0;
 }
 
 /* -------------------------------------------------------------------------- */
@@ -58,8 +101,8 @@ a.logo-link::after {
     cursor: pointer;
     transition: all .3s ease-in-out;
 .menu_burger {
-    width: 50px;
-    height: 6px;
+    width: 40px;
+    height: 5px;
     background-color: $mansonPink-color;
     border-radius: 5px;
     transition: all .3s ease-in-out;
@@ -69,20 +112,20 @@ a.logo-link::after {
 .menu_burger::after {
     content:'';
     position: absolute;
-    width: 50px;
-    height: 6px;
+    width: 40px;
+    height: 5px;
     background-color: $mansonPink-color;
     border-radius: 5px;
     transition: all .3s ease-in-out;
 }
 .menu_burger::before {
-    transform: translateY(-16px);
+    transform: translateY(-12px);
 }
 .menu_burger::after {
-    transform: translateY(16px);
+    transform: translateY(12px);
 }
 .menu-btn.open .menu_burger{
-    transform: translateX(-50px);
+    transform: translateX(-40px);
     background-color: transparent;
 }
 .menu-btn.open .menu_burger::before{
@@ -111,41 +154,39 @@ a.logo-link::after {
 //     }
 // }
 
-// @media screen and (max-width: 720px) {
-//     .main-nav-links {
-//         display: none;
-//     }
-//     .open-mobile-main-menu {
-//         flex-direction: column-reverse;
-//         align-items: flex-end;
-//         justify-content: flex-end;
-//         width: 100vw;
-//         height: 100vh;
-//         background-color: $GRYBlue;
-//         z-index: 10;
-//         img {
-//             display: none;
-//         }
-//         .menu-btn {
-//             z-index: 10;
-//         }
-//         .main-nav-links {
-//             display: flex;
-//             margin: 3rem 3rem 0 0;
-//             flex-direction: column;
-//             justify-content: space-around;
-//             align-items: flex-end;
-//             width: 100vw;
-//             li{
-//                 margin-bottom: 3rem;
-//                 a{
-//                     font-size: 3rem;
-//                 }
-//             }
-//         }   
-//     }
-// }
-
+/* @media screen and (max-width: 720px) {
+    .main-nav-links {
+        display: none;
+    }
+    .open-mobile-main-menu {
+        flex-direction: column-reverse;
+        width: 100vw;
+        height: 100vh;
+        background-color: $GRYBlue;
+        z-index: 10;
+        img {
+            display: none;
+        }
+        .menu-btn {
+            z-index: 10;
+        }
+        .main-nav-links {
+            display: flex;
+            margin: 3rem 3rem 0 0;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: flex-end;
+            width: 100vw;
+            li{
+                margin-bottom: 3rem;
+                a{
+                    font-size: 3rem;
+                }
+            }
+        }   
+    }
+}
+ */
 // @media screen and (min-width: 721px){
 //     .menu-btn{
 //         display: none;

@@ -6,43 +6,63 @@
     display: grid;
     grid-template-columns: repeat(2, minmax(200px, 20%)) 3fr;
     grid-column-gap: 20px;
-    grid-row-gap: 5px;
-    justify-items: stretch;
-    align-items: start;
     height: 100vh;
-    overflow:hidden;
+    overflow-y:hidden;
+    font-family: $defaultBodyFont, sans-serif;
+    font-weight: 600;
+    padding: 0px 2rem;
 }
 .hero-cta {
-    display: grid;
+    display: flex;
+    font-size: 6rem;
+    font-weight: 200;
+    align-items: center;
     justify-content: center;
-    align-content: center;
-    font-size: 4rem;
-    padding: 2rem 2rem 2rem 3rem;
+    position: absolute;
+    top: 110px;
+    bottom: 0;
+    left: 50vw;
+    h2 {
+        font-size: 10rem;
+        font-weight: 800;
+        letter-spacing: -.5rem;
+        word-spacing: 1.5rem;
+        line-height: 1;
+    }
+    h3{
+        font-weight: 300;
+    }
 }
 .userInput{
     margin-top: 4rem;
-    display: flex;
-    flex-direction: column;
-    align-items: start;
 }
 
-.col-item {
+.col-img {
     width: 100%;
-    height: calc(100vh - 60%);
+    height: 300px;
+    margin-bottom: 16px;
     background-color: white;
-    border-radius: 1.5rem;
+    border-radius: 16px;
 }
+
+.col-left {
+    transform: translateY(-75px);
+}
+.col-right{
+    transform: translateY(75px);
+}
+
 
 /* -------------------------------------------------------------------------- */
 /*                           HERO SECTION ANIMATION                           */
 /* -------------------------------------------------------------------------- */
-
-/* .col-left img{
-animation: animation-Frames linear 10s;
+ 
+.col-left .col-img{
+animation: left-col-animation linear 10s;
 animation-iteration-count: infinite;
 transform-origin: 50% 50%;
 }
-@keyframes animation-Frames{
+@keyframes left-col-animation{
 0% {
     transform:  translate(0px,-50px);
 }
@@ -50,7 +70,8 @@ transform-origin: 50% 50%;
     transform:  translate(0px, -2200px); 
 }
 }
-.left-col:hover{
+/*
+.col-left:hover{
 animation: animationslow linear 3s;
 animation-iteration-count: infinite;
 transform-origin: 50% 50%;
@@ -62,8 +83,8 @@ transform-origin: 50% 50%;
 100% {
     transform: translate(0px, 0px);
 }
-}
-.col-right img{
+}*/
+.col-right .col-img{
 animation: animationFrames linear 10s;
 animation-iteration-count: infinite;
 transform-origin: 50% 50%;
@@ -75,7 +96,7 @@ transform-origin: 50% 50%;
 100% {
     transform:  translate(0px, -50px); 
 }
-} */
+}
 
 
 /* -------------------------------------------------------------------------- */
