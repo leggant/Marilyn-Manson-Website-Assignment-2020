@@ -8,6 +8,21 @@ large text
 small circular image 
 name, position 
 clickable bars or buttons that transition in sync with the timer
-Will require javascript to contol change between quotes
+Will require javascript to contol change between quotes and the #famousQuotes background color
 
 */
+
+#famousQuotes {
+    background-color: $bgOrange;
+    display: flex;
+    flex-direction: column;
+    //height: 80vh;
+    overflow: hidden;
+    .quotes-card {
+
+        width: 40%;
+        margin: 0 auto;
+        padding: 20rem;
+    }
+}
+

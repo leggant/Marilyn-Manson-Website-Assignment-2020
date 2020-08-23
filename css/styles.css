@@ -100,13 +100,13 @@ li {
   padding-bottom: -1px;
 }
 
-.site-main-header .main-nav-links li:nth-child(4) {
+.site-main-header .main-nav-links li:nth-child(3) {
   display: flex;
   gap: .5rem;
   align-items: center;
 }
 
-.site-main-header .main-nav-links li:nth-child(4) .menu-alert {
+.site-main-header .main-nav-links li:nth-child(3) .menu-alert {
   line-height: 1.5;
   font-size: 1rem;
   color: #fff;
@@ -116,7 +116,7 @@ li {
   margin-bottom: .7rem;
 }
 
-.site-main-header .main-nav-links li:nth-child(5) {
+.site-main-header .main-nav-links li:nth-child(4) {
   border-left: 1px solid white;
 }
 
@@ -345,9 +345,22 @@ large text
 small circular image 
 name, position 
 clickable bars or buttons that transition in sync with the timer
-Will require javascript to contol change between quotes
+Will require javascript to contol change between quotes and the #famousQuotes background color
 
 */
+#famousQuotes {
+  background-color: #fa8f77;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+#famousQuotes .quotes-card {
+  width: 40%;
+  margin: 0 auto;
+  padding: 20rem;
+}
+
 .main-footer {
   background-color: transparent;
   width: 90vw;
