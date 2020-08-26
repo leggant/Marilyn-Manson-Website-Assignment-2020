@@ -16,9 +16,9 @@
     font-family: $menuFont, sans-serif;
     font-weight: 500;
     background: rgb(255,255,255);
-    background: -moz-linear-gradient(360deg, rgba(255,255,255,0) 10%, rgba(43,45,66,1) 100%);
-    background: -webkit-linear-gradient(360deg, rgba(255,255,255,0) 10%, rgba(43,45,66,1) 100%);
-    background: linear-gradient(360deg, rgba(255,255,255,0) 10%, rgba(43,45,66,1) 100%);
+    background: -moz-linear-gradient(360deg, rgba(255,255,255,0) 10%, $GRYBlue 100%);
+    background: -webkit-linear-gradient(360deg, rgba(255,255,255,0) 10%, $GRYBlue 100%);
+    background: linear-gradient(360deg, rgba(255,255,255,0) 10%, $GRYBlue 100%);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffffff",endColorstr="#2b2d42",GradientType=1);
     a.logo-link{
         width: 180px;
@@ -139,20 +139,6 @@
 /*                  SITE HEADER AND NAVIGATION MEDIA QUERIES                  */
 /* -------------------------------------------------------------------------- */
 
-// @media screen and (min-width: 200px) and (max-width: 400px) {
-//     img#site-logo {
-//         width: 70%;
-//     }
-// }
-// @media screen and (min-width: 401px) {
-//     .main-nav {
-//         padding: 2vh 2vw;
-//     }
-//     img#site-logo {
-//         width: 60%;
-//     }
-// }
-
 /* @media screen and (max-width: 720px) {
     .main-nav-links {
         display: none;
@@ -186,25 +172,3 @@
     }
 }
  */
-// @media screen and (min-width: 721px){
-//     .menu-btn{
-//         display: none;
-//     }
-//     .main-nav {
-//         width: 90vw;
-//         padding: 2vh 2vw;
-//         .main-nav-links {
-//             flex: 5;
-//             letter-spacing: 0;
-            
-//         }
-//         img{
-//             flex: 2;
-//         }
-//     }
-// }
-// @media screen and (min-width: 1200px) {
-//     img#site-logo {
-//         width: 40%;
-//     }
-// }

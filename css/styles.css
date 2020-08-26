@@ -33,6 +33,18 @@ li {
   margin: 0 auto;
 }
 
+h1, h2, h3, h4, h5 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 3rem;
+  font-weight: 600;
+}
+
+p {
+  font-family: "Poppins", sans-serif, sans-serif;
+  font-weight: 300;
+  font-size: 2rem;
+}
+
 /* -------------------------------------------------------------------------- */
 /*                   WEBSITE MAIN HEADER AND NAVIGATION AREA                  */
 /* -------------------------------------------------------------------------- */
@@ -50,7 +62,7 @@ li {
   font-family: "Poppins", sans-serif, sans-serif;
   font-weight: 500;
   background: white;
-  background: linear-gradient(360deg, rgba(255, 255, 255, 0) 10%, #2b2d42 100%);
+  background: linear-gradient(360deg, rgba(255, 255, 255, 0) 10%, #2B2D42 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffffff",endColorstr="#2b2d42",GradientType=1);
 }
 
@@ -439,6 +451,44 @@ li {
   width: 40%;
   margin: 0 auto;
   padding: 20rem;
+}
+
+.back-catalog {
+  width: 90vw;
+  margin: 8rem auto;
+}
+
+.back-catalog h3 {
+  font-size: 5rem;
+  margin-bottom: 3rem;
+}
+
+.back-catalog h3 .fa-record-vinyl {
+  margin-right: 2rem;
+}
+
+#Manson-Albums-Catalog {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(200px, 1fr));
+  gap: 3rem;
+}
+
+#Manson-Albums-Catalog .past-album {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+#Manson-Albums-Catalog .past-album .past-album-title {
+  font-weight: 300;
+}
+
+#Manson-Albums-Catalog .past-album .year-of-release::before {
+  content: 'Released: ';
+}
+
+#Manson-Albums-Catalog .past-album-img {
+  position: relative;
 }
 
 .main-footer {

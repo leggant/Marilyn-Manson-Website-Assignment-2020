@@ -24,3 +24,13 @@ li {
     width: 90vw;
     margin: 0 auto;
 }
+h1, h2, h3, h4, h5 {
+    font-family: $defaultBodyFont;
+    font-size: 3rem;
+    font-weight: 600;
+}
+p {
+    font-family: $menuFont, sans-serif;
+    font-weight: 300;
+    font-size: 2rem;
+}

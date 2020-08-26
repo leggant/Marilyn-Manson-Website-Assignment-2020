@@ -4,14 +4,14 @@
 /* --------- set the background css image url to the data-img value --------- */
 
 
- const heroScrollImages = querySelector(".hero-container");
+ //const heroScrollImages = querySelector(".hero-container");
 
 
 /* -------------------------------------------------------------------------- */
 /*                          Mobile Menu Button Click                          */
 /* -------------------------------------------------------------------------- */
 
-
+/* 
 const menuBtn = document.querySelector('.menu-btn');
 const headerMobileMenu = document.querySelector('.site-main-header');
 menuBtn.addEventListener('click', () => {
@@ -19,48 +19,49 @@ menuBtn.addEventListener('click', () => {
   headerMobileMenu.classList.toggle('open-mobile-main-menu');
 });
 
-
+ */
 /* -------------------------------------------------------------------------- */
 /*               Album Cover Information from theaudiodb API                  */
 /* -------------------------------------------------------------------------- */
 
 
-getAlbumData().then(response =>{
-	console.log('image loaded');
-})
-.catch(error=>	{
-	console.log('Error!');
-  console.error(error.message);
-});
-
+getAlbumData();
 let albumInfo = [];
 
 async function getAlbumData() {
 	const dataUrl = 'https://theaudiodb.com/api/v1/json/1/album.php?i=112122';
 	const response = await fetch(dataUrl);
   const dataalbum = await response.json();
+  console.log(dataalbum);
   createArrayAlbums(dataalbum.album);
 }
 
 function createArrayAlbums(data){
-  for(var item of data){
+  for(let item of data){
   	if((item.strReleaseFormat === "Album") || (item.strReleaseFormat === "EP") || (item.strReleaseFormat === "Live")){
   		albumInfo.push(item);
+      createHTMLElements(item);
   	}
   }
-  populateHTML(albumInfo);
-  createImage(albumInfo);
 }
 
-async function populateHTML(dataArray){
-	//console.log(dataArray[0].strAlbum);
-  // get the dom html elements
-}
-
-async function createImages(dataArray){
-	//const image = await fetch('https://images.unsplash.com/photo-1598094437687-e80aa66b2fe7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80');
-  //const data = await image.blob();
-  //document.getElementById('photo').src = URL.createObjectURL(data);
+async function createHTMLElements(data){
+  let catalogSection = document.getElementById("Manson-Albums-Catalog");
+  let divtag = document.createElement("DIV");
+  //let blurbtag = document.createElement("P");
+  let yeartag = document.createElement("P");
+  let h4tag = document.createElement("H4");
+  let imageTag = document.createElement("IMG");
+  catalogSection.appendChild(divtag).className = "past-album";
+  divtag.appendChild(imageTag).src = data.strAlbumThumb;
+  imageTag.className = "past-album-img";
+  divtag.appendChild(h4tag).innerHTML = data.strAlbum;
+  h4tag.className = "past-album-title";
+  divtag.appendChild(yeartag).innerHTML = data.intYearReleased;
+  yeartag.className = "year-of-release";
+  
+  //divtag.appendChild(blurbtag).innerHTML = data.strDescriptionEN;
+  //blurbtag.className = "album-blurb";
 }
 
 
@@ -78,10 +79,10 @@ async function createImages(dataArray){
 
 /* ALBUM PREORDER SECTION DATA */
 
-let preorderINFO = [];
+/* let preorderINFO = [];
 const preorderSectionID = document.getElementById("chaos-preorder");
 async function preorderData(){
 	const preorderDataUrl = 'WEARECHAOSalbumInformaton.json';
 	const response = await fetch(preorderDataUrl);
   const preoderinformation = await response.json();
-}
+} */
