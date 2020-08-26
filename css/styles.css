@@ -42,7 +42,7 @@ li {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 100px;
+  height: 120px;
   width: 100%;
   padding: 0 10%;
   margin: 0 0 3rem 0;
@@ -262,26 +262,118 @@ li {
   margin-top: 4rem;
 }
 
-.col-img {
+.col-img-item {
   width: 100%;
-  height: 300px;
+  height: 350px;
   margin-bottom: 16px;
-  background-color: white;
+  background-color: #000C19;
   border-radius: 16px;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  filter: opacity(70%) saturate(80%) contrast(120%) drop-shadow(-3px 2px 6px #2B2D42);
 }
 
 .col-left {
   transform: translateY(-75px);
 }
 
+.col-left .col-img-item:nth-child(1) {
+  background-image: url("../img/1.jpg");
+}
+
+.col-left .col-img-item:nth-child(2) {
+  background-image: url("../img/2.jpg");
+}
+
+.col-left .col-img-item:nth-child(3) {
+  background-image: url("../img/3.jpg");
+}
+
+.col-left .col-img-item:nth-child(4) {
+  background-image: url("../img/4.jpg");
+}
+
+.col-left .col-img-item:nth-child(5) {
+  background-image: url("../img/5.jpg");
+}
+
+.col-left .col-img-item:nth-child(6) {
+  background-image: url("../img/6.png");
+}
+
+.col-left .col-img-item:nth-child(7) {
+  background-image: url("../img/7.jpg");
+}
+
+.col-left .col-img-item:nth-child(8) {
+  background-image: url("../img/8.jpg");
+}
+
+.col-left .col-img-item:nth-child(9) {
+  background-image: url("../img/9.jpg");
+}
+
+.col-left .col-img-item:nth-child(10) {
+  background-image: url("../img/10.jpg");
+}
+
+.col-left .col-img-item:nth-child(11) {
+  background-image: url("../img/11.png");
+}
+
 .col-right {
   transform: translateY(75px);
+}
+
+.col-right .col-img-item:nth-child(1) {
+  background-image: url("../img/1.jpg");
+}
+
+.col-right .col-img-item:nth-child(2) {
+  background-image: url("../img/2.jpg");
+}
+
+.col-right .col-img-item:nth-child(3) {
+  background-image: url("../img/3.jpg");
+}
+
+.col-right .col-img-item:nth-child(4) {
+  background-image: url("../img/4.jpg");
+}
+
+.col-right .col-img-item:nth-child(5) {
+  background-image: url("../img/5.jpg");
+}
+
+.col-right .col-img-item:nth-child(6) {
+  background-image: url("../img/6.png");
+}
+
+.col-right .col-img-item:nth-child(7) {
+  background-image: url("../img/7.jpg");
+}
+
+.col-right .col-img-item:nth-child(8) {
+  background-image: url("../img/8.jpg");
+}
+
+.col-right .col-img-item:nth-child(9) {
+  background-image: url("../img/9.jpg");
+}
+
+.col-right .col-img-item:nth-child(10) {
+  background-image: url("../img/10.jpg");
+}
+
+.col-right .col-img-item:nth-child(11) {
+  background-image: url("../img/11.png");
 }
 
 /* -------------------------------------------------------------------------- */
 /*                           HERO SECTION ANIMATION                           */
 /* -------------------------------------------------------------------------- */
-.col-left .col-img {
+.col-left .col-img-item {
   animation: left-col-animation linear 10s;
   animation-iteration-count: infinite;
   transform-origin: 50% 50%;
@@ -296,21 +388,7 @@ li {
   }
 }
 
-/*
-.col-left:hover{
-animation: animationslow linear 3s;
-animation-iteration-count: infinite;
-transform-origin: 50% 50%;
-}
-@keyframes animationslow {
-0%{
-    transform: translate(0px, 0px);
-}
-100% {
-    transform: translate(0px, 0px);
-}
-}*/
-.col-right .col-img {
+.col-right .col-img-item {
   animation: animationFrames linear 10s;
   animation-iteration-count: infinite;
   transform-origin: 50% 50%;
@@ -339,13 +417,15 @@ transform-origin: 50% 50%;
 /* -------------------------------------------------------------------------- */
 /*                 Famous Marilyn Manson Quotes Section Styles                */
 /* -------------------------------------------------------------------------- */
-/* 5 cards that take up 100% of the section width and height
-each is clickable to change or will change on their own on a timer
-large text 
-small circular image 
-name, position 
-clickable bars or buttons that transition in sync with the timer
-Will require javascript to contol change between quotes and the #famousQuotes background color
+/* 
+
+1.  5 cards that take up 100% of the section width and view port height
+2.  each is clickable to change or will change on their own on a timer
+3.  large text 
+4.  small circular image 
+5.  name, position 
+6.  clickable bars or buttons that transition in sync with the timer
+7.  Will require javascript to contol change between quotes and the #famousQuotes background color
 
 */
 #famousQuotes {
