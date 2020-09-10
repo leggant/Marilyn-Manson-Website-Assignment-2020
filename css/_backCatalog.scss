@@ -9,24 +9,26 @@
         }
     }
 }
-#Manson-Albums-Catalog {
+#Manson-Albums-Catalog, #homepage-preorder {
     display: grid;
     grid-template-columns: repeat(5, minmax(200px, 1fr));
     gap: 3rem;
-    .past-album {
+    .album {
         display: flex;
         flex-direction: column;
         position: relative;
-        .past-album-title{
+        .album-title{
             font-weight: 300;
         }
         .year-of-release{
-            &::before{
-                content: 'Released: '
-            }
+           
         }
     }
-    .past-album-img{
+    .album-img{
         position: relative;
     }
+}
+
+#homepage-preorder {
+    grid-template-columns: repeat(6, minmax(200px, 1fr));
 }
