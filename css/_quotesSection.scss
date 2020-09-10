@@ -13,18 +13,29 @@
 7.  Will require javascript to contol change between quotes and the #famousQuotes background color
 
 */
-
-#famousQuotes {
+[data-tab-content] {
+    display: none;
+}
+/* #famousQuotes {
     background-color: $bgOrange;
-    display: flex;
-    flex-direction: column;
-    //height: 80vh;
     overflow: hidden;
     .quotes-card {
-
-        width: 40%;
+        width: 60%;
         margin: 0 auto;
         padding: 20rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        i.fa-volume-up{
+            font-size: 5rem;
+            color: #000;
+        }
+        .quote-photo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-position: center center;
+            object-fit: cover;
+        }
     }
-}
-
+} */

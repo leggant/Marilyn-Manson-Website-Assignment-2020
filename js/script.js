@@ -4,7 +4,7 @@
 /* --------- set the background css image url to the data-img value --------- */
 
 
- //const heroScrollImages = querySelector(".hero-container");
+
 
 
 /* -------------------------------------------------------------------------- */
@@ -24,7 +24,6 @@ menuBtn.addEventListener('click', () => {
 /*               Album Cover Information from theaudiodb API                  */
 /* -------------------------------------------------------------------------- */
 
-
 getAlbumData();
 let albumInfo = [];
 
@@ -32,57 +31,95 @@ async function getAlbumData() {
 	const dataUrl = 'https://theaudiodb.com/api/v1/json/1/album.php?i=112122';
 	const response = await fetch(dataUrl);
   const dataalbum = await response.json();
-  console.log(dataalbum);
+  dataalbum.album.sort(compare);
   createArrayAlbums(dataalbum.album);
 }
 
 function createArrayAlbums(data){
   for(let item of data){
   	if((item.strReleaseFormat === "Album") || (item.strReleaseFormat === "EP") || (item.strReleaseFormat === "Live")){
-  		albumInfo.push(item);
-      createHTMLElements(item);
+      albumInfo.push(item);
+      createCard("Manson-Albums-Catalog", item.strAlbum, item.strAlbumThumb, item.intYearReleased);
   	}
   }
 }
 
-async function createHTMLElements(data){
-  let catalogSection = document.getElementById("Manson-Albums-Catalog");
-  let divtag = document.createElement("DIV");
-  //let blurbtag = document.createElement("P");
-  let yeartag = document.createElement("P");
-  let h4tag = document.createElement("H4");
-  let imageTag = document.createElement("IMG");
-  catalogSection.appendChild(divtag).className = "past-album";
-  divtag.appendChild(imageTag).src = data.strAlbumThumb;
-  imageTag.className = "past-album-img";
-  divtag.appendChild(h4tag).innerHTML = data.strAlbum;
-  h4tag.className = "past-album-title";
-  divtag.appendChild(yeartag).innerHTML = data.intYearReleased;
-  yeartag.className = "year-of-release";
-  
-  //divtag.appendChild(blurbtag).innerHTML = data.strDescriptionEN;
-  //blurbtag.className = "album-blurb";
+function compare( a, b ) {
+  if ( a.intYearReleased < b.intYearReleased ){
+    return -1;
+  }
+  if ( a.intYearReleased > b.intYearReleased ){
+    return 1;
+  }
+  return 0;
 }
 
 
+/* -------------------------------------------------------------------------- */
+/*                      MARILN MANSON QUOTES SECTION TABS                     */
+/* -------------------------------------------------------------------------- */
 
-/*
-        Manson Quotes Section Content
+const quotetabs= document.querySelectorAll('[data-target-tab]');
 
-        1. Control of background color 
-        2. horizontal change of cards
-        3. linked to radio button selection
-
-*/
-
-
+quotetabs.forEach(tab => {
+  tab.addEventListener('click', () => {
+    const target = document.querySelector(tab.dataset.tabTarget)
+    target.classList.add('actve')
+  })
+})
 
 /* ALBUM PREORDER SECTION DATA */
 
-/* let preorderINFO = [];
-const preorderSectionID = document.getElementById("chaos-preorder");
-async function preorderData(){
-	const preorderDataUrl = 'WEARECHAOSalbumInformaton.json';
-	const response = await fetch(preorderDataUrl);
-  const preoderinformation = await response.json();
-} */
+let albumPreorderData = [];
+async function loadAlbumPreorderInfo() {
+  const preorderDataJSON = 'js/WEARECHAOSalbumInformation.json';
+  const preorder = await fetch(preorderDataJSON);
+  const preorderinfo = await preorder.json();
+  createPreorder(preorderinfo.WEARECHAOSALBUM_PREORDER_INFO);
+}
+loadAlbumPreorderInfo();
+
+async function createPreorder(preorderinfo) {
+  preorderinfo.forEach(item => {
+    createCard("homepage-preorder", item.edition, item.image)
+  });
+}
+
+async function createCard(containerid, title, image, year){
+  let catalogSection = document.getElementById(containerid);
+  let divtag = document.createElement("DIV");
+  let imgWrapper = document.createElement("DIV");
+  let h4tag = document.createElement("H4");
+  let imageTag = document.createElement("IMG");
+  catalogSection.appendChild(divtag).className = "album";
+  divtag.appendChild(imgWrapper);
+  imgWrapper.className = "album-img-wrapper";
+  imgWrapper.appendChild(imageTag).src = image;
+  imageTag.className = "album-img";
+  divtag.appendChild(h4tag).innerHTML = title;
+  h4tag.className = "album-title";
+  if(year){
+    let yeartag = document.createElement("P");
+    yeartag.classList = "yearReleased";
+    divtag.appendChild(yeartag).innerHTML = year;
+    yeartag.className = "year-of-release";
+  }
+}
+
+
+/* Scroll Up Menu Bar */
+
+let currentScroll = 0;
+window.addEventListener("scroll", (xevent) =>{
+  let menuBar = document.getElementById("main-header");
+  if (window.scrollY > currentScroll) {
+    menuBar.classList.remove("scroll-up");
+  } else if(window.scrollY < currentScroll) {
+    if(window.scrollY > 1500){
+      menuBar.classList.add("scroll-up");
+    } else if(window.scrollY < 200){
+      menuBar.classList.remove("scroll-up");
+    }
+  }
+  currentScroll = window.scrollY;
+});

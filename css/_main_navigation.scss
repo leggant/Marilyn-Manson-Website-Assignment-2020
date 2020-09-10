@@ -80,11 +80,6 @@
 .menu-btn.desktop-active {
     display: none;
 }
-.scroll-up {
-    position: fixed;
-    background-color: #fff;
-    margin-top: 0;
-}
 
 /* -------------------------------------------------------------------------- */
 /*                  MOBILE SITE POP-UP MENU AND BURGER STYLES                 */
@@ -134,7 +129,48 @@
     transform: rotate(-45deg) translate(35px, 35px);
 }
 
-
+/* -------------------------------------------------------------------------- */
+/*                SITE NAVIGATION WHEN SCROLLING UP THE SCREEN                */
+/* -------------------------------------------------------------------------- */
+.scroll-up {
+    position: fixed;
+    margin-top: 0;
+    background-color: #fff;
+    img {
+        filter: 
+        drop-shadow(2px 4px 6px black)
+         drop-shadow(4px 3px 5px rgba(0, 0, 0, 0.2)) 
+         drop-shadow(1px 1px 1px rgba(238, 60, 208, 0.2)) 
+         drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.2)) 
+         brightness(1) contrast(1.5)
+         drop-shadow(-5px -1px 8px rgba(238, 60, 208, 0.7));
+    }
+    .scroll-up.main-nav.main-nav-links.main-nav-item a{
+        color: #000;
+        a:hover{
+            color: $mansonLessPink;
+            border-bottom: 1px solid $mansonLessPink;
+            padding-bottom: -1px;
+        }
+    }
+        li:nth-child(3){
+            display: flex;
+            gap: .5rem;
+            align-items: center;
+            .menu-alert{
+                line-height: 1.5;
+                font-size: 1rem;
+                color: $DKBlue_BG;
+                background-color: $mansonLessPink;
+                border-radius: .5rem;
+                padding: 0 0.4rem;
+                margin-bottom: .7rem;
+            }
+        }   
+        li:nth-child(4){
+            border-left: 1px solid $mansonLessPink;
+        }
+}
 /* -------------------------------------------------------------------------- */
 /*                  SITE HEADER AND NAVIGATION MEDIA QUERIES                  */
 /* -------------------------------------------------------------------------- */

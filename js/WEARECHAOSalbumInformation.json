@@ -1,10 +1,10 @@
 {
-    "WEARECHAOSALBUM_PREORDER-INFO": 
+    "WEARECHAOSALBUM_PREORDER_INFO": 
     [
         {
             "option": "1",
             "title" : "We Are Chaos",
-            "edition": "Standard Edition Hot Pink Shimmer LP",
+            "edition": "Hot Pink Shimmer LP",
             "price": "$24.00 USD",
             "format": "Vinyl + MP3",
             "est shipping date" : "10 September 2020",
@@ -30,8 +30,8 @@
             "price": "$9.99 USD",
             "format": "MP3  WAV / FLAC 320 kbps, LAME-encoded",
             "release date" : "11 September 2020",
-            "est shipping date" : "",
-            "image": "",
+            "est shipping date" : "11 September 2020",
+            "image": "https://d1rgjmn2wmqeif.cloudfront.net/r/g/199403.jpg",
             "url": "https://uklomavistarecordings.ochre.store/release/199403-marilyn-manson-we-are-chaos"
         },
         {
@@ -64,7 +64,7 @@
             "format": "Vinyl + MP3",
             "release date" : "11 September 2020",
             "est shipping date" : "10 September 2020",
-            "image": "../img/Album/marbled-grey-lp.jpg",
+            "image": "/img/Album/marled-grey-lp.jpg",
             "url": "https://store.marilynmanson.com/products/we-are-chaos-exclusive-colorway-lp"
         }
     ]

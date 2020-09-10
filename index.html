@@ -11,9 +11,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="css/styles.css">
         <script src="https://kit.fontawesome.com/64dfc3c26e.js" crossorigin="anonymous"></script>
+        <script src="js/script.js" async defer></script>
     </head>
     <body>
-        <header class="site-main-header">
+        <header id="main-header" class="site-main-header">
             <a href="index.html" class="logo-link" aria-label="Websites Main Logo And Homepage Link">
                 <img id="site-logo" src="img/Marilyn-Manson-Logo.png" alt="Marilyn Manson Logo">
                 <span class="logo-accent"></span>
@@ -91,43 +92,7 @@
 
             <section class="section-home-page" id="NewAlbumPreOrder">
                 <h2>We Are Chaos Album Pre-order.</h2>
-                <div class="homepage-preorder">
-                    <div class="preorder-item">
-                        <div class="preorder-img">
-                            <img src="img/album/ltd-edition-vinyl.png" alt="WE ARE CHAOS Deluxe Edition Vinyl">
-                        </div>
-                        <div class="preorder-text">
-                            <h3 class="preorder-title">Deluxe Editon Vinyl</h3>
-                            <p class="preorder-caption">Vinyl, 1×LP + MP3<br>Pre-order<br>Estimated shipping: September 10, 2020<br><span class="outofstock">OUT OF STOCK</span></p>
-                        </div>
-                    </div>
-                    <div class="preorder-item">
-                        <div class="preorder-img">
-                            <img src="img/album/special-edition-pink-vinyl.png" alt="WE ARE CHAOS Standard Edition Pink Vinyl">
-                        </div>
-                        <div class="preorder-text">
-                            <h3 class="preorder-title">Standard Edition "Hot Pink Shimmer" Vinyl</h3>
-                            <p class="preorder-caption">Vinyl, 1×LP + MP3<br>Pre-order<br>Estimated shipping: September 10, 2020</p>
-                        </div>
-                    </div>
-                    <div class="preorder-item">
-                        <div class="preorder-img">
-                            <img src="img/album/tape-format.png" alt="WE ARE CHAOS Cassette">
-                        </div>
-                        <div class="preorder-text">
-                            <h3 class="preorder-title">Limited Edition Clear + Silver Glitter Cassette Tape</h3>
-                            <p class="preorder-caption">Cassette + MP3<br>Pre-order<br>Estimated shipping: September 10, 2020</p>
-                        </div>
-                    </div>
-                    <div class="preorder-item">
-                        <div class="preorder-img">
-                            <img src="img/album/picture-disc-vinyl.png" alt="WE ARE CHAOS Picture Disc Vinyl">
-                        </div>
-                        <div class="preorder-text">
-                            <h3 class="preorder-title">Infinite Darkness Picture disc</h3>
-                            <p class="preorder-caption">Vinyl, 1×LP + MP3<br>Pre-order<br>Estimated shipping: October 5, 2020</p>
-                        </div>
-                    </div>
+                <div id="homepage-preorder">
                 </div>
             </section>
 
@@ -270,7 +235,7 @@
 <!-- ----------------------------------------------------------------------- -->
 
             <section class="section-home-page" id="famousQuotes">
-                <div class="quotes-card" id="quote1">
+                <div class="quotes-card" id="#quote1" data-tab-content>
                     <i class="fas fa-volume-up"></i>
                     <blockquote cite="https://www.brainyquote.com/authors/marilyn-manson-quotes">
                         <img src="img/quotes/quote1.jpg" alt="" class="quote-photo">
@@ -281,7 +246,7 @@
                         </footer>
                     </blockquote>
                 </div> 
-                <div class="quotes-card" id="quote2">
+                <div class="quotes-card" id="#quote2" data-tab-content>
                     <i class="fas fa-volume-up"></i>
                     <blockquote cite="https://www.brainyquote.com/authors/marilyn-manson-quotes">
                         <img src="img/quotes/quote2.jpg" alt="" class="quote-photo">
@@ -292,7 +257,7 @@
                         </footer>
                     </blockquote>
                 </div> 
-                <div class="quotes-card" id="quote3">
+                <div class="quotes-card" id="#quote3" data-tab-content>
                     <i class="fas fa-volume-up"></i>
                     <blockquote cite="https://www.brainyquote.com/authors/marilyn-manson-quotes">
                         <img src="img/quotes/quote3.jpg" alt="" class="quote-photo">
@@ -303,7 +268,7 @@
                         </footer>
                     </blockquote>
                 </div> 
-                <div class="quotes-card" id="quote4">
+                <div class="quotes-card" id="#quote4" data-tab-content>
                     <i class="fas fa-volume-up"></i>
                     <blockquote cite="https://www.brainyquote.com/authors/marilyn-manson-quotes">
                         <img src="img/quotes/quote4.jpg" alt="" class="quote-photo">
@@ -314,7 +279,7 @@
                         </footer>
                     </blockquote>
                 </div> 
-                <div class="quotes-card" id="quote5">
+                <div class="quotes-card" id="#quote5" data-tab-content>
                     <i class="fas fa-volume-up"></i>
                     <blockquote cite="https://www.brainyquote.com/authors/marilyn-manson-quotes">
                         <img src="img/quotes/quote5.jpg" alt="" class="quote-photo">
@@ -325,14 +290,14 @@
                         </footer>
                     </blockquote>
                 </div> 
-                <div class="quote-buttons">
-                    <form action="" class="quote-radiobuttons">
-                        <input type="radio" name="quotecards" id="quotecard1">
-                        <input type="radio" name="quotecards" id="quotecard2">
-                        <input type="radio" name="quotecards" id="quotecard3">
-                        <input type="radio" name="quotecards" id="quotecard4">
-                        <input type="radio" name="quotecards" id="quotecard5">
-                    </form>
+                <div class="quote-button-area">
+                    <ul>
+                        <li class="quotecards-buttons" data-target-tab="#quote1">1</li>
+                        <li class="quotecards-buttons" data-target-tab="#quote2">2</li>
+                        <li class="quotecards-buttons" data-target-tab="#quote3">3</li>
+                        <li class="quotecards-buttons" data-target-tab="#quote4">4</li>
+                        <li class="quotecards-buttons" data-target-tab="#quote5">5</li>
+                    </ul>
                 </div>
             </section>
 
@@ -448,6 +413,6 @@
             </div>
         </footer>
         
-        <script src="js/script.js" async defer></script>
+        
     </body>
 </html>

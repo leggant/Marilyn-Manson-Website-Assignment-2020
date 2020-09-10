@@ -49,6 +49,10 @@
     background-size: cover;
     filter: opacity(70%) saturate(80%) contrast(120%) drop-shadow(-3px 2px 6px $GRYBlue);
 }
+.col-left:focus .col-img-item,
+.col-left:hover .col-img-item {
+    transform: scale(1.2);
+}
 
 .col-left {
     transform: translateY(-75px);
