@@ -1,12 +1,3 @@
-/* ------------------- Load Hero Section Background Images ------------------ */
-/* --- create an array of each of the divs with the class of .col-img-item -- */
-/* ------ get the data attributes from each and assign them to a array ------ */
-/* --------- set the background css image url to the data-img value --------- */
-
-
-
-
-
 /* -------------------------------------------------------------------------- */
 /*                          Mobile Menu Button Click                          */
 /* -------------------------------------------------------------------------- */
@@ -54,37 +45,6 @@ function compare( a, b ) {
   return 0;
 }
 
-
-/* -------------------------------------------------------------------------- */
-/*                      MARILN MANSON QUOTES SECTION TABS                     */
-/* -------------------------------------------------------------------------- */
-
-const quotetabs= document.querySelectorAll('[data-target-tab]');
-
-quotetabs.forEach(tab => {
-  tab.addEventListener('click', () => {
-    const target = document.querySelector(tab.dataset.tabTarget)
-    target.classList.add('actve')
-  })
-})
-
-/* ALBUM PREORDER SECTION DATA */
-
-let albumPreorderData = [];
-async function loadAlbumPreorderInfo() {
-  const preorderDataJSON = 'js/WEARECHAOSalbumInformation.json';
-  const preorder = await fetch(preorderDataJSON);
-  const preorderinfo = await preorder.json();
-  createPreorder(preorderinfo.WEARECHAOSALBUM_PREORDER_INFO);
-}
-loadAlbumPreorderInfo();
-
-async function createPreorder(preorderinfo) {
-  preorderinfo.forEach(item => {
-    createCard("homepage-preorder", item.edition, item.image)
-  });
-}
-
 async function createCard(containerid, title, image, year){
   let catalogSection = document.getElementById(containerid);
   let divtag = document.createElement("DIV");
@@ -106,6 +66,33 @@ async function createCard(containerid, title, image, year){
   }
 }
 
+/* ALBUM PREORDER SECTION DATA */
+const preorderHeadlineArea = document.getElementById("preorderTitles");
+let albumPreorderData = [];
+
+async function preorderHeadline(headline) {
+  console.log(headline);
+  let h2tag = document.createElement("H2");
+  h2tag.innerHTML = headline;
+  h2tag.className = "album-title preorder-title"
+  preorderHeadlineArea.appendChild(h2tag);
+}
+
+async function loadAlbumPreorderInfo() {
+  const preorderDataJSON = 'js/WEARECHAOSalbumInformation.json';
+  const preorder = await fetch(preorderDataJSON);
+  const preorderinfo = await preorder.json();
+  createPreorder(preorderinfo.WEARECHAOSALBUM_PREORDER_INFO);
+}
+loadAlbumPreorderInfo();
+
+async function createPreorder(preorderinfo) {
+  preorderinfo.forEach(item => {
+    createCard("homepage-preorder", item.edition, item.image)
+    preorderHeadline(item.edition)
+  });
+}
+
 
 /* Scroll Up Menu Bar */
 
@@ -117,7 +104,7 @@ window.addEventListener("scroll", (xevent) =>{
   } else if(window.scrollY < currentScroll) {
     if(window.scrollY > 1500){
       menuBar.classList.add("scroll-up");
-    } else if(window.scrollY < 200){
+    } else if(window.scrollY < 1000){
       menuBar.classList.remove("scroll-up");
     }
   }

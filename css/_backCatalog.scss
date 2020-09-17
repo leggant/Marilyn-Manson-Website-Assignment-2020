@@ -9,10 +9,7 @@
         }
     }
 }
-#Manson-Albums-Catalog, #homepage-preorder {
-    display: grid;
-    grid-template-columns: repeat(5, minmax(200px, 1fr));
-    gap: 3rem;
+#Manson-Albums-Catalog {
     .album {
         display: flex;
         flex-direction: column;
@@ -21,11 +18,11 @@
             font-weight: 300;
         }
     }
-    .album-img{
-        position: relative;
+    .album-img {
+        //position: relative;
     }
 }
 
-#homepage-preorder {
+/* #homepage-preorder {
     grid-template-columns: repeat(6, minmax(200px, 1fr));
-}
+} */

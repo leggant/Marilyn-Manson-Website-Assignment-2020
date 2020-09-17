@@ -1,0 +1,18 @@
+.album-preorder-area {
+    background-color: gainsboro;
+    display: flex;
+}
+#PreorderHeadlines {
+    width: 50%;
+    background-color: green;
+    .headlineinnerarea{
+        padding: 200px 0px 0 250px;
+        height: 100vh;
+        position: sticky;
+        top: 0;
+    }
+}
+#NewAlbumPreOrder {
+    width: 50%;
+    background-color: blue;
+}
