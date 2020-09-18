@@ -110,3 +110,22 @@ window.addEventListener("scroll", (xevent) =>{
   }
   currentScroll = window.scrollY;
 });
+
+/* -------------------------------------------------------------------------- */
+/*                               QUOTES SECTION                               */
+/* -------------------------------------------------------------------------- */
+
+const tabs = document.querySelectorAll('[data-target-tab]');
+const quoteContent = document.querySelectorAll('[data-tab-content]');
+tabs.forEach(tab => {
+  tab.addEventListener('click', () => {
+    const target = document.querySelector(tab.dataset.targetTab)
+    console.log(target)
+    quoteContent.forEach(quote => {
+      quote.classList.remove('active')
+      quote.classList.add('inactive')
+    })
+    target.classList.add('active')
+    target.classList.remove('inactive')
+  })
+})

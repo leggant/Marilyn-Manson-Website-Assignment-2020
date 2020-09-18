@@ -10,6 +10,9 @@
     }
 }
 #Manson-Albums-Catalog {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(200px, 1fr));
+    gap: 3rem;
     .album {
         display: flex;
         flex-direction: column;
