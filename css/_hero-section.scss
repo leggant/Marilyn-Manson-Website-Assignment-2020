@@ -19,18 +19,36 @@
     align-items: center;
     justify-content: center;
     position: absolute;
-    top: 110px;
+    top: 11rem;
     bottom: 0;
     left: 50vw;
     h2 {
-        font-size: 10rem;
+        font-size: 12rem;
         font-weight: 800;
         letter-spacing: -.5rem;
         word-spacing: 1.5rem;
         line-height: 1;
+        position: relative;
+        span::after{
+            content: "";
+            height: 1.6rem;
+            width: 60%;
+            background-color: $mansonPink-color;
+            position: absolute;
+            bottom: -1rem;
+            left: 0px;
+        }
     }
-    h3{
+    h3.cta-subheadline{
+        font-size: 5rem;
+        margin: 3rem 0;
         font-weight: 300;
+    }
+    form {
+        label {
+            font-size: 4rem;
+            display: block;
+        }
     }
 }
 .userInput{

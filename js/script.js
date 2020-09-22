@@ -11,6 +11,22 @@ menuBtn.addEventListener('click', () => {
 });
 
  */
+
+/* -------------------------------------------------------------------------- */
+/*                      MAIN HEADER SECTION IMAGE CAROSEL                     */
+/* -------------------------------------------------------------------------- */
+
+const headerImageDivs = document.querySelectorAll('.col-img-item');
+console.log(headerImageDivs);
+ headerImageDivs.forEach((imgItem) => {
+  imgItem.addEventListener('mouseover', () => {
+    imgItem.classList.add("img-hover");
+  })
+  imgItem.addEventListener('mouseout', () =>{
+    imgItem.classList.remove('img-hover');
+  })
+ });
+
 /* -------------------------------------------------------------------------- */
 /*               Album Cover Information from theaudiodb API                  */
 /* -------------------------------------------------------------------------- */

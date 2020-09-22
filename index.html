@@ -11,6 +11,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="css/styles.css">
         <script src="https://kit.fontawesome.com/64dfc3c26e.js" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/ScrollTrigger.min.js" defer></script>
         <script src="js/script.js" async defer></script>
     </head>
     <body>
@@ -68,15 +70,15 @@
                 </div>
                 <div class="hero-cta">
                     <div>
-                        <h2 class="cta-headline">We Are<br>Chaos</h2>
-                        <h3 class="cta-subheadline">New Album</h3>
-                        <p>Unleashed<br>Sept 11, 2020</p>
-                        <form>
-                            <label for="email"></label>
-                            <input type="email" class="email-input" id="email" value="Enter Your Email For Updates">
+                        <h2 class="cta-headline">We Are<br><span>Chaos</span></h2>
+                        <h3 class="cta-subheadline">New Album Unleashed<br>Sept 11, 2020</h3>
+                        <p class="cta-text">Pre-Order <span class="chevron"></span>today.</p>
+                        <form id="hero-form">
+                            <label for="email">Sign-Up for Tour Updates</label>
+                            <input type="email" class="email-input" id="email" value="youremail@gmail.com">
                             <button class="cta-signup-btn">Sign-Up for Tour Updates</button>
                         </form>
-                        <p class="cta-text">Pre-Order <span class="chevron"></span>today.</p>
+                        
                     </div>
                 </div>
             </section>
@@ -110,20 +112,24 @@
 <!-- ----------------------------------------------------------------------- -->
 
             <section class="section-home-page" id="song-titles">
-                <h2 class="song-title-heading">We Are Chaos EP Song Titles</h2>
-                <p class="watch-we-are-chaos-video">Watch We ARE Chaos Music Video</p>
-                <ol class="song-titles">
-                    <li class="track-titles">Red Black And Blue</li>
-                    <li class="track-titles">WE ARE CHAOS</li>
-                    <li class="track-titles">Don't Chase The Dead</li>
-                    <li class="track-titles">Paint You With My Love</li>
-                    <li class="track-titles">Half-way & One Step Forward</li>
-                    <li class="track-titles">Infinite Darkness</li>
-                    <li class="track-titles">Perfume</li>
-                    <li class="track-titles">Keep My Head Together</li>
-                    <li class="track-titles">Solve Coagula</li>
-                    <li class="track-titles">Broken Needle</li>
-                </ol>
+                <div>
+                    <h2 class="song-title-heading">We Are Chaos EP Song Titles</h2>
+                    <p class="watch-we-are-chaos-video">Watch We ARE Chaos Music Video</p>
+                </div>
+                <div>   
+                    <ol class="song-titles">
+                        <li class="track-titles">Red Black And Blue</li>
+                        <li class="track-titles">WE ARE CHAOS</li>
+                        <li class="track-titles">Don't Chase The Dead</li>
+                        <li class="track-titles">Paint You With My Love</li>
+                        <li class="track-titles">Half-way & One Step Forward</li>
+                        <li class="track-titles">Infinite Darkness</li>
+                        <li class="track-titles">Perfume</li>
+                        <li class="track-titles">Keep My Head Together</li>
+                        <li class="track-titles">Solve Coagula</li>
+                        <li class="track-titles">Broken Needle</li>
+                    </ol>
+                </div>
             </section>
 <!-- ----------------------------------------------------------------------- -->
 <!--                    INFO ON THE ALBUM PREORDER                           --> 
