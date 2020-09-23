@@ -23,14 +23,13 @@
     bottom: 0;
     left: 50vw;
     h2 {
-        font-size: 12rem;
+        font-size: clamp(4rem, 12rem, 14rem);
         font-weight: 800;
         letter-spacing: -.5rem;
         word-spacing: 1.5rem;
         line-height: 1;
         position: relative;
-        span::after{
-            content: "";
+        span.chaos{
             height: 1.6rem;
             width: 60%;
             background-color: $mansonPink-color;
@@ -45,16 +44,31 @@
         font-weight: 300;
     }
     form {
-        label {
-            font-size: 4rem;
-            display: block;
+        display: flex;
+        button.cta-signup-btn {
+            font-family: $boldHeading;
+            color: $GRYBlue;
+        }
+        input[type=email], input[type=text] {
+            font-family: $boldHeading;
+            color: $GRYBlue;
+            padding: 1.2rem;
+            border-radius: 1.2rem;
+            box-sizing: border-box;
+            border: none;
+            outline: none;
+            :focus {
+                border: none;
+            }
+            :focus-within{
+                border: none;
+            }
         }
     }
 }
 .userInput{
     margin-top: 4rem;
 }
-
 
 .col-img-item {
     width: 100%;
@@ -67,9 +81,22 @@
     background-size: cover;
     filter: opacity(70%) saturate(80%) contrast(120%) drop-shadow(-3px 2px 6px $GRYBlue);
 }
-.col-left:focus .col-img-item,
-.col-left:hover .col-img-item {
-    transform: scale(1.2);
+.img-hover {
+    //background-size: 130%;
+    transform-origin: center center;
+    //transform: scale(1.115) translateY(-2rem);
+    filter: opacity(100%);
+    animation: heroImageMagnify ease-in-out both reverse 1s;
+} 
+@keyframes heroImageMagnify {
+    0% {
+        background-size: cover;
+        transform: scale(1) translateY(0);
+    }
+    50% {
+        background-size: cover;
+        transform: scale(1.115) translateY(-2rem); 
+    }
 }
 
 .col-left {
@@ -149,7 +176,8 @@
 /* -------------------------------------------------------------------------- */
 /*                           HERO SECTION ANIMATION                           */
 /* -------------------------------------------------------------------------- */
- 
+
+/*
 .col-left .col-img-item{
 animation: left-col-animation linear 10s;
 animation-iteration-count: infinite;
@@ -163,6 +191,7 @@ transform-origin: 50% 50%;
         transform:  translate(0px, -2200px); 
     }
 }
+
 .col-right .col-img-item{
 animation: animationFrames linear 10s;
 animation-iteration-count: infinite;
@@ -175,13 +204,10 @@ transform-origin: 50% 50%;
     100% {
         transform:  translate(0px, -50px); 
     }
-}
+} */
 
 
 /* -------------------------------------------------------------------------- */
 /*                         HERO SECTION MEDIA QUERIES                         */
 /* -------------------------------------------------------------------------- */
 
-@media screen and (max-width:500px) {
-
-}

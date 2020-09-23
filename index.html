@@ -70,15 +70,19 @@
                 </div>
                 <div class="hero-cta">
                     <div>
-                        <h2 class="cta-headline">We Are<br><span>Chaos</span></h2>
+                        <h2 class="cta-headline">We Are<br>Chaos<span class="chaos"></span></h2>
                         <h3 class="cta-subheadline">New Album Unleashed<br>Sept 11, 2020</h3>
-                        <p class="cta-text">Pre-Order <span class="chevron"></span>today.</p>
                         <form id="hero-form">
-                            <label for="email">Sign-Up for Tour Updates</label>
-                            <input type="email" class="email-input" id="email" value="youremail@gmail.com">
-                            <button class="cta-signup-btn">Sign-Up for Tour Updates</button>
+                            <!-- <label for="email">Sign-Up for Tour Updates</label> -->
+                            <div>
+                                <input type="email" class="email-input" id="email" value="Email Address" onfocus="this.value=''">
+                                <!-- <label for="zip">Zip Code</label> -->
+                                <input type="text" id="zip" value="Zip" onfocus="this.value=''">
+                            </div>
+                            <button class="cta-signup-btn">Sign-Up</button>
+        
                         </form>
-                        
+                        <p class="cta-text">Pre-Order your copy of <span>We Are Chaos<span></span> today.<i class="fa fa-chevron-circle-right" aria-hidden="true"></i></p>
                     </div>
                 </div>
             </section>
@@ -95,7 +99,7 @@
             <div class="album-preorder-area">
                 <section class="section-home-page" id="PreorderHeadlines">
                     <div class="headlineinnerarea">
-                        <h2>We Are Chaos Album Pre-order.</h2>
+                        <h2 class="preorder-main-heading">Pre-order We Are Chaos.</h2>
                         <div id="preorderTitles"></div>
                     </div>
                 </section>
@@ -112,10 +116,7 @@
 <!-- ----------------------------------------------------------------------- -->
 
             <section class="section-home-page" id="song-titles">
-                <div>
-                    <h2 class="song-title-heading">We Are Chaos EP Song Titles</h2>
-                    <p class="watch-we-are-chaos-video">Watch We ARE Chaos Music Video</p>
-                </div>
+                <video id="video-bg" src="./img/manson.mp4" autoplay loop></video>
                 <div>   
                     <ol class="song-titles">
                         <li class="track-titles">Red Black And Blue</li>
@@ -130,27 +131,17 @@
                         <li class="track-titles">Broken Needle</li>
                     </ol>
                 </div>
-            </section>
-<!-- ----------------------------------------------------------------------- -->
-<!--                    INFO ON THE ALBUM PREORDER                           --> 
-<!--                    HTML TAG DATA IS POPULATED USING THE                 -->
-<!--                    js/WEARECHAOSalbumInformation.json FILE              -->
-<!-- ----------------------------------------------------------------------- -->
-<!--             <section class="section-home-page" id="NewAlbumPreOrder">
-                <h2>We Are Chaos Album Pre-order.</h2>
-                <div id="homepage-preorder">
+                <div>
+                    <h2 class="songTitle-heading">We Are Chaos EP Song Titles</h2>
+                    <p class="we-are-chaos-video">Watch We ARE Chaos Music Video</p>
                 </div>
-            </section> -->
+            </section>
 
 <!-- ----------------------------------------------------------------------- -->
 <!--                       BOOKS ABOUT MARILYN MANSON                        -->
 <!-- ----------------------------------------------------------------------- -->
 
             <section class="section-home-page" id="BooksSection">
-                <form action="#">
-                    <input type="radio" name="something" id="cards-area">
-                    <input type="radio" name="something" id="form-area">
-                </form>
                 <div class="cards-area">
                     <h2>Headline</h2>
                     <h5 class="sub-headline">Lorem ipsum dolor sit adolor sit adolor sit a</h5>
@@ -181,14 +172,24 @@
                     </form>
                 </div>
                 subtitle area with guarantee: Money-back guarantee. If Deskpass doesn’t work for you, just let us know.
+                <form action="#">
+                    <input type="radio" name="something" id="cards-area" checked>
+                    <input type="radio" name="something" id="form-area">
+                </form>
             </section>
 
 <!-- ----------------------------------------------------------------------- -->
 <!--               SECTION OF COOL QUOTES FROM MARILYN MANSON                -->
 <!-- ----------------------------------------------------------------------- -->
 
-            <section class="section-home-page" id="famousQuotes">
-                <div class="quotes-card active" id="quote1" data-tab-content>
+            <section class="section-home-page quotesSlider" id="famousQuotes">
+                <input type="radio" name="quotes" id="quote1" checked>
+                <input type="radio" name="quotes" id="quote2">
+                <input type="radio" name="quotes" id="quote3">
+                <input type="radio" name="quotes" id="quote4">
+                <input type="radio" name="quotes" id="quote5">
+                <div class="quotes">
+                <div class="quotes-card" id="quote1">
                     <i class="fas fa-volume-up"></i>
                     <blockquote cite="https://www.brainyquote.com/authors/marilyn-manson-quotes">
                         <img src="img/quotes/quote1.jpg" alt="" class="quote-photo">
@@ -199,7 +200,7 @@
                         </footer>
                     </blockquote>
                 </div> 
-                <div class="quotes-card" id="quote2" data-tab-content>
+                <div class="quotes-card" id="quote2">
                     <i class="fas fa-volume-up"></i>
                     <blockquote cite="https://www.brainyquote.com/authors/marilyn-manson-quotes">
                         <img src="img/quotes/quote2.jpg" alt="" class="quote-photo">
@@ -210,7 +211,7 @@
                         </footer>
                     </blockquote>
                 </div> 
-                <div class="quotes-card" id="quote3" data-tab-content>
+                <div class="quotes-card" id="quote3">
                     <i class="fas fa-volume-up"></i>
                     <blockquote cite="https://www.brainyquote.com/authors/marilyn-manson-quotes">
                         <img src="img/quotes/quote3.jpg" alt="" class="quote-photo">
@@ -221,7 +222,7 @@
                         </footer>
                     </blockquote>
                 </div> 
-                <div class="quotes-card" id="quote4" data-tab-content>
+                <div class="quotes-card" id="quote4">
                     <i class="fas fa-volume-up"></i>
                     <blockquote cite="https://www.brainyquote.com/authors/marilyn-manson-quotes">
                         <img src="img/quotes/quote4.jpg" alt="" class="quote-photo">
@@ -232,7 +233,7 @@
                         </footer>
                     </blockquote>
                 </div> 
-                <div class="quotes-card" id="quote5" data-tab-content>
+                <div class="quotes-card" id="quote5">
                     <i class="fas fa-volume-up"></i>
                     <blockquote cite="https://www.brainyquote.com/authors/marilyn-manson-quotes">
                         <img src="img/quotes/quote5.jpg" alt="" class="quote-photo">
@@ -243,14 +244,13 @@
                         </footer>
                     </blockquote>
                 </div> 
+                </div>
                 <div class="quote-button-area">
-                    <ul>
-                        <li class="quotecards-buttons" data-target-tab="#quote1">Quote 1</li>
-                        <li class="quotecards-buttons" data-target-tab="#quote2">Quote 2</li>
-                        <li class="quotecards-buttons" data-target-tab="#quote3">Quote 3</li>
-                        <li class="quotecards-buttons" data-target-tab="#quote4">Quote 4</li>
-                        <li class="quotecards-buttons" data-target-tab="#quote5">Quote 5</li>
-                    </ul>
+                    <label for="quote1" class="quotecards-buttons"></label>
+                    <label for="quote2" class="quotecards-buttons"></label>
+                    <label for="quote3" class="quotecards-buttons"></label>
+                    <label for="quote4" class="quotecards-buttons"></label>
+                    <label for="quote5" class="quotecards-buttons"></label>
                 </div>
             </section>
 

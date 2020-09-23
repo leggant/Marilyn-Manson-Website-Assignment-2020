@@ -13,19 +13,91 @@ menuBtn.addEventListener('click', () => {
  */
 
 /* -------------------------------------------------------------------------- */
-/*                      MAIN HEADER SECTION IMAGE CAROSEL                     */
+/*                         HERO SECTION IMAGE CAROSEL                         */
 /* -------------------------------------------------------------------------- */
 
 const headerImageDivs = document.querySelectorAll('.col-img-item');
-console.log(headerImageDivs);
+
  headerImageDivs.forEach((imgItem) => {
   imgItem.addEventListener('mouseover', () => {
-    imgItem.classList.add("img-hover");
+    console.log(imgItem.classList);
+    imgItem.classList.add("img-hover")
   })
   imgItem.addEventListener('mouseout', () =>{
-    imgItem.classList.remove('img-hover');
+    imgItem.classList.remove('img-hover')
   })
  });
+
+/* -------------------------------------------------------------------------- */
+/*                        HEADER HERO SECTION FORM AREA                       */
+/* -------------------------------------------------------------------------- */
+
+ gsap.fromTo(".cta-headline", {opacity: 0, x:-20}, {opacity: 1, x: 0,  duration: 1});
+ gsap.fromTo(".chaos", {width: 0, x:10}, {width:"60%", x:10, duration: 0.5, delay:0.5});
+ gsap.fromTo(".cta-subheadline", {opacity: 0, y:-20}, {opacity: 1, y: 0,  duration: 0.5, delay:0.5});
+
+/* -------------------------------------------------------------------------- */
+/*                         ALBUM PREORDER SECTION DATA                        */
+/* -------------------------------------------------------------------------- */
+
+const preorderHeadlineArea = document.getElementById("preorderTitles");
+let albumPreorderData = [];
+
+async function preorderHeadline(headline, option) {
+  let h2tag = document.createElement("H2");
+  h2tag.innerHTML = headline;
+  h2tag.className = "album-title preorder-title";
+  h2tag.id = "preorderid"+option;
+  preorderHeadlineArea.appendChild(h2tag);
+}
+
+async function loadAlbumPreorderInfo() {
+  const preorderDataJSON = 'js/WEARECHAOSalbumInformation.json';
+  const preorder = await fetch(preorderDataJSON);
+  const preorderinfo = await preorder.json();
+  createPreorder(preorderinfo.WEARECHAOSALBUM_PREORDER_INFO);
+}
+loadAlbumPreorderInfo();
+
+async function createPreorder(preorderinfo) {
+  preorderinfo.forEach(item => {
+    createCard("homepage-preorder", item.edition, item.image)
+    preorderHeadline(item.edition, item.option)
+  });
+}
+
+/* -------------------------------------------------------------------------- */
+/*                      PREORDER SECTION STICKY SCROLLING                     */
+/* -------------------------------------------------------------------------- */
+let preordertarget = document.querySelector('#homepage-preorder').children;
+
+console.log(preordertarget);
+/* const preorderoptions = {
+  root: document.querySelector('#homepage-preorder'),
+  rootMargin: '0px',
+  threshold: 0.2
+}
+const preorderObserver = new IntersectionObserver((callback) => {
+  
+}, preorderoptions);
+console.log(preorderObserver); */
+/* let target = document.querySelectorAll('#homepage-preorder .album');
+preorderObserver.observe(target);
+let callback = (entries, preorderobserver) => {
+  entries.forEach(entry => {
+    // Each entry describes an intersection change for one observed
+    // target element:
+    //   entry.boundingClientRect
+    //   entry.intersectionRatio
+    //   entry.intersectionRect
+    //   entry.isIntersecting
+    //   entry.rootBounds
+    //   entry.target
+    //   entry.time
+  });
+}; */
+
+//const preorderarea = gsap.timeline();
 
 /* -------------------------------------------------------------------------- */
 /*               Album Cover Information from theaudiodb API                  */
@@ -82,32 +154,6 @@ async function createCard(containerid, title, image, year){
   }
 }
 
-/* ALBUM PREORDER SECTION DATA */
-const preorderHeadlineArea = document.getElementById("preorderTitles");
-let albumPreorderData = [];
-
-async function preorderHeadline(headline) {
-  console.log(headline);
-  let h2tag = document.createElement("H2");
-  h2tag.innerHTML = headline;
-  h2tag.className = "album-title preorder-title"
-  preorderHeadlineArea.appendChild(h2tag);
-}
-
-async function loadAlbumPreorderInfo() {
-  const preorderDataJSON = 'js/WEARECHAOSalbumInformation.json';
-  const preorder = await fetch(preorderDataJSON);
-  const preorderinfo = await preorder.json();
-  createPreorder(preorderinfo.WEARECHAOSALBUM_PREORDER_INFO);
-}
-loadAlbumPreorderInfo();
-
-async function createPreorder(preorderinfo) {
-  preorderinfo.forEach(item => {
-    createCard("homepage-preorder", item.edition, item.image)
-    preorderHeadline(item.edition)
-  });
-}
 
 
 /* Scroll Up Menu Bar */
@@ -131,7 +177,7 @@ window.addEventListener("scroll", (xevent) =>{
 /*                               QUOTES SECTION                               */
 /* -------------------------------------------------------------------------- */
 
-const tabs = document.querySelectorAll('[data-target-tab]');
+/* const tabs = document.querySelectorAll('[data-target-tab]');
 const quoteContent = document.querySelectorAll('[data-tab-content]');
 tabs.forEach(tab => {
   tab.addEventListener('click', () => {
@@ -144,4 +190,19 @@ tabs.forEach(tab => {
     target.classList.add('active')
     target.classList.remove('inactive')
   })
-})
+}); */
+
+/* let quoteTimeLine = gsap.timeline({
+  scrollTrigger:{
+    trigger: "#famousQuotes",
+    markers: true,
+    pin: true,
+    start: "top top",
+    end: "+=500",
+    scrub: 1,
+    snap: {
+
+    }
+  }
+}); */
+

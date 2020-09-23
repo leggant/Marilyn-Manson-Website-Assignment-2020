@@ -16,32 +16,59 @@
 
 #famousQuotes {
     background-color: $bgOrange;
+    height: 80vh;
     overflow: hidden;
-    height: 100vh;
-    [data-tab-content] {
-        display: none;
-    }
-    .quotes-card.active {
-        width: 60%;
-        margin: 0 auto;
-        padding: 20rem;
+    position: relative;
+    .quotes{
+        width: calc(500px * 5);
         display: flex;
-        flex-direction: column;
-        align-items: center;
-        i.fa-volume-up{
-            font-size: 5rem;
-            color: #000;
-        }
-        .quote-photo {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            object-position: center center;
-            object-fit: cover;
+        .quotes-card {
+            width: 500px;
+            // margin: 20rem auto;
+            // padding: 10rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            i.fa-volume-up{
+                font-size: 5rem;
+                color: #000;
+            } 
+            .quote-photo {
+                width: 150px;
+                height: 150px;
+                border-radius: 50%;
+                object-position: center center;
+                object-fit: cover;
+            }
         }
     }
-    //.quote-button-area{
-        
-    //}
+    .quote-button-area{
+        position: absolute;
+        bottom: 2rem;
+        left: 50%;
+        transform: translateX(-50%);
+        .quotecards-buttons {
+            display: inline-block;
+            width: 10rem;
+            height: 2rem;
+            margin-right: 2rem;
+            border: 2px solid red;
+            background-color: #000;
+            cursor: pointer;
+            transition: 0.4s;
+        }
+        .quotecards-buttons:hover {
+            background-color: aliceblue;
+        }
+    }
+    input[name="quotes"]{
+        //position: absolute;
+        visibility: hidden;
+    }
 }
-
+.quotesSlider {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}

@@ -2,6 +2,12 @@
     background-color: gainsboro;
     display: flex;
 }
+.headlineinnerarea{
+    h2.preorder-main-heading {
+        font-family: $boldHeading;
+        font-size: 5rem;
+    }
+}
 #PreorderHeadlines {
     width: 50%;
     background-color: green;
