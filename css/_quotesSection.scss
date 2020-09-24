@@ -16,59 +16,87 @@
 
 #famousQuotes {
     background-color: $bgOrange;
-    height: 80vh;
-    overflow: hidden;
+    height: 90vh;
     position: relative;
-    .quotes{
-        width: calc(500px * 5);
-        display: flex;
-        .quotes-card {
-            width: 500px;
-            // margin: 20rem auto;
-            // padding: 10rem;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            i.fa-volume-up{
-                font-size: 5rem;
-                color: #000;
-            } 
-            .quote-photo {
-                width: 150px;
-                height: 150px;
-                border-radius: 50%;
-                object-position: center center;
-                object-fit: cover;
-            }
-        }
+}    
+.quotes {
+    height: 90%;
+    width: 700px;
+    position: relative;
+    //overflow: hidden;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+}
+.quotes-inner-wrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+.quotes-card {
+    width: 100%;
+    height: 100%;
+    margin-right: 5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    display: none;
+}
+.quoteContent {
+    width: 700px;
+    .quote-text{
+        font-family: $defaultBodyFont;
+        font-weight: 300;
+        text-align: center;
+        font-size: 3rem;
     }
-    .quote-button-area{
-        position: absolute;
-        bottom: 2rem;
-        left: 50%;
-        transform: translateX(-50%);
-        .quotecards-buttons {
+}
+i.fa-quote-right{
+    font-size: 5rem;
+    color: $mansonPink-color;
+    margin-bottom: 3rem;
+}
+.quote-name{
+    height: 70%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    h5, p {
+        text-align: center;
+    }
+} 
+.quote-photo {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-position: center center;
+    object-fit: cover;
+}
+.quote-button-area{
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    .quotecards-buttons {
             display: inline-block;
             width: 10rem;
             height: 2rem;
             margin-right: 2rem;
-            border: 2px solid red;
-            background-color: #000;
+            border: 2px solid $mansonLessPink;
+            background-color: transparent;
             cursor: pointer;
-            transition: 0.4s;
+            transition: background-color 0.4s;
         }
         .quotecards-buttons:hover {
-            background-color: aliceblue;
+            background-color: $mansonPink-color;
         }
-    }
-    input[name="quotes"]{
-        //position: absolute;
-        visibility: hidden;
-    }
 }
-.quotesSlider {
+input[name="quotes"]{
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    visibility: hidden;
+}
+input[name="quotes"]:checked + .quotes-card {
+    display: flex;
 }

@@ -32,9 +32,9 @@ const headerImageDivs = document.querySelectorAll('.col-img-item');
 /*                        HEADER HERO SECTION FORM AREA                       */
 /* -------------------------------------------------------------------------- */
 
- gsap.fromTo(".cta-headline", {opacity: 0, x:-20}, {opacity: 1, x: 0,  duration: 1});
- gsap.fromTo(".chaos", {width: 0, x:10}, {width:"60%", x:10, duration: 0.5, delay:0.5});
- gsap.fromTo(".cta-subheadline", {opacity: 0, y:-20}, {opacity: 1, y: 0,  duration: 0.5, delay:0.5});
+ //gsap.fromTo(".cta-headline", {opacity: 0, x:-20}, {opacity: 1, x: 0,  duration: 1})
+ //gsap.fromTo(".chaos", {width: 0, x:10}, {width:"60%", x:10, duration: 0.5, delay:0.5})
+ //gsap.fromTo(".cta-subheadline", {opacity: 0, y:-20}, {opacity: 1, y: 0,  duration: 0.5, delay:0.5});
 
 /* -------------------------------------------------------------------------- */
 /*                         ALBUM PREORDER SECTION DATA                        */
@@ -99,6 +99,28 @@ let callback = (entries, preorderobserver) => {
 
 //const preorderarea = gsap.timeline();
 
+/* song title scroll area */
+
+/*
+  quotes area
+*/
+
+const quoteSection = document.getElementById("famousQuotes");
+const quoteCardWrapper = document.getElementsByClassName("quotes-inner-wrapper");
+const quoteRadioButtons = quoteSection.querySelectorAll("input[type='radio']");
+console.log(quoteRadioButtons[1].checked);
+/* quoteRadioButtons.forEach((i, index) => {
+  i[index].addEventListener('change');
+  console.log(i[index])
+});
+ */
+/* function changeQuote(index){
+  if(quoteRadioButtons[index].checked == true && index > 1) {
+    console.log(quoteRadioButtons[index].checked);
+    x = -750;
+    quoteCardWrapper.Style.marginLeft = x * index;
+}
+} */
 /* -------------------------------------------------------------------------- */
 /*               Album Cover Information from theaudiodb API                  */
 /* -------------------------------------------------------------------------- */
