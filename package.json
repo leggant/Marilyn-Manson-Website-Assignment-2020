@@ -18,6 +18,10 @@
   "homepage": "https://github.com/leggant/OP_WebDevFundamentalsAssignment#readme",
   "dependencies": {
     "ejs": "^3.1.5",
-    "express": "^4.17.1"
-  }
+    "express": "^4.17.1",
+    "express-validator": "^6.6.1",
+    "nedb": "^1.8.0",
+    "node-instagram": "^4.3.0"
+  },
+  "devDependencies": {}
 }
