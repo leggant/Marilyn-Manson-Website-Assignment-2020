@@ -2,3 +2,4 @@
 ## Marilyn Manson Website for New Album, We Are Chaos.
 
 :musical_note: :musical_note::musical_note::musical_note::musical_note:
+
