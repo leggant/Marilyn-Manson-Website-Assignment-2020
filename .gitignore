@@ -1,3 +1,4 @@
-node_modules
+node_modules/
 *.map
 debug.log
+.env
