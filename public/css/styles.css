@@ -1,0 +1,821 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lobster&display=swap");
+:root {
+  font-size: 10px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  color: white;
+}
+
+body {
+  background-color: #000C19;
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+.content-inner-wrapper {
+  width: 90vw;
+  margin: 0 auto;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 3rem;
+  font-weight: 600;
+}
+
+p {
+  font-family: "Poppins", sans-serif, sans-serif;
+  font-weight: 300;
+  font-size: 2rem;
+}
+
+/* -------------------------------------------------------------------------- */
+/*                   WEBSITE MAIN HEADER AND NAVIGATION AREA                  */
+/* -------------------------------------------------------------------------- */
+.site-main-header {
+  position: absolute;
+  top: 0px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  height: 120px;
+  width: 100%;
+  padding: 0 10%;
+  margin: 0 0 3rem 0;
+  z-index: 100;
+  font-family: "Poppins", sans-serif, sans-serif;
+  font-weight: 500;
+  background: white;
+  background: -webkit-gradient(linear, left bottom, left top, color-stop(10%, rgba(255, 255, 255, 0)), to(#2B2D42));
+  background: linear-gradient(360deg, rgba(255, 255, 255, 0) 10%, #2B2D42 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffffff",endColorstr="#2b2d42",GradientType=1);
+}
+
+.site-main-header a.logo-link {
+  width: 180px;
+  margin-right: 3rem;
+  position: relative;
+  top: 0px;
+}
+
+.site-main-header a.logo-link img {
+  cursor: pointer;
+}
+
+.site-main-header a.logo-link .logo-accent {
+  display: block;
+  width: 27%;
+  height: 4px;
+  background-color: #E5478C;
+  position: absolute;
+  border-radius: 5px;
+  left: 3px;
+  top: -2px;
+}
+
+.site-main-header .main-nav-links {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: .8rem;
+  font-size: 1.6rem;
+}
+
+.site-main-header .main-nav-links li.main-nav-item {
+  padding: 0 2rem;
+}
+
+.site-main-header .main-nav-links li.main-nav-item a {
+  display: block;
+  -webkit-transition: color 0.2s ease-in 0s;
+  transition: color 0.2s ease-in 0s;
+  padding-bottom: 1px;
+}
+
+.site-main-header .main-nav-links li.main-nav-item a:hover {
+  color: #E5478C;
+  border-bottom: 1px solid #E5478C;
+  padding-bottom: -1px;
+}
+
+.site-main-header .main-nav-links li:nth-child(3) {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: .5rem;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.site-main-header .main-nav-links li:nth-child(3) .menu-alert {
+  line-height: 1.5;
+  font-size: 1rem;
+  color: #fff;
+  background-color: #E5478C;
+  border-radius: .5rem;
+  padding: 0 0.4rem;
+  margin-bottom: .7rem;
+}
+
+.site-main-header .main-nav-links li:nth-child(4) {
+  border-left: 1px solid white;
+}
+
+.menu-btn.desktop-active {
+  display: none;
+}
+
+/* -------------------------------------------------------------------------- */
+/*                  MOBILE SITE POP-UP MENU AND BURGER STYLES                 */
+/* -------------------------------------------------------------------------- */
+.menu-btn {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 80px;
+  height: 80px;
+  cursor: pointer;
+  -webkit-transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out;
+}
+
+.menu-btn .menu_burger {
+  width: 40px;
+  height: 5px;
+  background-color: #ED33B9;
+  border-radius: 5px;
+  -webkit-transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out;
+}
+
+.menu_burger::before,
+.menu_burger::after {
+  content: '';
+  position: absolute;
+  width: 40px;
+  height: 5px;
+  background-color: #ED33B9;
+  border-radius: 5px;
+  -webkit-transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out;
+}
+
+.menu_burger::before {
+  -webkit-transform: translateY(-12px);
+          transform: translateY(-12px);
+}
+
+.menu_burger::after {
+  -webkit-transform: translateY(12px);
+          transform: translateY(12px);
+}
+
+.menu-btn.open .menu_burger {
+  -webkit-transform: translateX(-40px);
+          transform: translateX(-40px);
+  background-color: transparent;
+}
+
+.menu-btn.open .menu_burger::before {
+  -webkit-transform: rotate(45deg) translate(35px, -35px);
+          transform: rotate(45deg) translate(35px, -35px);
+}
+
+.menu-btn.open .menu_burger::after {
+  -webkit-transform: rotate(-45deg) translate(35px, 35px);
+          transform: rotate(-45deg) translate(35px, 35px);
+}
+
+/* -------------------------------------------------------------------------- */
+/*                SITE NAVIGATION WHEN SCROLLING UP THE SCREEN                */
+/* -------------------------------------------------------------------------- */
+.scroll-up {
+  position: fixed;
+  margin-top: 0;
+  background-color: #fff;
+}
+
+.scroll-up img {
+  -webkit-filter: drop-shadow(2px 4px 6px black) drop-shadow(4px 3px 5px rgba(0, 0, 0, 0.2)) drop-shadow(1px 1px 1px rgba(238, 60, 208, 0.2)) drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.2)) brightness(1) contrast(1.5) drop-shadow(-5px -1px 8px rgba(238, 60, 208, 0.7));
+          filter: drop-shadow(2px 4px 6px black) drop-shadow(4px 3px 5px rgba(0, 0, 0, 0.2)) drop-shadow(1px 1px 1px rgba(238, 60, 208, 0.2)) drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.2)) brightness(1) contrast(1.5) drop-shadow(-5px -1px 8px rgba(238, 60, 208, 0.7));
+}
+
+.scroll-up .scroll-up.main-nav.main-nav-links.main-nav-item a {
+  color: #000;
+}
+
+.scroll-up .scroll-up.main-nav.main-nav-links.main-nav-item a a:hover {
+  color: #E5478C;
+  border-bottom: 1px solid #E5478C;
+  padding-bottom: -1px;
+}
+
+.scroll-up li:nth-child(3) {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: .5rem;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.scroll-up li:nth-child(3) .menu-alert {
+  line-height: 1.5;
+  font-size: 1rem;
+  color: #000C19;
+  background-color: #E5478C;
+  border-radius: .5rem;
+  padding: 0 0.4rem;
+  margin-bottom: .7rem;
+}
+
+.scroll-up li:nth-child(4) {
+  border-left: 1px solid #E5478C;
+}
+
+/* -------------------------------------------------------------------------- */
+/*                  SITE HEADER AND NAVIGATION MEDIA QUERIES                  */
+/* -------------------------------------------------------------------------- */
+/* @media screen and (max-width: 720px) {
+    .main-nav-links {
+        display: none;
+    }
+    .open-mobile-main-menu {
+        flex-direction: column-reverse;
+        width: 100vw;
+        height: 100vh;
+        background-color: $GRYBlue;
+        z-index: 10;
+        img {
+            display: none;
+        }
+        .menu-btn {
+            z-index: 10;
+        }
+        .main-nav-links {
+            display: flex;
+            margin: 3rem 3rem 0 0;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: flex-end;
+            width: 100vw;
+            li{
+                margin-bottom: 3rem;
+                a{
+                    font-size: 3rem;
+                }
+            }
+        }   
+    }
+}
+ */
+/* -------------------------------------------------------------------------- */
+/*                             HERO SECTION LAYOUT                            */
+/* -------------------------------------------------------------------------- */
+.hero-container {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(200px, 20%))[2] 3fr;
+      grid-template-columns: repeat(2, minmax(200px, 20%)) 3fr;
+  grid-column-gap: 20px;
+  height: 100vh;
+  overflow-y: hidden;
+  font-family: "Montserrat", sans-serif, sans-serif;
+  font-weight: 600;
+  padding: 0px 2rem;
+}
+
+.hero-cta {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 6rem;
+  font-weight: 200;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: absolute;
+  top: 11rem;
+  bottom: 0;
+  left: 50vw;
+}
+
+.hero-cta h2 {
+  font-size: clamp(4rem, 12rem, 14rem);
+  font-weight: 800;
+  letter-spacing: -.5rem;
+  word-spacing: 1.5rem;
+  line-height: 1;
+  position: relative;
+}
+
+.hero-cta h2 span.chaos {
+  height: 1.6rem;
+  width: 60%;
+  background-color: #ED33B9;
+  position: absolute;
+  bottom: -1rem;
+  left: 0px;
+}
+
+.hero-cta h3.cta-subheadline {
+  font-size: 5rem;
+  margin: 3rem 0;
+  font-weight: 300;
+}
+
+.hero-cta form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.hero-cta form button.cta-signup-btn {
+  font-family: "Raleway", sans-serif;
+  color: #2B2D42;
+}
+
+.hero-cta form input[type=email], .hero-cta form input[type=text] {
+  font-family: "Raleway", sans-serif;
+  color: #2B2D42;
+  padding: 1.2rem;
+  border-radius: 1.2rem;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border: none;
+  outline: none;
+}
+
+.hero-cta form input[type=email] :focus, .hero-cta form input[type=text] :focus {
+  border: none;
+}
+
+.hero-cta form input[type=email] :focus-within, .hero-cta form input[type=text] :focus-within {
+  border: none;
+}
+
+.userInput {
+  margin-top: 4rem;
+}
+
+.col-img-item {
+  width: 100%;
+  height: 350px;
+  margin-bottom: 16px;
+  background-color: #000C19;
+  border-radius: 16px;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 105%;
+  -webkit-transition: background-size .5s ease-in-out;
+  transition: background-size .5s ease-in-out;
+  -webkit-filter: opacity(70%) saturate(80%) contrast(120%) drop-shadow(-3px 2px 6px #2B2D42);
+          filter: opacity(70%) saturate(80%) contrast(120%) drop-shadow(-3px 2px 6px #2B2D42);
+}
+
+.img-hover {
+  -webkit-transform-origin: center center;
+          transform-origin: center center;
+  -webkit-filter: opacity(100%);
+          filter: opacity(100%);
+  background-size: 100%;
+}
+
+.col-left {
+  -webkit-transform: translateY(-75px);
+          transform: translateY(-75px);
+}
+
+.col-left .col-img-item:nth-child(1) {
+  background-image: url("../img/1.jpg");
+}
+
+.col-left .col-img-item:nth-child(2) {
+  background-image: url("../img/2.jpg");
+}
+
+.col-left .col-img-item:nth-child(3) {
+  background-image: url("../img/3.jpg");
+}
+
+.col-left .col-img-item:nth-child(4) {
+  background-image: url("../img/4.jpg");
+}
+
+.col-left .col-img-item:nth-child(5) {
+  background-image: url("../img/5.jpg");
+}
+
+.col-left .col-img-item:nth-child(6) {
+  background-image: url("../img/6.png");
+}
+
+.col-left .col-img-item:nth-child(7) {
+  background-image: url("../img/7.jpg");
+}
+
+.col-left .col-img-item:nth-child(8) {
+  background-image: url("../img/8.jpg");
+}
+
+.col-left .col-img-item:nth-child(9) {
+  background-image: url("../img/9.jpg");
+}
+
+.col-left .col-img-item:nth-child(10) {
+  background-image: url("../img/10.jpg");
+}
+
+.col-left .col-img-item:nth-child(11) {
+  background-image: url("../img/11.png");
+}
+
+.col-right {
+  -webkit-transform: translateY(75px);
+          transform: translateY(75px);
+}
+
+.col-right .col-img-item:nth-child(1) {
+  background-image: url("../img/1.jpg");
+}
+
+.col-right .col-img-item:nth-child(2) {
+  background-image: url("../img/2.jpg");
+}
+
+.col-right .col-img-item:nth-child(3) {
+  background-image: url("../img/3.jpg");
+}
+
+.col-right .col-img-item:nth-child(4) {
+  background-image: url("../img/4.jpg");
+}
+
+.col-right .col-img-item:nth-child(5) {
+  background-image: url("../img/5.jpg");
+}
+
+.col-right .col-img-item:nth-child(6) {
+  background-image: url("../img/6.png");
+}
+
+.col-right .col-img-item:nth-child(7) {
+  background-image: url("../img/7.jpg");
+}
+
+.col-right .col-img-item:nth-child(8) {
+  background-image: url("../img/8.jpg");
+}
+
+.col-right .col-img-item:nth-child(9) {
+  background-image: url("../img/9.jpg");
+}
+
+.col-right .col-img-item:nth-child(10) {
+  background-image: url("../img/10.jpg");
+}
+
+.col-right .col-img-item:nth-child(11) {
+  background-image: url("../img/11.png");
+}
+
+/* -------------------------------------------------------------------------- */
+/*                           HERO SECTION ANIMATION                           */
+/* -------------------------------------------------------------------------- */
+/*
+.col-left .col-img-item{
+animation: left-col-animation linear 10s;
+animation-iteration-count: infinite;
+transform-origin: 50% 50%;
+}
+@keyframes left-col-animation {
+    0% {
+        transform:  translate(0px,-50px);
+    }
+    100% {
+        transform:  translate(0px, -2200px); 
+    }
+}
+
+.col-right .col-img-item{
+animation: animationFrames linear 10s;
+animation-iteration-count: infinite;
+transform-origin: 50% 50%;
+}
+@keyframes animationFrames{
+    0% {
+        transform:  translate(0px,-2100px);
+    }
+    100% {
+        transform:  translate(0px, -50px); 
+    }
+} */
+/* -------------------------------------------------------------------------- */
+/*                         HERO SECTION MEDIA QUERIES                         */
+/* -------------------------------------------------------------------------- */
+.album-preorder-area {
+  background-color: gainsboro;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.headlineinnerarea h2.preorder-main-heading {
+  font-family: "Raleway", sans-serif;
+  font-size: 5rem;
+}
+
+#PreorderHeadlines {
+  width: 50%;
+  background-color: green;
+}
+
+#PreorderHeadlines .headlineinnerarea {
+  padding: 200px 0px 0 250px;
+  height: 100vh;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+}
+
+#NewAlbumPreOrder {
+  width: 50%;
+  background-color: blue;
+}
+
+#NewAlbum {
+  height: 100vh;
+}
+
+#song-titles {
+  position: relative;
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  overflow: hidden;
+  margin-bottom: 10rem;
+}
+
+#song-titles #video-bg {
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center center;
+     object-position: center center;
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -10;
+  -webkit-filter: opacity(50%) saturate(80%) contrast(120%) blur(5px);
+          filter: opacity(50%) saturate(80%) contrast(120%) blur(5px);
+}
+
+#song-titles h2.songTitle-heading {
+  font-family: "Raleway", sans-serif;
+  font-size: clamp(1.5rem, 4rem, 8rem);
+}
+
+#song-titles .song-titles {
+  -webkit-transform: translateX(-4rem) translateY(-10rem);
+          transform: translateX(-4rem) translateY(-10rem);
+}
+
+#song-titles .song-titles .track-titles {
+  font-family: "Lobster", cursive;
+  font-size: 12rem;
+  color: #000C19;
+  -webkit-filter: drop-shadow(1px 1px 2px #c7c6c6) drop-shadow(-5px -2px 5px #000C19);
+          filter: drop-shadow(1px 1px 2px #c7c6c6) drop-shadow(-5px -2px 5px #000C19);
+}
+
+/* -------------------------------------------------------------------------- */
+/*                 Famous Marilyn Manson Quotes Section Styles                */
+/* -------------------------------------------------------------------------- */
+/* 
+
+1.  5 cards that take up 100% of the section width and view port height
+2.  each is clickable to change or will change on their own on a timer
+3.  large text 
+4.  small circular image 
+5.  name, position 
+6.  clickable bars or buttons that transition in sync with the timer
+7.  Will require javascript to contol change between quotes and the #famousQuotes background color
+
+*/
+#famousQuotes {
+  background-color: #fa8f77;
+  height: 90vh;
+  position: relative;
+}
+
+.quotes {
+  height: 90%;
+  width: 700px;
+  position: relative;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+          transform: translateX(-50%) translateY(-50%);
+}
+
+.quotes-inner-wrapper {
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.quotes-card {
+  width: 100%;
+  height: 100%;
+  margin-right: 5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  display: none;
+}
+
+.quoteContent {
+  width: 700px;
+}
+
+.quoteContent .quote-text {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 300;
+  text-align: center;
+  font-size: 3rem;
+}
+
+i.fa-quote-right {
+  font-size: 5rem;
+  color: #ED33B9;
+  margin-bottom: 3rem;
+}
+
+.quote-name {
+  height: 70%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+.quote-name h5, .quote-name p {
+  text-align: center;
+}
+
+.quote-photo {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  -o-object-position: center center;
+     object-position: center center;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.quote-button-area {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+
+.quote-button-area .quotecards-buttons {
+  display: inline-block;
+  width: 10rem;
+  height: 2rem;
+  margin-right: 2rem;
+  border: 2px solid #E5478C;
+  background-color: transparent;
+  cursor: pointer;
+  -webkit-transition: background-color 0.4s;
+  transition: background-color 0.4s;
+}
+
+.quote-button-area .quotecards-buttons:hover {
+  background-color: #ED33B9;
+}
+
+input[name="quotes"] {
+  position: absolute;
+  visibility: hidden;
+}
+
+input[name="quotes"]:checked + .quotes-card {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.back-catalog {
+  width: 90vw;
+  margin: 8rem auto;
+}
+
+.back-catalog h3 {
+  font-size: 5rem;
+  margin-bottom: 3rem;
+}
+
+.back-catalog h3 .fa-record-vinyl {
+  margin-right: 2rem;
+}
+
+#Manson-Albums-Catalog {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(200px, 1fr))[5];
+      grid-template-columns: repeat(5, minmax(200px, 1fr));
+  gap: 3rem;
+}
+
+#Manson-Albums-Catalog .album {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  position: relative;
+}
+
+#Manson-Albums-Catalog .album .album-title {
+  font-weight: 300;
+}
+
+/* #homepage-preorder {
+    grid-template-columns: repeat(6, minmax(200px, 1fr));
+} */
+.main-footer {
+  background-color: transparent;
+  width: 90vw;
+  margin: 0 auto;
+}
+/*# sourceMappingURL=styles.css.map */
