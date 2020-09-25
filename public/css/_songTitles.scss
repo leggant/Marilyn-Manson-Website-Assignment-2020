@@ -13,14 +13,14 @@
         top: 0;
         left: 0;
         z-index: -10;
-        filter: opacity(50%) saturate(80%) contrast(120%) blur(5px) ;
+        filter: opacity(50%) saturate(80%) contrast(120%) blur(5px);
     }
     h2.songTitle-heading {
         font-family: $boldHeading;
         font-size: clamp(1.5rem, 4rem, 8rem);
     }
     .song-titles{
-        transform: translateX(-4rem) translateY(-10rem);
+        transform: translateX(-5rem) translateY(-10rem);
         .track-titles{
             font-family: $songTitles;
             font-size: 12rem;

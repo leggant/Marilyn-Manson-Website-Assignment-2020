@@ -71,6 +71,7 @@
 }
 
 .col-img-item {
+    position: relative;
     width: 100%;
     height: 350px;
     margin-bottom: 16px;
@@ -82,14 +83,65 @@
     transition: background-size .5s ease-in-out;
     filter: opacity(70%) saturate(80%) contrast(120%) drop-shadow(-3px 2px 6px $GRYBlue);
 }
+.col-img-item::before,
+.col-img-item::after {
+    --scale: 0;
+    --arrowsize: 15px;
+    --tooltipBG: $GRYBlue;
+    --speed: 150ms;
+    z-index: 20;
+    position: absolute;
+    top: -.25rem;
+    left: 80%;
+    filter: opacity(100%);
+    transform: translateX(-80%) translateY(var(--translatey, 0)) scale(var(--scale));
+    border-radius: 2rem;
+    display: flex;
+    align-items: center;
+    transition: var(--speed) transform;
+    transform-origin: bottom left;
+}
 .img-hover {
+    z-index: 10;
     transform-origin: center center;
     filter: opacity(100%);
     background-size: 100%;
+    animation: img-filter .5s ease-in-out reverse;
+    animation-iteration-count: 1;
 } 
+@keyframes img-filter {
+    100% {
+        filter: opacity(70%);
+    }
+}
+.col-img-item::before {
+    --translatey: calc(-100% - var(--arrowsize));
+    content: attr(data-hero-tooltip);
+    padding: 2rem;
+    background-color: $GRYBlue;
+    color:$mansonLessPink;
+    font-family: $menuFont;
+    font-size: 2rem;
+    font-weight: 500;
+    text-align: center;
+    line-height: .9;
+    filter: opacity(100%);
+}
+.col-img-item:hover::before,
+.col-img-item:hover::after {
+    --scale: 1;
+}
+.col-img-item::after{
+    --translatey: calc(-1 * var(--arrowsize));
+    transform-origin: top center;
+    content: '';
+    border-radius: 0;
+    border: var(--arrowsize) solid transparent;
+    border-top-color: $GRYBlue;
 
-
+}
 .col-left {
+    z-index: 1;
     transform: translateY(-75px);
     .col-img-item:nth-child(1){
         background-image: url('../img/1.jpg');
