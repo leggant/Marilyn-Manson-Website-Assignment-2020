@@ -79,7 +79,7 @@
     border-radius: 16px;
     background-repeat: no-repeat;
     background-position: center center;
-    background-size: 105%;
+    background-size: 110%;
     transition: background-size .5s ease-in-out;
     filter: opacity(70%) saturate(80%) contrast(120%) drop-shadow(-3px 2px 6px $GRYBlue);
 }
@@ -154,6 +154,7 @@
     }
     .col-img-item:nth-child(4){
         background-image: url('../img/4.jpg');
+        background-position: top center;
     }
     .col-img-item:nth-child(5){
         background-image: url('../img/5.jpg');
@@ -169,48 +170,74 @@
     }
     .col-img-item:nth-child(9){
         background-image: url('../img/9.jpg');
+        background-position: left center;
     }
     .col-img-item:nth-child(10){
         background-image: url('../img/10.jpg');
     }
     .col-img-item:nth-child(11){
         background-image: url('../img/11.png');
+    }
+    .col-img-item:nth-child(12){
+        background-image: url('../img/21.jpg');
+    }
+    .col-img-item:nth-child(13){
+        background-image: url('../img/49.jpg');
+    }
+    .col-img-item:nth-child(14){
+        background-image: url('../img/45.jpg');
+    }
+    .col-img-item:nth-child(15){
+        background-image: url('../img/12.jpg');
     }
 }
 .col-right{
-    transform: translateY(75px);
+    transform: translateY(50px);
     .col-img-item:nth-child(1){
-        background-image: url('../img/1.jpg');
+        background-image: url('../img/13.jpg');
     }
     .col-img-item:nth-child(2){
-        background-image: url('../img/2.jpg');
+        background-image: url('../img/14.jpg');
     }
     .col-img-item:nth-child(3){
-        background-image: url('../img/3.jpg');
+        background-image: url('../img/62.jpg');
     }
     .col-img-item:nth-child(4){
-        background-image: url('../img/4.jpg');
+        background-image: url('../img/34.jpg');
+        background-position: top center;
     }
     .col-img-item:nth-child(5){
-        background-image: url('../img/5.jpg');
+        background-image: url('../img/17.2.jpg');
     }
     .col-img-item:nth-child(6){
-        background-image: url('../img/6.png');
+        background-image: url('../img/18.jpg');
     }
     .col-img-item:nth-child(7){
-        background-image: url('../img/7.jpg');
+        background-image: url('../img/37.jpg');
     }
     .col-img-item:nth-child(8){
-        background-image: url('../img/8.jpg');
+        background-image: url('../img/24.jpg');
     }
     .col-img-item:nth-child(9){
-        background-image: url('../img/9.jpg');
+        background-image: url('../img/19.jpg');
     }
     .col-img-item:nth-child(10){
-        background-image: url('../img/10.jpg');
+        background-image: url('../img/40.jpg');
     }
     .col-img-item:nth-child(11){
-        background-image: url('../img/11.png');
+        background-image: url('../img/27.jpg');
+    }
+    .col-img-item:nth-child(12){
+        background-image: url('../img/30.jpg');
+    }
+    .col-img-item:nth-child(13){
+        background-image: url('../img/46.jpg');
+    }
+    .col-img-item:nth-child(14){
+        background-image: url('../img/16.2.jpg');
+    }
+    .col-img-item:nth-child(15){
+        background-image: url('../img/56.jpg');
     }
 }
 
@@ -219,9 +246,9 @@
 /*                           HERO SECTION ANIMATION                           */
 /* -------------------------------------------------------------------------- */
 
-/*
+
 .col-left .col-img-item{
-animation: left-col-animation linear 10s;
+animation: left-col-animation linear 20s;
 animation-iteration-count: infinite;
 transform-origin: 50% 50%;
 }
@@ -230,24 +257,23 @@ transform-origin: 50% 50%;
         transform:  translate(0px,-50px);
     }
     100% {
-        transform:  translate(0px, -2200px); 
+        transform:  translate(0px, -4500px); 
     }
 }
 
 .col-right .col-img-item{
-animation: animationFrames linear 10s;
+animation: animationFrames linear 20s;
 animation-iteration-count: infinite;
 transform-origin: 50% 50%;
 }
 @keyframes animationFrames{
     0% {
-        transform:  translate(0px,-2100px);
+        transform:  translate(0px, 50px);
     }
     100% {
-        transform:  translate(0px, -50px); 
+        transform:  translate(0px, -4450px); 
     }
-} */
-
+}
 
 /* -------------------------------------------------------------------------- */
 /*                         HERO SECTION MEDIA QUERIES                         */

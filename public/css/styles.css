@@ -361,7 +361,7 @@ p {
   border-radius: 16px;
   background-repeat: no-repeat;
   background-position: center center;
-  background-size: 105%;
+  background-size: 110%;
   transition: background-size .5s ease-in-out;
   filter: opacity(70%) saturate(80%) contrast(120%) drop-shadow(-3px 2px 6px #2B2D42);
 }
@@ -447,6 +447,7 @@ p {
 
 .col-left .col-img-item:nth-child(4) {
   background-image: url("../img/4.jpg");
+  background-position: top center;
 }
 
 .col-left .col-img-item:nth-child(5) {
@@ -467,6 +468,7 @@ p {
 
 .col-left .col-img-item:nth-child(9) {
   background-image: url("../img/9.jpg");
+  background-position: left center;
 }
 
 .col-left .col-img-item:nth-child(10) {
@@ -477,85 +479,120 @@ p {
   background-image: url("../img/11.png");
 }
 
+.col-left .col-img-item:nth-child(12) {
+  background-image: url("../img/21.jpg");
+}
+
+.col-left .col-img-item:nth-child(13) {
+  background-image: url("../img/49.jpg");
+}
+
+.col-left .col-img-item:nth-child(14) {
+  background-image: url("../img/45.jpg");
+}
+
+.col-left .col-img-item:nth-child(15) {
+  background-image: url("../img/12.jpg");
+}
+
 .col-right {
-  transform: translateY(75px);
+  transform: translateY(50px);
 }
 
 .col-right .col-img-item:nth-child(1) {
-  background-image: url("../img/1.jpg");
+  background-image: url("../img/13.jpg");
 }
 
 .col-right .col-img-item:nth-child(2) {
-  background-image: url("../img/2.jpg");
+  background-image: url("../img/14.jpg");
 }
 
 .col-right .col-img-item:nth-child(3) {
-  background-image: url("../img/3.jpg");
+  background-image: url("../img/62.jpg");
 }
 
 .col-right .col-img-item:nth-child(4) {
-  background-image: url("../img/4.jpg");
+  background-image: url("../img/34.jpg");
+  background-position: top center;
 }
 
 .col-right .col-img-item:nth-child(5) {
-  background-image: url("../img/5.jpg");
+  background-image: url("../img/17.2.jpg");
 }
 
 .col-right .col-img-item:nth-child(6) {
-  background-image: url("../img/6.png");
+  background-image: url("../img/18.jpg");
 }
 
 .col-right .col-img-item:nth-child(7) {
-  background-image: url("../img/7.jpg");
+  background-image: url("../img/37.jpg");
 }
 
 .col-right .col-img-item:nth-child(8) {
-  background-image: url("../img/8.jpg");
+  background-image: url("../img/24.jpg");
 }
 
 .col-right .col-img-item:nth-child(9) {
-  background-image: url("../img/9.jpg");
+  background-image: url("../img/19.jpg");
 }
 
 .col-right .col-img-item:nth-child(10) {
-  background-image: url("../img/10.jpg");
+  background-image: url("../img/40.jpg");
 }
 
 .col-right .col-img-item:nth-child(11) {
-  background-image: url("../img/11.png");
+  background-image: url("../img/27.jpg");
+}
+
+.col-right .col-img-item:nth-child(12) {
+  background-image: url("../img/30.jpg");
+}
+
+.col-right .col-img-item:nth-child(13) {
+  background-image: url("../img/46.jpg");
+}
+
+.col-right .col-img-item:nth-child(14) {
+  background-image: url("../img/16.2.jpg");
+}
+
+.col-right .col-img-item:nth-child(15) {
+  background-image: url("../img/56.jpg");
 }
 
 /* -------------------------------------------------------------------------- */
 /*                           HERO SECTION ANIMATION                           */
 /* -------------------------------------------------------------------------- */
-/*
-.col-left .col-img-item{
-animation: left-col-animation linear 10s;
-animation-iteration-count: infinite;
-transform-origin: 50% 50%;
-}
-@keyframes left-col-animation {
-    0% {
-        transform:  translate(0px,-50px);
-    }
-    100% {
-        transform:  translate(0px, -2200px); 
-    }
+.col-left .col-img-item {
+  animation: left-col-animation linear 20s;
+  animation-iteration-count: infinite;
+  transform-origin: 50% 50%;
 }
 
-.col-right .col-img-item{
-animation: animationFrames linear 10s;
-animation-iteration-count: infinite;
-transform-origin: 50% 50%;
+@keyframes left-col-animation {
+  0% {
+    transform: translate(0px, -50px);
+  }
+  100% {
+    transform: translate(0px, -4500px);
+  }
 }
-@keyframes animationFrames{
-    0% {
-        transform:  translate(0px,-2100px);
-    }
-    100% {
-        transform:  translate(0px, -50px); 
-    }
-} */
+
+.col-right .col-img-item {
+  animation: animationFrames linear 20s;
+  animation-iteration-count: infinite;
+  transform-origin: 50% 50%;
+}
+
+@keyframes animationFrames {
+  0% {
+    transform: translate(0px, 50px);
+  }
+  100% {
+    transform: translate(0px, -4450px);
+  }
+}
+
 /* -------------------------------------------------------------------------- */
 /*                         HERO SECTION MEDIA QUERIES                         */
 /* -------------------------------------------------------------------------- */
@@ -571,7 +608,7 @@ transform-origin: 50% 50%;
 
 #PreorderHeadlines {
   width: 50%;
-  background-color: green;
+  background-color: transparent;
 }
 
 #PreorderHeadlines .headlineinnerarea {

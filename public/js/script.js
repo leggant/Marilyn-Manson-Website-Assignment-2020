@@ -1,18 +1,4 @@
 /* -------------------------------------------------------------------------- */
-/*                          Mobile Menu Button Click                          */
-/* -------------------------------------------------------------------------- */
-
-/* 
-const menuBtn = document.querySelector('.menu-btn');
-const headerMobileMenu = document.querySelector('.site-main-header');
-menuBtn.addEventListener('click', () => {
-  menuBtn.classList.toggle('open');
-  headerMobileMenu.classList.toggle('open-mobile-main-menu');
-});
-
- */
-
-/* -------------------------------------------------------------------------- */
 /*                         HERO SECTION IMAGE CAROSEL                         */
 /* -------------------------------------------------------------------------- */
 
@@ -20,7 +6,6 @@ const headerImageDivs = document.querySelectorAll('.col-img-item');
 
  headerImageDivs.forEach((imgItem) => {
   imgItem.addEventListener('mouseover', () => {
-    //console.log(imgItem.classList);
     imgItem.classList.add("img-hover")
   })
   imgItem.addEventListener('mouseout', () =>{
@@ -95,15 +80,10 @@ preorderScrollObserver.observe(preorderSectionTarget)
 //console.log(preorderScrollObserver)
 
 async function preorderScroll(entries, preorderScrollObserver){
-  let pretitles = preorderHeadlineArea.getElementsByClassName('preorder-title');
-  let preordertarget = document.querySelectorAll('.album');
-  let preorderarray = Array.prototype.slice.call(preordertarget)
-  console.log(preorderScrollObserver);
-  entries.forEach((entry) => {
-    if(entry.isIntersecting) {
-      console.log(entry)
-    }
-  })
+  let pretitles = await preorderHeadlineArea.getElementsByClassName('preorder-title');
+  let preordertarget = await document.querySelectorAll('.album');
+  let preorderarray = await Array.prototype.slice.call(preordertarget)
+  console.log(preordertarget);
 }
 
 
