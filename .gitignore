@@ -2,4 +2,4 @@ node_modules/
 *.map
 debug.log
 .env
-public/img/unused images/
+/public/img/unused_images/
