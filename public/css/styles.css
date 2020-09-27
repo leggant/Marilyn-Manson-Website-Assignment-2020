@@ -560,6 +560,10 @@ p {
   background-image: url("../img/56.jpg");
 }
 
+.col-right .col-img-item:nth-child(16) {
+  background-image: url("../img/56.jpg");
+}
+
 /* -------------------------------------------------------------------------- */
 /*                           HERO SECTION ANIMATION                           */
 /* -------------------------------------------------------------------------- */
@@ -811,8 +815,65 @@ input[name="quotes"]:checked + .quotes-card {
     grid-template-columns: repeat(6, minmax(200px, 1fr));
 } */
 .main-footer {
+  position: relative;
+  height: 90vh;
+  padding: 15rem 0;
   background-color: transparent;
-  width: 90vw;
+  width: 60vw;
   margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-footer .footer-logo {
+  position: relative;
+  width: 200px;
+  margin-bottom: 5rem;
+}
+
+.main-footer .footer-logo .footer-logo-accent {
+  width: 50px;
+  height: 5px;
+  background-color: #E5478C;
+  display: inline-block;
+  position: absolute;
+  top: -5px;
+  left: 5px;
+}
+
+.footer-links {
+  margin-right: 5rem;
+}
+
+.footer-links i {
+  margin-right: 1rem;
+  color: #E5478C;
+}
+
+.footer-links-content {
+  display: flex;
+}
+
+.footer-links-content div:nth-child(1) {
+  margin-right: 10rem;
+  margin-bottom: 10rem;
+}
+
+.footer-link-section {
+  margin-top: 2rem;
+  display: flex;
+}
+
+.footer-link-item {
+  font-size: 2.5rem;
+  margin-bottom: 1.2rem;
+}
+
+.footer-copyright {
+  position: absolute;
+  bottom: 2rem;
+  left: 0px;
+  width: fit-content;
+  text-align: center;
 }
 /*# sourceMappingURL=styles.css.map */
