@@ -1,24 +1,62 @@
 .album-preorder-area {
-    background-color: gainsboro;
+    background-color: $preorder_BG;
+    color: $xgray;
     display: flex;
-}
-.headlineinnerarea{
-    h2.preorder-main-heading {
-        font-family: $boldHeading;
-        font-size: 5rem;
-    }
 }
 #PreorderHeadlines {
     width: 50%;
-    background-color: transparent;
+    background-color: $preorder_BG;
     .headlineinnerarea{
-        padding: 200px 0px 0 250px;
+        padding: 20rem 0px 0 25rem;
         height: 100vh;
         position: sticky;
         top: 0;
+        width: fit-content;
+        h2.preorder-main-heading {
+            font-family: $boldHeading;
+            font-size: 8rem;
+            transform: translateX(-10rem);
+            margin-bottom: 5rem;
+        }
+        .preorder-title {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            font-weight: 300;
+        }
     }
 }
 #NewAlbumPreOrder {
     width: 50%;
-    background-color: blue;
+    background-color: $preorder_BG;
+    #homepage-preorder {
+        margin: 0 auto;
+        .album {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            align-content: center;
+            margin-bottom: 100px;
+            .album-img-wrapper {
+                width: 50%;
+            }
+        }
+    }
+    #homepage-preorder div:nth-child(1){
+        .album-img-wrapper {
+            width: 65%;
+        }
+        h4{
+            margin-top: -120px;
+        }
+    }
+    #homepage-preorder div:nth-child(3){
+        h4{
+            margin-top: 50px;
+        }
+    }
+    #homepage-preorder div:nth-child(6){
+        h4{
+            margin-top: 50px;
+        }
+    }
 }

@@ -19,6 +19,7 @@ const headerImageDivs = document.querySelectorAll('.col-img-item');
 
  gsap.fromTo(".cta-headline", {opacity: 0, x:-20}, {opacity: 1, x: 0,  duration: 1})
  gsap.fromTo(".chaos", {width: 0, x:10}, {width:"60%", x:10, duration: 0.5, delay:0.5})
+ gsap.fromTo(".chaos-mobile", {width: 0, x:10}, {width:"80%", x:10, duration: 0.5, delay:0.5})
  gsap.fromTo(".cta-subheadline", {opacity: 0, y:-20}, {opacity: 1, y: 0,  duration: 0.5, delay:0.5})
 
 /* -------------------------------------------------------------------------- */

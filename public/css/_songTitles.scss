@@ -2,8 +2,8 @@
     position: relative;
     height: 100vh;
     display:flex;
-    overflow: hidden;
     margin-bottom: 10rem;
+    overflow: hidden;
     #video-bg {
         object-fit: cover;
         object-position: center center;
@@ -15,6 +15,36 @@
         z-index: -10;
         filter: opacity(50%) saturate(80%) contrast(120%) blur(5px);
     }
+}
+#song-title-heading {
+    width: 40%;
+    font-family: $songTitles;
+    font-size: 12rem;
+    color: $xgray;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    h2 {
+        font-family: $menuFont;
+        font-weight: 900;
+        font-size: 8rem;
+        line-height: .9;
+        word-spacing: 2rem;
+        letter-spacing: .2rem;
+        margin-bottom: 4rem;
+    }
+    p {
+        font-family: $menuFont;
+        font-weight: 300;
+        font-size: 4rem;
+        line-height: .9;
+        a:hover i, a:hover {
+            color: $mansonPink-color;
+        }
+    }
+}
+#song-title-tracks{
+    width: 60%;
     h2.songTitle-heading {
         font-family: $boldHeading;
         font-size: clamp(1.5rem, 4rem, 8rem);
