@@ -1,10 +1,11 @@
 #song-titles{
-    position: relative;
+    position: sticky;
+    top: 0px;
     height: 100vh;
     display:flex;
-    margin-bottom: 10rem;
-    overflow: hidden;
+    //margin-bottom: 10rem;
     #video-bg {
+        position: relative;
         object-fit: cover;
         object-position: center center;
         width: 100%;
@@ -17,11 +18,15 @@
     }
 }
 #song-title-heading {
+    top: 0;
     width: 40%;
+    margin-left: 50%;
+    z-index: 10;
     font-family: $songTitles;
     font-size: 12rem;
     color: $xgray;
     display: flex;
+    flex-direction: row-reverse;
     align-items: center;
     align-content: center;
     h2 {
@@ -50,7 +55,7 @@
         font-size: clamp(1.5rem, 4rem, 8rem);
     }
     .song-titles{
-        transform: translateX(-5rem) translateY(-10rem);
+        transform: translateX(-5rem) translateY(-1rem);
         .track-titles{
             font-family: $songTitles;
             font-size: 12rem;

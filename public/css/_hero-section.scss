@@ -49,14 +49,23 @@
     form {
         display: flex;
         button.cta-signup-btn {
+            width: 200px;
+            border-radius: 2rem;
             font-family: $boldHeading;
-            color: $GRYBlue;
+            color: $xgray;
+            margin-left: 1rem;
+            padding: 1.5rem;
+            background-color: $preorder_BG;
+            border: 2px solid $preorder_BG;
+            outline: none;
+            box-shadow: 12px 12px 20px #000a14,
+                        -8px -8px 15px #002447;
         }
         input[type=email], input[type=text] {
             font-family: $boldHeading;
             color: $GRYBlue;
-            padding: 1.2rem;
-            border-radius: 1.2rem;
+            padding: 1.5rem;
+            margin: -10px;
             box-sizing: border-box;
             border: none;
             outline: none;
@@ -67,6 +76,32 @@
                 border: none;
             }
         }
+        input[type=email] {
+            width: 200px;
+            border-radius: 1.2rem 0 0 1.2rem;
+        }
+        input[type=email]:focus, input[type=email]:focus-within, input[type=text]:focus, input[type=text]:focus-within {
+            width: 400px;
+        }
+        input[type=email]:hover, input[type=text]:hover, button.cta-signup-btn:hover, button.cta-signup-btn:active {
+            color: $mansonPink-color;
+            cursor: pointer;
+            outline: none;
+        }
+        input[type=text] {
+            width: 150px;
+            border-radius: 0 1.2rem 1.2rem 0;
+            border-left: 1px dashed rgba($color: #000000, $alpha: 0.8);
+        }
+    }
+    .cta-text {
+        margin-top: 2rem;
+    }
+    .cta-text i {
+        margin-left: 1rem;
+    }
+    .cta-text a:hover i, a:hover {
+        color: $mansonPink-color;
     }
 }
 .userInput{
@@ -280,8 +315,3 @@ transform-origin: 50% 50%;
         transform:  translate(0px, -4450px); 
     }
 }
-
-/* -------------------------------------------------------------------------- */
-/*                         HERO SECTION MEDIA QUERIES                         */
-/* -------------------------------------------------------------------------- */
-

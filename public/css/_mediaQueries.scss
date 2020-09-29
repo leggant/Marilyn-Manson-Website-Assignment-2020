@@ -1,10 +1,28 @@
 /* -------------------------------------------------------------------------- */
-/*                  SITE HEADER AND NAVIGATION MEDIA QUERIES                  */
-/* -------------------------------------------------------------------------- */
-/* -------------------------------------------------------------------------- */
-/*                  MOBILE SITE POP-UP MENU AND BURGER STYLES                 */
+/*                                MEDIA QUERIES                               */
 /* -------------------------------------------------------------------------- */
 
+
+/* ------------------------------- BREAKPOINTS ------------------------------ */
+
+$smallMobile: 360px;
+$largeMobile: 400px;
+$tablet: 1024px;
+$laptop: 1440px;
+$desktop: 1920px;
+$largeDesktop: 3840px;
+
+
+/* -------------------------------------------------------------------------- */
+/*                  SITE HEADER AND NAVIGATION MEDIA QUERIES                  */
+/* -------------------------------------------------------------------------- */
+@media only screen and (min-width: $smallMobile) {
+    .content-inner-wrapper {
+        width: 100vw;
+        margin: 0 auto;
+    }
+}
+/* 
 @media only screen and (max-width: 700px) {
     .content-inner-wrapper {
         width: 100vw;
@@ -14,7 +32,7 @@
         display: none;
     }
     .site-main-header {
-        height: 150px;
+        height: 100px;
         width: 100%;
         padding: 0 20px;
         font-family: $menuFont, sans-serif;
@@ -165,115 +183,17 @@
             }
         }
     }
-}
-    /*
-
-    .col-left .col-img-item{
-        animation: left-col-animation linear 20s;
-        animation-iteration-count: infinite;
-        transform-origin: 50% 50%;
-        }
-        @keyframes left-col-animation {
-            0% {
-                transform:  translate(0px,-75px);
-            }
-            100% {
-                transform:  translate(0px, -2175px); 
-            }
-        }
-    
-    .col-right .col-img-item{
-    animation: animationFrames linear 20s;
-    animation-iteration-count: infinite;
-    transform-origin: 50% 50%;
-    }
-    @keyframes animationFrames{
-        0% {
-            transform:  translate(0px, 50px);
-        }
-        100% {
-            transform:  translate(0px, -2100px); 
-        }
-    }
-}
-
-
-
-.menu-btn {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 80px;
-    height: 80px;
-    cursor: pointer;
-    transition: all .3s ease-in-out;
-    .menu_burger {
-        width: 40px;
-        height: 5px;
-        background-color: $mansonPink-color;
-        border-radius: 5px;
-        transition: all .3s ease-in-out;
-    }
-}
-.menu_burger::before,
-.menu_burger::after {
-    content:'';
-    position: absolute;
-    width: 40px;
-    height: 5px;
-    background-color: $mansonPink-color;
-    border-radius: 5px;
-    transition: all .3s ease-in-out;
-}
-.menu_burger::before {
-    transform: translateY(-12px);
-}
-.menu_burger::after {
-    transform: translateY(12px);
-}
-.menu-btn.open .menu_burger{
-    transform: translateX(-40px);
-    background-color: transparent;
-}
-.menu-btn.open .menu_burger::before{
-    transform: rotate(45deg) translate(35px, -35px);
-}
-.menu-btn.open .menu_burger::after{
-    transform: rotate(-45deg) translate(35px, 35px);
-}
-
-@media screen and (max-width: 720px) {
-    .main-nav-links {
-        display: none;
-    }
-    .open-mobile-main-menu {
-        flex-direction: column-reverse;
-        width: 100vw;
-        height: 100vh;
-        background-color: $GRYBlue;
-        z-index: 10;
-        img {
-            display: none;
-        }
-        .menu-btn {
-            z-index: 10;
-        }
-        .main-nav-links {
+    #Manson-Albums-Catalog {
+        display: grid;
+        grid-template-columns: repeat(1, .8fr);
+        gap: 1rem;
+        .album {
             display: flex;
-            margin: 3rem 3rem 0 0;
             flex-direction: column;
-            justify-content: space-around;
-            align-items: flex-end;
-            width: 100vw;
-            li{
-                margin-bottom: 3rem;
-                a{
-                    font-size: 3rem;
-                }
+            position: relative;
+            .album-title{
+                font-weight: 300;
             }
-        }   
+        }
     }
-}
-
- */
+} */

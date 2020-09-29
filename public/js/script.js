@@ -87,14 +87,17 @@ async function preorderScroll(entries, preorderScrollObserver){
   console.log(preordertarget);
 }
 
+/* -------------------------------------------------------------------------- */
+/*                               QUOTES SECTION                               */
+/* -------------------------------------------------------------------------- */
+
+function changeBGclr(col)
+{
+  const quotesection = document.getElementById('famousQuotes');
+	quotesection.style.backgroundColor=col.value;
+}
 
 
-
-// Quotes section
-
-const quoteSection = document.getElementById("famousQuotes");
-const quoteCardWrapper = document.getElementsByClassName("quotes-inner-wrapper");
-const quoteRadioButtons = quoteSection.querySelectorAll("input[type='radio']");
 
 /* -------------------------------------------------------------------------- */
 /*               Album Cover Information from theaudiodb API                  */
@@ -151,8 +154,6 @@ async function createCard(containerid, title, image, year){
   }
 }
 
-
-
 /* Scroll Up Menu Bar */
 
 let currentScroll = 0;
@@ -169,37 +170,3 @@ window.addEventListener("scroll", (xevent) =>{
   }
   currentScroll = window.scrollY;
 });
-
-/* -------------------------------------------------------------------------- */
-/*                               QUOTES SECTION                               */
-/* -------------------------------------------------------------------------- */
-
-/* const tabs = document.querySelectorAll('[data-target-tab]');
-const quoteContent = document.querySelectorAll('[data-tab-content]');
-tabs.forEach(tab => {
-  tab.addEventListener('click', () => {
-    const target = document.querySelector(tab.dataset.targetTab)
-    console.log(target)
-    quoteContent.forEach(quote => {
-      quote.classList.remove('active')
-      quote.classList.add('inactive')
-    })
-    target.classList.add('active')
-    target.classList.remove('inactive')
-  })
-}); */
-
-/* let quoteTimeLine = gsap.timeline({
-  scrollTrigger:{
-    trigger: "#famousQuotes",
-    markers: true,
-    pin: true,
-    start: "top top",
-    end: "+=500",
-    scrub: 1,
-    snap: {
-
-    }
-  }
-}); */
-
