@@ -4,3 +4,4 @@
 
 :musical_note: :musical_note::musical_note::musical_note::musical_note:
 
+Website allows users to signup for updates.  Signup details are added to a database file on the server.
