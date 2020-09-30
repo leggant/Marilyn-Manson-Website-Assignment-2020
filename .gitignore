@@ -4,5 +4,6 @@ debug.log
 .env
 /public/img/unused_images/
 *.db
+backupfiles/
 /public/index-backupfile.html
 /public/js/WEARECHAOSalbumInformation.json
