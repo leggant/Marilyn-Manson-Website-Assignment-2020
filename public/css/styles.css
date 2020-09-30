@@ -687,7 +687,7 @@ p {
 }
 
 #song-title-tracks .song-titles {
-  transform: translateX(-5rem) translateY(-1rem);
+  transform: translateX(-5rem);
 }
 
 #song-title-tracks .song-titles .track-titles {

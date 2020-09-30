@@ -55,7 +55,7 @@
         font-size: clamp(1.5rem, 4rem, 8rem);
     }
     .song-titles{
-        transform: translateX(-5rem) translateY(-1rem);
+        transform: translateX(-5rem);
         .track-titles{
             font-family: $songTitles;
             font-size: 12rem;
