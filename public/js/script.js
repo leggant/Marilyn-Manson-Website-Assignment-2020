@@ -25,7 +25,7 @@ const headerImageDivs = document.querySelectorAll('.col-img-item');
 /* -------------------------------------------------------------------------- */
 /*                         ALBUM PREORDER SECTION DATA                        */
 /* -------------------------------------------------------------------------- */
-
+/* 
 const preorderHeadlineArea = document.getElementById("preorderTitles");
 let albumPreorderData = [];
 
@@ -37,9 +37,12 @@ async function preorderHeadline(headline, option) {
   preorderHeadlineArea.appendChild(h2tag);
 }
 
+
+// No longer getting data from the api address
 async function loadAlbumPreorderInfo() {
-  const preorderDataJSON = 'js/WEARECHAOSalbumInformation.json';
+  const preorderDataJSON = 'https://marilynmanson.herokuapp.com/api/preorder';
   const preorder = await fetch(preorderDataJSON);
+  console.log(preorder);
   const preorderinfo = await preorder.json();
   createPreorder(preorderinfo.WEARECHAOSALBUM_PREORDER_INFO);
 }
@@ -68,23 +71,23 @@ async function createPreorderAlbum(containerid, title, image, index){
   divtag.appendChild(h4tag).innerHTML = title;
   h4tag.className = "album-title";
 }
-
+ */
 /* -------------------------------------------------------------------------- */
 /*                      PREORDER SECTION STICKY SCROLLING                     */
 /* -------------------------------------------------------------------------- */
-let preorderOptions = {
+/* let preorderOptions = {
   threshold: 1
 }
 let preorderScrollObserver = new IntersectionObserver(preorderScroll, preorderOptions);
 let preorderSectionTarget = document.getElementById('NewAlbumPreOrder');
-preorderScrollObserver.observe(preorderSectionTarget)
+preorderScrollObserver.observe(preorderSectionTarget) */
 //console.log(preorderScrollObserver)
 
-async function preorderScroll(entries, preorderScrollObserver){
+/* async function preorderScroll(entries, preorderScrollObserver){
   let pretitles = await preorderHeadlineArea.getElementsByClassName('preorder-title');
   let preordertarget = await document.querySelectorAll('.album');
   let preorderarray = await Array.prototype.slice.call(preordertarget)
-}
+} */
 
 /* -------------------------------------------------------------------------- */
 /*                               QUOTES SECTION                               */
