@@ -46,17 +46,6 @@ const preorders = [
     {
         "option": "5",
         "title" : "We Are Chaos",
-        "edition": "Infinite Darkness Picture Disc LP",
-        "price": "$35.00 USD",
-        "format": "Vinyl + MP3",
-        "release date" : "6 October 2020",
-        "shipping" : "7 October 2020",
-        "image": "/img/Album/picture-disc-vinyl.jpg",
-        "url": "https://uklomavistarecordings.ochre.store/release/199403-marilyn-manson-we-are-chaos"
-    },
-    {
-        "option": "6",
-        "title" : "We Are Chaos",
         "edition": "Exclusive Marbled Grey LP",
         "price": "$24.98 USD",
         "format": "Vinyl + MP3",

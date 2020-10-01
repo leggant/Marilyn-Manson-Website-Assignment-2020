@@ -190,10 +190,11 @@ p {
   grid-template-columns: repeat(2, minmax(200px, 20%)) 3fr;
   grid-column-gap: 20px;
   height: 100vh;
+  min-height: 100vh;
   overflow-y: hidden;
   font-family: "Montserrat", sans-serif, sans-serif;
   font-weight: 600;
-  padding: 0px 2rem;
+  padding: 0px 2rem 20px 2rem;
 }
 
 .hero-cta {
@@ -588,38 +589,50 @@ p {
 #NewAlbumPreOrder {
   width: 50%;
   background-color: #00152b;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
 }
 
 #NewAlbumPreOrder #homepage-preorder {
-  margin: 0 auto;
+  width: 70%;
 }
 
 #NewAlbumPreOrder #homepage-preorder .album {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  align-content: center;
-  margin-bottom: 100px;
+  align-items: flex-end;
+  align-content: flex-end;
+  margin-bottom: 20px;
 }
 
 #NewAlbumPreOrder #homepage-preorder .album .album-img-wrapper {
   width: 50%;
 }
 
-#NewAlbumPreOrder #homepage-preorder div:nth-child(1) .album-img-wrapper {
-  width: 65%;
+#NewAlbumPreOrder #homepage-preorder .album .album-title {
+  font-size: 6rem;
+  text-align: right;
+  line-height: 1;
+  margin: 2rem 0;
 }
 
-#NewAlbumPreOrder #homepage-preorder div:nth-child(1) h4 {
-  margin-top: -120px;
+#NewAlbumPreOrder #homepage-preorder .album .album-shipping {
+  width: 90%;
+  text-align: right;
+  font-size: 1.5rem;
+  font-weight: 300;
 }
 
-#NewAlbumPreOrder #homepage-preorder div:nth-child(3) h4 {
-  margin-top: 50px;
+#NewAlbumPreOrder #homepage-preorder .album .album-shipping span {
+  font-weight: 200;
 }
 
-#NewAlbumPreOrder #homepage-preorder div:nth-child(6) h4 {
-  margin-top: 50px;
+#NewAlbumPreOrder #homepage-preorder .album .album-price {
+  font-family: "Raleway", sans-serif;
+  width: 90%;
+  font-size: 2rem;
+  text-align: right;
+  line-height: 2;
 }
 
 #song-titles {
@@ -1145,12 +1158,13 @@ input[name="quotes"]:checked + .quotes-card {
   }
   .album-preorder-area #NewAlbumPreOrder #homepage-preorder {
     width: 90%;
-    padding-top: 2rem;
-    padding-bottom: 2rem;
+    margin: 0 auto;
   }
   .album-preorder-area #NewAlbumPreOrder #homepage-preorder .album {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    align-content: center;
     margin-bottom: 20px;
   }
   .album-preorder-area #NewAlbumPreOrder #homepage-preorder .album .album-img-wrapper {
@@ -1158,9 +1172,10 @@ input[name="quotes"]:checked + .quotes-card {
     margin-bottom: 10px;
   }
   .album-preorder-area #NewAlbumPreOrder #homepage-preorder .album .album-title {
-    text-align: left;
+    font-size: 4rem;
+    text-align: center;
     line-height: 1;
-    margin: 2rem 0;
+    margin: 2rem 2rem;
   }
   .album-preorder-area #NewAlbumPreOrder #homepage-preorder .album .album-shipping {
     width: 90%;
@@ -1201,6 +1216,57 @@ input[name="quotes"]:checked + .quotes-card {
   }
   .video-wrapper #song-title-tracks .song-titles .track-titles {
     display: none;
+  }
+  #famousQuotes {
+    height: 120vh;
+  }
+  #famousQuotes .quotes {
+    width: 100vw;
+    max-width: 100vw;
+  }
+  #famousQuotes .quotes .quotes-inner-wrapper .quotes-card {
+    margin-right: 0;
+    justify-content: space-around;
+  }
+  #famousQuotes .quotes .quotes-inner-wrapper .quotes-card i {
+    display: none;
+  }
+  #famousQuotes .quotes .quotes-inner-wrapper .quotes-card blockquote {
+    max-width: 90vw;
+  }
+  #famousQuotes .quotes .quotes-inner-wrapper .quotes-card blockquote p {
+    font-size: 2.5rem;
+  }
+  #famousQuotes .quotes .quotes-inner-wrapper .quotes-card .quote-name {
+    justify-content: space-around;
+  }
+  #famousQuotes .quotes .quotes-inner-wrapper .quotes-card .quote-name .quote-photo {
+    width: 150px;
+    height: 150px;
+  }
+  #famousQuotes .quotes .quotes-inner-wrapper .quotes-card:nth-child(2) i, #famousQuotes .quotes .quotes-inner-wrapper .quotes-card:nth-child(4) i {
+    display: flex;
+  }
+  #famousQuotes .quotes .quotes-inner-wrapper .quotes-card:nth-child(2) blockquote p, #famousQuotes .quotes .quotes-inner-wrapper .quotes-card:nth-child(4) blockquote p {
+    font-size: 3rem;
+  }
+  #famousQuotes .quotes .quotes-inner-wrapper .quotes-card:nth-child(2) .quote-name .quote-photo, #famousQuotes .quotes .quotes-inner-wrapper .quotes-card:nth-child(4) .quote-name .quote-photo {
+    width: 180px;
+    height: 180px;
+  }
+  #famousQuotes .quote-button-area {
+    margin: 0 auto;
+    display: flex;
+    width: 95%;
+    bottom: 1rem;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+  }
+  #famousQuotes .quote-button-area .quotecards-buttons {
+    width: 18%;
+    height: 35px;
+    margin-right: 2%;
   }
   #Manson-Albums-Catalog {
     display: grid;

@@ -7,10 +7,11 @@
     grid-template-columns: repeat(2, minmax(200px, 20%)) 3fr;
     grid-column-gap: 20px;
     height: 100vh;
+    min-height: 100vh;
     overflow-y:hidden;
     font-family: $defaultBodyFont, sans-serif;
     font-weight: 600;
-    padding: 0px 2rem;
+    padding: 0px 2rem 20px 2rem;
 }
 .hero-cta {
     display: flex;

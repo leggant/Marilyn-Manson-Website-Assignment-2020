@@ -220,20 +220,22 @@ $largeDesktop: 3840px;
             width: 100%;
             #homepage-preorder {
                 width: 90%;
-                padding-top: 2rem;
-                padding-bottom: 2rem;
+                margin: 0 auto;
                 .album {
                     display: flex;
                     flex-direction: column;
+                    align-items: center;
+                    align-content: center;
                     margin-bottom: 20px;
                     .album-img-wrapper {
                         width: 90%;
                         margin-bottom: 10px;
                     }
                     .album-title {
-                        text-align: left;
+                        font-size: 4rem;
+                        text-align: center;
                         line-height: 1;
-                        margin: 2rem 0;
+                        margin: 2rem 2rem;
                     }
                     .album-shipping {
                         width: 90%;
@@ -259,6 +261,8 @@ $largeDesktop: 3840px;
         }
     }
     //end album preorder
+
+     // song title area
     .video-wrapper {
         .song-title-section-wrapper {
             #song-title-heading {
@@ -286,9 +290,63 @@ $largeDesktop: 3840px;
             }
         }
     }
-    // song title area
-
     //end song title area
+
+    // start quotes area
+    #famousQuotes {
+        height: 120vh;
+        .quotes {
+            width: 100vw;
+            max-width: 100vw;
+            .quotes-inner-wrapper .quotes-card {
+                margin-right: 0;
+                justify-content: space-around;
+                i {
+                    display: none;
+                }
+                blockquote {
+                    max-width: 90vw;
+                    p {
+                        font-size: 2.5rem;
+                    }
+                }
+                .quote-name {
+                    justify-content: space-around;
+                    .quote-photo {
+                        width: 150px;
+                        height: 150px;
+                    }
+                }
+            }
+            .quotes-inner-wrapper .quotes-card:nth-child(2), .quotes-inner-wrapper .quotes-card:nth-child(4) {
+                i {
+                    display: flex;
+                }
+                blockquote p {
+                    font-size: 3rem;
+                }
+                .quote-name .quote-photo {
+                    width: 180px;
+                    height: 180px;
+                }
+            }
+        }
+        .quote-button-area {
+            margin: 0 auto;
+            display: flex;
+            width: 95%;
+            bottom: 1rem;
+            align-items: center;
+            align-content: center;
+            justify-content: center;
+            .quotecards-buttons {
+                width: 18%;
+                height: 35px;
+                margin-right: 2%;
+            }
+        }
+    }
+    //end quotes area
 
     //back catlog area
     #Manson-Albums-Catalog {
