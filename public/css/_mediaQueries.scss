@@ -5,7 +5,7 @@
 
 /* ------------------------------- BREAKPOINTS ------------------------------ */
 
-$smallMobile: 360px;
+$smallMobile: 250px;
 $largeMobile: 400px;
 $tablet: 1024px;
 $laptop: 1440px;
@@ -16,27 +16,22 @@ $largeDesktop: 3840px;
 /* -------------------------------------------------------------------------- */
 /*                  SITE HEADER AND NAVIGATION MEDIA QUERIES                  */
 /* -------------------------------------------------------------------------- */
-@media only screen and (min-width: $smallMobile) {
-    .content-inner-wrapper {
-        width: 100vw;
-        margin: 0 auto;
-    }
-}
-/* 
-@media only screen and (max-width: 700px) {
-    .content-inner-wrapper {
-        width: 100vw;
-        margin: 0 auto;
-    }
-    .site-main-header .main-nav-links{
-        display: none;
+@media only screen and (min-width: $smallMobile) and (max-width: $largeMobile) {
+    .site-main-header, .main-footer, .home-page {
+        width: 100%;
+        overflow: hidden;
     }
     .site-main-header {
-        height: 100px;
-        width: 100%;
-        padding: 0 20px;
         font-family: $menuFont, sans-serif;
+        height: 100px;
+        margin: 0 auto;
+        padding: 0 5px;
         display: flex;
+        justify-content: space-around;
+        align-items: center;
+        .main-nav-links {
+            display: none;
+        }
         a.logo-link{
             width: 150px;
             margin-right: 1rem;
@@ -99,19 +94,20 @@ $largeDesktop: 3840px;
             transform: rotate(-45deg) translate(35px, 35px);
         }
     }
+    // hero section
     .hero-container {
         display: grid;
         grid-template-columns: repeat(2, minmax(100px, 50%));
         grid-column-gap: 10px;
-        height: 90vh;
-        overflow-y:hidden;
+        height: 100vh;
+        overflow: hidden;
         font-family: $defaultBodyFont, sans-serif;
         font-weight: 600;
         padding: 0px 2rem;
         .col-img-item {
             position: relative;
             width: 100%;
-            height: 150px;
+            height: 130px;
             margin-bottom: 8px;
             background-color: $DKBlue_BG;
             border-radius: 16px;
@@ -121,68 +117,180 @@ $largeDesktop: 3840px;
             transition: background-size .5s ease-in-out;
             filter: opacity(70%) saturate(80%) contrast(120%) drop-shadow(-3px 2px 6px $GRYBlue);
         }
-    }
-    .col-left .col-img-item{
-        animation: left-col-animation linear 20s;
+        .col-left .col-img-item{
+            animation: left-col-animation linear 20s;
+            animation-iteration-count: infinite;
+            transform-origin: 50% 50%;
+            }
+            @keyframes left-col-animation {
+                0% {
+                    transform:  translate(0px,-75px);
+                }
+                100% {
+                    transform:  translate(0px, -2175px); 
+                }
+            }
+        .col-right .col-img-item{
+        animation: animationFrames linear 20s;
         animation-iteration-count: infinite;
         transform-origin: 50% 50%;
         }
-        @keyframes left-col-animation {
+        @keyframes animationFrames{
             0% {
-                transform:  translate(0px,-75px);
+                transform:  translate(0px, 50px);
             }
             100% {
-                transform:  translate(0px, -2175px); 
+                transform:  translate(0px, -2100px); 
             }
         }
-    .col-right .col-img-item{
-    animation: animationFrames linear 20s;
-    animation-iteration-count: infinite;
-    transform-origin: 50% 50%;
-    }
-    @keyframes animationFrames{
-        0% {
-            transform:  translate(0px, 50px);
-        }
-        100% {
-            transform:  translate(0px, -2100px); 
-        }
-    }
-    .hero-cta {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        z-index: 10;
-        position: absolute;
-        left: 3vw;
-        top: 15rem;
-        div{
+        .hero-cta {
             display: flex;
             flex-direction: column;
             align-items: center;
-            h2 {
-                font-size: 6rem;
-                text-align: center;
-                font-weight: 800;
-                letter-spacing: .1rem;
-                word-spacing: 1rem;
-                line-height: 1;
-                position: relative;
-                span.chaos-mobile{
-                    display: block;
-                    height: 1rem;
-                    width: 350px;
-                    background-color: $mansonPink-color;
-                    position: absolute;
-                    bottom: -1rem;
-                    left: 20px;
+            z-index: 10;
+            left: 3vw;
+            top: 15rem;
+            div{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                h2 {
+                    font-size: 6rem;
+                    text-align: center;
+                    font-weight: 800;
+                    letter-spacing: .1rem;
+                    word-spacing: 1rem;
+                    line-height: 1;
+                    position: relative;
+                    span.chaos-mobile{
+                        display: block;
+                        height: 1rem;
+                        width: 350px;
+                        background-color: $mansonPink-color;
+                        position: absolute;
+                        bottom: -1rem;
+                        left: 20px;
+                    }
+                    span.chaos{
+                        display: none;
+                    }
                 }
-                span.chaos{
-                    display: none;
+                h3 {
+                    text-align: center;
+                    font-size: 2rem;
+                }
+                #hero-form div {
+                    width: 80vw;
+                    display: flex;
+                    input[type=email], input[type=text] {
+                        width: 80%;
+                        border-radius: 1rem;
+                        font-size: 1rem;
+                        padding: 1rem;
+                    }
+                    input[type=email]:focus, input[type=email]:focus-within, input[type=text]:focus, input[type=text]:focus-within {
+                        width: 80%;
+                    }
+                    input[type=email] {
+                        margin-bottom: 2rem;
+                    }
+                    input[type=text] {
+                        border-left: none;
+                        margin-bottom: 2rem;
+                    }
+                    .cta-signup-btn {
+                        padding: 1rem;
+                    }
+                }
+                .cta-text {
+                    text-align: center;
+                    font-size: 2rem;
                 }
             }
         }
     }
+    // end hero section
+
+    //start album preorder
+    .album-preorder-area {
+        #PreorderHeadlines {
+            display: none;
+        }
+        #NewAlbumPreOrder {
+            width: 100%;
+            #homepage-preorder {
+                width: 90%;
+                padding-top: 2rem;
+                padding-bottom: 2rem;
+                .album {
+                    display: flex;
+                    flex-direction: column;
+                    margin-bottom: 20px;
+                    .album-img-wrapper {
+                        width: 90%;
+                        margin-bottom: 10px;
+                    }
+                    .album-title {
+                        text-align: left;
+                        line-height: 1;
+                        margin: 2rem 0;
+                    }
+                    .album-shipping {
+                        width: 90%;
+                        text-align: right;
+                        font-size: 1.5rem;
+                        font-weight: 300;
+                        span {
+                            font-weight: 200;
+                        }
+                    }
+                    .album-price {
+                        font-family: $boldHeading;
+                        width: 90%;
+                        font-size: 2rem;
+                        text-align: right;
+                        line-height: 2;
+                    }
+                }
+                div:nth-child(1) h4 {
+                    margin-top: 20px;
+                }
+            }
+        }
+    }
+    //end album preorder
+    .video-wrapper {
+        .song-title-section-wrapper {
+            #song-title-heading {
+                margin: 0 auto;
+                width: 90%;
+                div {
+                    width: 100%;
+                    .songTitle-heading {
+                        display: none;
+                    }
+                    .we-are-chaos-video {
+                        max-width: 0 auto;
+                        font-size: 6rem;
+                        line-height: 1.2;
+                        width: fit-content;
+                        font-weight: 500;
+                        text-align: center;
+                    }
+                }
+            }
+        }
+        #song-title-tracks {
+            .song-titles .track-titles {
+                display: none;
+            }
+        }
+    }
+    // song title area
+
+    //end song title area
+
+    //back catlog area
     #Manson-Albums-Catalog {
         display: grid;
         grid-template-columns: repeat(1, .8fr);
@@ -196,4 +304,9 @@ $largeDesktop: 3840px;
             }
         }
     }
-} */
+}
+//end of mobile styles
+
+// start tablet
+
+//end tablet

@@ -1,5 +1,5 @@
 <header id="main-header" class="site-main-header">
-    <a href="index.html" class="logo-link" aria-label="Websites Main Logo And Homepage Link">
+    <a href="/" class="logo-link" aria-label="Websites Main Logo And Homepage Link">
         <img id="site-logo" src="img/Marilyn-Manson-Logo.png" alt="Marilyn Manson Logo">
         <span class="logo-accent"></span>
     </a>
@@ -74,7 +74,7 @@
                 <h2 class="preorder-main-heading">Pre-order<br>We Are Chaos.</h2>
                 <div id="preorderTitles">
                     {{#each preorderalbum}}
-                    <h2 class="album-title preorder-title">{{this.edition}}</h2>
+                    <h2 id="preorderid-{{@key}}" class="album-title preorder-title">{{this.edition}}</h2>
                     {{/each}}
                 </div>
             </div>
@@ -82,12 +82,12 @@
         <section class="section-home-page" id="NewAlbumPreOrder">
             <div id="homepage-preorder">
                 {{#each preorderalbum}}
-                <div class="album">
+                <div id="preorderAlbum{{@key}}" class="album">
+                    <h4 class="album-title">{{this.edition}}</h4>
                     <div class="album-img-wrapper">
                         <img src="{{this.image}}" class="album-img">
                     </div>
-                    <h4 class="album-title">{{this.edition}}</h4>
-                    <h5 class="album-shipping">{{this.shipping}}</h5>
+                    <h5 class="album-shipping"><span>Est. Shipping Date: </span>{{this.shipping}}</h5>
                     <h6 class="album-price">{{this.price}}</h6>
                 </div>
                 {{/each}}
@@ -136,16 +136,17 @@
                 <p class="card-bar"></p>
                 <h3>Title</h3>
             </div>
-            3 cards each with:
+{{!--             3 cards each with:
             title area 
             thick border
             first one different contrast color to the first
             headline 
             large number as central focal point 
             button at the bottom of each 
-            and small text under the button
+            and small text under the button --}}
         </div>
         <div class="book-form-area">
+            <h2 class="sub-headline">Marilyn Manson by Perou: 21 Years in Hell</h2>
             <h3>Order Now</h3>
             <p>Subheading</p>
             <form action="">
@@ -160,7 +161,7 @@
                 <button type="submit">Place Order</button>
             </form>
         </div>
-        subtitle area with guarantee: Money-back guarantee. If Deskpass doesn’t work for you, just let us know.
+{{!--         subtitle area with guarantee: Money-back guarantee. If Deskpass doesn’t work for you, just let us know. --}}
         <form action="#">
             <input type="radio" name="something" id="cards-area" checked>
             <input type="radio" name="something" id="form-area">

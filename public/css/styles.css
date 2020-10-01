@@ -945,186 +945,275 @@ input[name="quotes"]:checked + .quotes-card {
 /* -------------------------------------------------------------------------- */
 /*                  SITE HEADER AND NAVIGATION MEDIA QUERIES                  */
 /* -------------------------------------------------------------------------- */
-@media only screen and (min-width: 360px) {
-  .content-inner-wrapper {
-    width: 100vw;
-    margin: 0 auto;
+@media only screen and (min-width: 250px) and (max-width: 400px) {
+  .site-main-header, .main-footer, .home-page {
+    width: 100%;
+    overflow: hidden;
   }
-}
-
-/* 
-@media only screen and (max-width: 700px) {
-    .content-inner-wrapper {
-        width: 100vw;
-        margin: 0 auto;
+  .site-main-header {
+    font-family: "Poppins", sans-serif, sans-serif;
+    height: 100px;
+    margin: 0 auto;
+    padding: 0 5px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+  .site-main-header .main-nav-links {
+    display: none;
+  }
+  .site-main-header a.logo-link {
+    width: 150px;
+    margin-right: 1rem;
+    top: 0px;
+  }
+  .site-main-header a.logo-link img {
+    cursor: pointer;
+  }
+  .site-main-header a.logo-link .logo-accent {
+    display: block;
+    width: 10px;
+    height: 4px;
+    background-color: #E5478C;
+    position: absolute;
+    border-radius: 5px;
+    left: 3px;
+    top: -2px;
+  }
+  .site-main-header .menu-btn {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 30px;
+    cursor: pointer;
+    transition: all .3s ease-in-out;
+  }
+  .site-main-header .menu-btn .menu_burger {
+    width: 40px;
+    height: 5px;
+    background-color: #ED33B9;
+    border-radius: 5px;
+    transition: all .3s ease-in-out;
+  }
+  .site-main-header .menu_burger::before,
+  .site-main-header .menu_burger::after {
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 5px;
+    background-color: #ED33B9;
+    border-radius: 5px;
+    transition: all .3s ease-in-out;
+  }
+  .site-main-header .menu_burger::before {
+    transform: translateY(-12px);
+  }
+  .site-main-header .menu_burger::after {
+    transform: translateY(12px);
+  }
+  .site-main-header .menu-btn.open .menu_burger {
+    transform: translateX(-40px);
+    background-color: transparent;
+  }
+  .site-main-header .menu-btn.open .menu_burger::before {
+    transform: rotate(45deg) translate(35px, -35px);
+  }
+  .site-main-header .menu-btn.open .menu_burger::after {
+    transform: rotate(-45deg) translate(35px, 35px);
+  }
+  .hero-container {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(100px, 50%));
+    grid-column-gap: 10px;
+    height: 100vh;
+    overflow: hidden;
+    font-family: "Montserrat", sans-serif, sans-serif;
+    font-weight: 600;
+    padding: 0px 2rem;
+  }
+  .hero-container .col-img-item {
+    position: relative;
+    width: 100%;
+    height: 130px;
+    margin-bottom: 8px;
+    background-color: #000C19;
+    border-radius: 16px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 110%;
+    transition: background-size .5s ease-in-out;
+    filter: opacity(70%) saturate(80%) contrast(120%) drop-shadow(-3px 2px 6px #2B2D42);
+  }
+  .hero-container .col-left .col-img-item {
+    animation: left-col-animation linear 20s;
+    animation-iteration-count: infinite;
+    transform-origin: 50% 50%;
+  }
+  @keyframes left-col-animation {
+    0% {
+      transform: translate(0px, -75px);
     }
-    .site-main-header .main-nav-links{
-        display: none;
+    100% {
+      transform: translate(0px, -2175px);
     }
-    .site-main-header {
-        height: 100px;
-        width: 100%;
-        padding: 0 20px;
-        font-family: $menuFont, sans-serif;
-        display: flex;
-        a.logo-link{
-            width: 150px;
-            margin-right: 1rem;
-            top:0px;
-            img{
-                cursor: pointer;
-            }
-            .logo-accent{
-                display: block;
-                width: 10px;
-                height: 4px;
-                background-color: $mansonLessPink;
-                position: absolute;
-                border-radius: 5px;
-                left: 3px;
-                top: -2px;
-            }
-        }
-        .menu-btn {
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 30px;
-            cursor: pointer;
-            transition: all .3s ease-in-out;
-            .menu_burger {
-                width: 40px;
-                height: 5px;
-                background-color: $mansonPink-color;
-                border-radius: 5px;
-                transition: all .3s ease-in-out;
-            }
-        }
-        .menu_burger::before,
-        .menu_burger::after {
-            content:'';
-            position: absolute;
-            width: 40px;
-            height: 5px;
-            background-color: $mansonPink-color;
-            border-radius: 5px;
-            transition: all .3s ease-in-out;
-        }
-        .menu_burger::before {
-            transform: translateY(-12px);
-        }
-        .menu_burger::after {
-            transform: translateY(12px);
-        }
-        .menu-btn.open .menu_burger{
-            transform: translateX(-40px);
-            background-color: transparent;
-        }
-        .menu-btn.open .menu_burger::before{
-            transform: rotate(45deg) translate(35px, -35px);
-        }
-        .menu-btn.open .menu_burger::after{
-            transform: rotate(-45deg) translate(35px, 35px);
-        }
-    }
-    .hero-container {
-        display: grid;
-        grid-template-columns: repeat(2, minmax(100px, 50%));
-        grid-column-gap: 10px;
-        height: 90vh;
-        overflow-y:hidden;
-        font-family: $defaultBodyFont, sans-serif;
-        font-weight: 600;
-        padding: 0px 2rem;
-        .col-img-item {
-            position: relative;
-            width: 100%;
-            height: 150px;
-            margin-bottom: 8px;
-            background-color: $DKBlue_BG;
-            border-radius: 16px;
-            background-repeat: no-repeat;
-            background-position: center center;
-            background-size: 110%;
-            transition: background-size .5s ease-in-out;
-            filter: opacity(70%) saturate(80%) contrast(120%) drop-shadow(-3px 2px 6px $GRYBlue);
-        }
-    }
-    .col-left .col-img-item{
-        animation: left-col-animation linear 20s;
-        animation-iteration-count: infinite;
-        transform-origin: 50% 50%;
-        }
-        @keyframes left-col-animation {
-            0% {
-                transform:  translate(0px,-75px);
-            }
-            100% {
-                transform:  translate(0px, -2175px); 
-            }
-        }
-    .col-right .col-img-item{
+  }
+  .hero-container .col-right .col-img-item {
     animation: animationFrames linear 20s;
     animation-iteration-count: infinite;
     transform-origin: 50% 50%;
+  }
+  @keyframes animationFrames {
+    0% {
+      transform: translate(0px, 50px);
     }
-    @keyframes animationFrames{
-        0% {
-            transform:  translate(0px, 50px);
-        }
-        100% {
-            transform:  translate(0px, -2100px); 
-        }
+    100% {
+      transform: translate(0px, -2100px);
     }
-    .hero-cta {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        z-index: 10;
-        position: absolute;
-        left: 3vw;
-        top: 15rem;
-        div{
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            h2 {
-                font-size: 6rem;
-                text-align: center;
-                font-weight: 800;
-                letter-spacing: .1rem;
-                word-spacing: 1rem;
-                line-height: 1;
-                position: relative;
-                span.chaos-mobile{
-                    display: block;
-                    height: 1rem;
-                    width: 350px;
-                    background-color: $mansonPink-color;
-                    position: absolute;
-                    bottom: -1rem;
-                    left: 20px;
-                }
-                span.chaos{
-                    display: none;
-                }
-            }
-        }
-    }
-    #Manson-Albums-Catalog {
-        display: grid;
-        grid-template-columns: repeat(1, .8fr);
-        gap: 1rem;
-        .album {
-            display: flex;
-            flex-direction: column;
-            position: relative;
-            .album-title{
-                font-weight: 300;
-            }
-        }
-    }
-} */
+  }
+  .hero-container .hero-cta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 10;
+    left: 3vw;
+    top: 15rem;
+  }
+  .hero-container .hero-cta div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .hero-container .hero-cta div h2 {
+    font-size: 6rem;
+    text-align: center;
+    font-weight: 800;
+    letter-spacing: .1rem;
+    word-spacing: 1rem;
+    line-height: 1;
+    position: relative;
+  }
+  .hero-container .hero-cta div h2 span.chaos-mobile {
+    display: block;
+    height: 1rem;
+    width: 350px;
+    background-color: #ED33B9;
+    position: absolute;
+    bottom: -1rem;
+    left: 20px;
+  }
+  .hero-container .hero-cta div h2 span.chaos {
+    display: none;
+  }
+  .hero-container .hero-cta div h3 {
+    text-align: center;
+    font-size: 2rem;
+  }
+  .hero-container .hero-cta div #hero-form div {
+    width: 80vw;
+    display: flex;
+  }
+  .hero-container .hero-cta div #hero-form div input[type=email], .hero-container .hero-cta div #hero-form div input[type=text] {
+    width: 80%;
+    border-radius: 1rem;
+    font-size: 1rem;
+    padding: 1rem;
+  }
+  .hero-container .hero-cta div #hero-form div input[type=email]:focus, .hero-container .hero-cta div #hero-form div input[type=email]:focus-within, .hero-container .hero-cta div #hero-form div input[type=text]:focus, .hero-container .hero-cta div #hero-form div input[type=text]:focus-within {
+    width: 80%;
+  }
+  .hero-container .hero-cta div #hero-form div input[type=email] {
+    margin-bottom: 2rem;
+  }
+  .hero-container .hero-cta div #hero-form div input[type=text] {
+    border-left: none;
+    margin-bottom: 2rem;
+  }
+  .hero-container .hero-cta div #hero-form div .cta-signup-btn {
+    padding: 1rem;
+  }
+  .hero-container .hero-cta div .cta-text {
+    text-align: center;
+    font-size: 2rem;
+  }
+  .album-preorder-area #PreorderHeadlines {
+    display: none;
+  }
+  .album-preorder-area #NewAlbumPreOrder {
+    width: 100%;
+  }
+  .album-preorder-area #NewAlbumPreOrder #homepage-preorder {
+    width: 90%;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+  .album-preorder-area #NewAlbumPreOrder #homepage-preorder .album {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+  }
+  .album-preorder-area #NewAlbumPreOrder #homepage-preorder .album .album-img-wrapper {
+    width: 90%;
+    margin-bottom: 10px;
+  }
+  .album-preorder-area #NewAlbumPreOrder #homepage-preorder .album .album-title {
+    text-align: left;
+    line-height: 1;
+    margin: 2rem 0;
+  }
+  .album-preorder-area #NewAlbumPreOrder #homepage-preorder .album .album-shipping {
+    width: 90%;
+    text-align: right;
+    font-size: 1.5rem;
+    font-weight: 300;
+  }
+  .album-preorder-area #NewAlbumPreOrder #homepage-preorder .album .album-shipping span {
+    font-weight: 200;
+  }
+  .album-preorder-area #NewAlbumPreOrder #homepage-preorder .album .album-price {
+    font-family: "Raleway", sans-serif;
+    width: 90%;
+    font-size: 2rem;
+    text-align: right;
+    line-height: 2;
+  }
+  .album-preorder-area #NewAlbumPreOrder #homepage-preorder div:nth-child(1) h4 {
+    margin-top: 20px;
+  }
+  .video-wrapper .song-title-section-wrapper #song-title-heading {
+    margin: 0 auto;
+    width: 90%;
+  }
+  .video-wrapper .song-title-section-wrapper #song-title-heading div {
+    width: 100%;
+  }
+  .video-wrapper .song-title-section-wrapper #song-title-heading div .songTitle-heading {
+    display: none;
+  }
+  .video-wrapper .song-title-section-wrapper #song-title-heading div .we-are-chaos-video {
+    max-width: 0 auto;
+    font-size: 6rem;
+    line-height: 1.2;
+    width: fit-content;
+    font-weight: 500;
+    text-align: center;
+  }
+  .video-wrapper #song-title-tracks .song-titles .track-titles {
+    display: none;
+  }
+  #Manson-Albums-Catalog {
+    display: grid;
+    grid-template-columns: repeat(1, 0.8fr);
+    gap: 1rem;
+  }
+  #Manson-Albums-Catalog .album {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+  #Manson-Albums-Catalog .album .album-title {
+    font-weight: 300;
+  }
+}
 /*# sourceMappingURL=styles.css.map */

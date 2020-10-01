@@ -5,6 +5,8 @@ const preorderalbum = require('./Preorders');
 const dbase = require('nedb');
 require('dotenv/config');
 const app = express();
+
+
 //const spotify = require('./Spotify');
 
 // Handlebars Middleware
@@ -16,7 +18,7 @@ app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 
 // Homepage Route
-app.get('/', (req, res) => res.render('preorder', {
+app.get('/', (req, res) => res.render('homepage', {
     preorderalbum
 })
 );
