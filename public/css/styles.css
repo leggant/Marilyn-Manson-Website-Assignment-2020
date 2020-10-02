@@ -958,7 +958,7 @@ input[name="quotes"]:checked + .quotes-card {
 /* -------------------------------------------------------------------------- */
 /*                  SITE HEADER AND NAVIGATION MEDIA QUERIES                  */
 /* -------------------------------------------------------------------------- */
-@media only screen and (min-width: 250px) and (max-width: 400px) {
+@media only screen and (min-width: 250px) and (max-width: 500px) {
   .site-main-header, .main-footer, .home-page {
     width: 100%;
     overflow: hidden;
@@ -1280,6 +1280,177 @@ input[name="quotes"]:checked + .quotes-card {
   }
   #Manson-Albums-Catalog .album .album-title {
     font-weight: 300;
+  }
+}
+
+@media only screen and (min-width: 440px) and (max-width: 700px) {
+  .hero-container {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(100px, 50%));
+    grid-column-gap: 10px;
+    height: 100vh;
+    overflow: hidden;
+    font-family: "Montserrat", sans-serif, sans-serif;
+    font-weight: 600;
+    padding: 0px 2rem;
+  }
+  .hero-container .col-img-item {
+    position: relative;
+    width: 100%;
+    height: 180px;
+    margin-bottom: 8px;
+    background-color: #000C19;
+    border-radius: 16px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 110%;
+    transition: background-size .5s ease-in-out;
+    filter: opacity(70%) saturate(80%) contrast(120%) drop-shadow(-3px 2px 6px #2B2D42);
+  }
+  .hero-container .col-left .col-img-item {
+    animation: left-col-animation linear 20s;
+    animation-iteration-count: infinite;
+    transform-origin: 50% 50%;
+  }
+  @keyframes left-col-animation {
+    0% {
+      transform: translate(0px, -75px);
+    }
+    100% {
+      transform: translate(0px, -2175px);
+    }
+  }
+  .hero-container .col-right .col-img-item {
+    animation: animationFrames linear 20s;
+    animation-iteration-count: infinite;
+    transform-origin: 50% 50%;
+  }
+  @keyframes animationFrames {
+    0% {
+      transform: translate(0px, 50px);
+    }
+    100% {
+      transform: translate(0px, -2100px);
+    }
+  }
+  .hero-container .hero-cta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 10;
+    left: 3vw;
+    top: 12rem;
+  }
+  .hero-container .hero-cta div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .hero-container .hero-cta div h2 {
+    font-size: 6rem;
+    text-align: center;
+    font-weight: 800;
+    letter-spacing: .1rem;
+    word-spacing: 1rem;
+    line-height: 1;
+    position: relative;
+  }
+  .hero-container .hero-cta div h2 span.chaos-mobile {
+    display: block;
+    height: 1rem;
+    width: 350px;
+    background-color: #ED33B9;
+    position: absolute;
+    bottom: -1rem;
+    left: 20px;
+  }
+  .hero-container .hero-cta div h2 span.chaos {
+    display: none;
+  }
+  .hero-container .hero-cta div h3 {
+    margin-top: 4rem;
+    text-align: center;
+    font-size: 3rem;
+  }
+  .hero-container .hero-cta div #hero-form div {
+    width: 80vw;
+    display: flex;
+    flex-direction: row;
+    flex-flow: wrap;
+    align-items: center;
+    align-content: center;
+  }
+  .hero-container .hero-cta div #hero-form div input[type=email], .hero-container .hero-cta div #hero-form div input[type=text] {
+    width: 50%;
+    border-radius: 1rem;
+    font-size: 1.5rem;
+    padding: 1rem;
+  }
+  .hero-container .hero-cta div #hero-form div input[type=email]:focus, .hero-container .hero-cta div #hero-form div input[type=email]:focus-within, .hero-container .hero-cta div #hero-form div input[type=text]:focus, .hero-container .hero-cta div #hero-form div input[type=text]:focus-within {
+    width: 50%;
+  }
+  .hero-container .hero-cta div #hero-form div input[type=email] {
+    margin-right: 2rem;
+    margin-bottom: 2rem;
+  }
+  .hero-container .hero-cta div #hero-form div input[type=text] {
+    border-left: none;
+    margin-bottom: 2rem;
+  }
+  .hero-container .hero-cta div #hero-form div .cta-signup-btn {
+    margin: 0 auto;
+    width: 80%;
+    padding: 1rem;
+  }
+  .hero-container .hero-cta div .cta-text {
+    text-align: center;
+    font-size: 2rem;
+  }
+  .album-preorder-area #PreorderHeadlines {
+    display: none;
+  }
+  .album-preorder-area #NewAlbumPreOrder {
+    width: 100%;
+  }
+  .album-preorder-area #NewAlbumPreOrder #homepage-preorder {
+    width: 90%;
+    margin: 0 auto;
+  }
+  .album-preorder-area #NewAlbumPreOrder #homepage-preorder .album {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    margin-bottom: 20px;
+  }
+  .album-preorder-area #NewAlbumPreOrder #homepage-preorder .album .album-img-wrapper {
+    width: 60%;
+    margin-bottom: 10px;
+  }
+  .album-preorder-area #NewAlbumPreOrder #homepage-preorder .album .album-title {
+    font-size: 4rem;
+    text-align: center;
+    line-height: 1;
+    margin: 2rem 2rem;
+  }
+  .album-preorder-area #NewAlbumPreOrder #homepage-preorder .album .album-shipping {
+    width: 90%;
+    text-align: right;
+    font-size: 1.5rem;
+    font-weight: 300;
+  }
+  .album-preorder-area #NewAlbumPreOrder #homepage-preorder .album .album-shipping span {
+    font-weight: 200;
+  }
+  .album-preorder-area #NewAlbumPreOrder #homepage-preorder .album .album-price {
+    font-family: "Raleway", sans-serif;
+    width: 90%;
+    font-size: 2rem;
+    text-align: right;
+    line-height: 2;
+  }
+  .album-preorder-area #NewAlbumPreOrder #homepage-preorder div:nth-child(1) h4 {
+    margin-top: 20px;
   }
 }
 /*# sourceMappingURL=styles.css.map */
