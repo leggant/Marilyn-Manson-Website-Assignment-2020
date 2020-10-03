@@ -351,15 +351,32 @@ $largeDesktop: 3840px;
 
     //back catlog area
     #Manson-Albums-Catalog {
+        margin: 0 auto;
         display: grid;
-        grid-template-columns: repeat(1, .8fr);
+        grid-template-columns: repeat(2, auto);
         gap: 1rem;
         .album {
             display: flex;
             flex-direction: column;
-            position: relative;
+            position: static;
+            align-content: space-between;
             .album-title{
-                font-weight: 300;
+                margin-top: 1.5rem;
+                font-size: 2rem;
+                font-weight: 600;
+                height: 100%;
+                text-align: right;
+            }
+            .year-of-release {
+                font-size: 1.5rem;
+                text-align: right;
+            }
+            .album-img-wrapper {
+                width: 100%;
+            }
+            .album-img-wrapper img {
+                width: 100%;
+                height: 25vh;
             }
         }
     }

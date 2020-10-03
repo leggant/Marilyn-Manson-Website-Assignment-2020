@@ -1269,17 +1269,34 @@ input[name="quotes"]:checked + .quotes-card {
     margin-right: 2%;
   }
   #Manson-Albums-Catalog {
+    margin: 0 auto;
     display: grid;
-    grid-template-columns: repeat(1, 0.8fr);
+    grid-template-columns: repeat(2, auto);
     gap: 1rem;
   }
   #Manson-Albums-Catalog .album {
     display: flex;
     flex-direction: column;
-    position: relative;
+    position: static;
+    align-content: space-between;
   }
   #Manson-Albums-Catalog .album .album-title {
-    font-weight: 300;
+    margin-top: 1.5rem;
+    font-size: 2rem;
+    font-weight: 600;
+    height: 100%;
+    text-align: right;
+  }
+  #Manson-Albums-Catalog .album .year-of-release {
+    font-size: 1.5rem;
+    text-align: right;
+  }
+  #Manson-Albums-Catalog .album .album-img-wrapper {
+    width: 100%;
+  }
+  #Manson-Albums-Catalog .album .album-img-wrapper img {
+    width: 100%;
+    height: 25vh;
   }
 }
 
