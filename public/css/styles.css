@@ -710,9 +710,18 @@ p {
   filter: drop-shadow(1px 1px 2px #c7c6c6) drop-shadow(-5px -2px 5px #000C19);
 }
 
-#spotify {
-  position: relative;
-  height: 100vh;
+#spotify-section {
+  width: 90vw;
+  margin: 0 auto;
+}
+
+#spotify-section .spotify-cards-area {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#spotify-section .spotify-cards-area .spotify-top-track-item img {
+  width: 200px;
 }
 
 /* -------------------------------------------------------------------------- */

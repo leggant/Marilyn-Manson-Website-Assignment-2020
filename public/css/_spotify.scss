@@ -1,6 +1,14 @@
 //NEW ALBUM HOMEPAGE SECTION
 
-#spotify {
-    position: relative;
-    height: 100vh;
+#spotify-section {
+    width: 90vw;
+    margin: 0 auto;
+    .spotify-cards-area {
+
+        display: flex;
+        flex-wrap: wrap;
+        .spotify-top-track-item img{
+            width: 200px;
+        }
+    }
 }

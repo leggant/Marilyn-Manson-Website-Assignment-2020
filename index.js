@@ -98,8 +98,7 @@ spotify
 app.get('/', (req, res) => res.render('homepage', {
     preorderalbum,
     spotifyInfo, 
-    SpotifyTotalFollowers,
-    SpotifyCountryCode
+    SpotifyTotalFollowers
 }));
 
 // Set Static Path

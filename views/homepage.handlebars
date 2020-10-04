@@ -134,12 +134,16 @@
             <option value=""></option>
             <option value="nz" >New Zealand</option>
         </select>
-        <div class="cards-area">
+        <div class="spotify-cards-area">
             {{#each spotifyInfo}}
-            <article class="spotify-top-track" id="spotify-track-{{this.rank}}">
+            <article class="spotify-top-track-item" id="spotify-track-{{this.rank}}">
                 <div>
-                    <h2><i class="fa fa-volume-up" aria-hidden="true"></i>#{{this.rank}} {{this.trackname}}</h2>
+                    <h2><i class="fa fa-volume-up" aria-hidden="true"></i> #{{this.rank}} {{this.trackname}}</h2>
                     <a href="{{this.spotifytrackurl}}" target="_blank"><img src="{{this.albumimage}}" alt="Spotify Image Link to {{this.trackname}} track"></a>
+                </div>
+                <div>
+                    <h4>From: {{this.albumname}}</h4>
+                    <a href="{{this.spotifytrackurl}}" target="_blank"><i class="fa fa-spotify" aria-hidden="true"></i> Listen to {{this.trackname}} here</a>
                 </div>
             </article>
             {{/each}}
