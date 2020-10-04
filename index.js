@@ -9,12 +9,12 @@ require('dotenv/config');
 const app = express();
 
 // Handlebars Middleware
-app.engine('handlebars', exphbs({defaultLayout: 'main'}));
+app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
 app.set('view engine', 'handlebars');
 
 // body parser middleware
 app.use(express.json());
-app.use(express.urlencoded({extended: false}));
+app.use(express.urlencoded({ extended: false }));
 
 // Spotify Middleware
 let spotify = new SpotifyAPI({
@@ -22,35 +22,86 @@ let spotify = new SpotifyAPI({
     secret: process.env.SPOTIFY_APP_SECRET
 });
 
-spotify.request('https://api.spotify.com/v1/artists/2VYQTNDsvvKN9wmU5W7xpj/top-tracks?market=NZ')
-.then(function(data) {
-    returnInfo(data.tracks); 
+//constants
+const spotifyInfo = [];
+const SpotifyTotalFollowers = [];
+const SpotifyCountryCode = [];
+const SpotifyMansonAlbums = [];
+
+// get the users location for spotify market specific data
+
+// get NZ album data from spotify
+
+spotify.request(`https://api.spotify.com/v1/artists/${process.env.SPOTIFYMARILYNMANSONID}/albums?include_groups=album&market=${process.env.SPOTIFYCOUNTRYCODE}`)
+.then(function(data){
+    //mansonAlbumData(data.items);
 })
-.catch(function(err) {
-  console.error('Error occurred: ' + err); 
+.catch(function(err){
+    console.error('Error occurred: ' + err);
 });
 
-const spotifyInfo = [{}];
+
+// get top ten marilyn manson tracks for NZ
+
+spotify.request(`https://api.spotify.com/v1/artists/${process.env.SPOTIFYMARILYNMANSONID}/top-tracks?market=${process.env.SPOTIFYCOUNTRYCODE}`)
+    .then(function(data) {
+        returnInfo(data.tracks);
+    })
+    .catch(function(err) {
+        console.error('Error occurred: ' + err);
+});
 
 function returnInfo(data) {
     data.forEach((element, index) => {
-        //spotifyInfo.append(element.name);//, element.album.name, element.album.release_date, element.artists[0].name, element.artists[0].external_urls.spotify, element.album.images[2].url, element.album.external_urls.spotify);
-        console.log(element.name);
-        console.log(element.album.name);
-        console.log(element.album.release_date);
-        console.log(element.artists[0].name);
-        console.log(element.artists[0].external_urls.spotify);
-        console.log(element.album.images[2].url);
-        console.log(element.album.external_urls.spotify);
+        spotifyInfo[index] = {
+            rank: index + 1,
+            trackname: element.name,
+            albumname: element.album.name,
+            popularity: element.popularity,
+            releasedate: element.album.release_date,
+            albumimage: element.album.images[1].url,
+            spotifytrackurl: element.external_urls.spotify,
+            spotifyartisturl: element.artists[0].external_urls.spotify,
+            spotifyalbumurl: element.album.external_urls.spotify
+        };
     });
 }
+
+// Get total manson Followers on spotify
+
+spotify
+  .search({ type: 'artist', query: 'Marilyn Manson' })
+  .then(function(data) {
+    totalFollowers(data.artists.items[0].followers.total);
+  })
+  .catch(function(err) {
+    console.log(err);
+  });
+
+function totalFollowers(data) {
+    SpotifyTotalFollowers[0] = {
+        followers: data
+    }
+}
+// Available Markets - use to populate select form element
+spotify
+  .search({ type: 'album', query: 'Marilyn Manson' })
+  .then(function(data) {
+    //console.log(data.albums.items[1].name, data.albums.items[1]);
+  })
+  .catch(function(err) {
+    console.log(err);
+  });
 
 
 // Homepage Route
 app.get('/', (req, res) => res.render('homepage', {
-    preorderalbum
-})
-);
+    preorderalbum,
+    spotifyInfo, 
+    SpotifyTotalFollowers,
+    SpotifyCountryCode
+}));
+
 // Set Static Path
 app.use(express.static('public'));
 

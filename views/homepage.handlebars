@@ -123,29 +123,35 @@
             </ol>
         </section>
     </div>
-    <section class="section-home-page" id="spotify">
+
+
+    <section class="section-home-page" id="spotify-section">
+        <h2>Top 10 Marilyn Manson <i class="fa fa-spotify" aria-hidden="true"></i>Spotify Tracks</h2>
+        {{#each SpotifyTotalFollowers}}
+        <h3 class="sub-headline">Spotify Followers: {{this.followers}}</h3>
+        {{/each}}
+        <select name="" id="">
+            <option value=""></option>
+            <option value="nz" >New Zealand</option>
+        </select>
         <div class="cards-area">
-            <h2>Top 10 Marilyn Manson <i class="fa fa-spotify" aria-hidden="true"></i>Spotify Tracks</h2>
-            <h5 class="sub-headline">Subtitle</h5>
-            <ul>
-                <li><i class="fa fa-volume-up" aria-hidden="true"></i>list item 1</li>
-                <li><i class="fa fa-volume-up" aria-hidden="true"></i>list item 2</li>
-                <li><i class="fa fa-volume-up" aria-hidden="true"></i>list item 3</li>
-            </ul>
-            <div class="booksection_card">
-                <p class="card-bar"></p>
-                <h3>Title</h3>
-            </div>
-{{!--             3 cards each with:
-            title area 
-            thick border
-            first one different contrast color to the first
-            headline 
-            large number as central focal point 
-            button at the bottom of each 
-            and small text under the button --}}
+            {{#each spotifyInfo}}
+            <article class="spotify-top-track" id="spotify-track-{{this.rank}}">
+                <div>
+                    <h2><i class="fa fa-volume-up" aria-hidden="true"></i>#{{this.rank}} {{this.trackname}}</h2>
+                    <a href="{{this.spotifytrackurl}}" target="_blank"><img src="{{this.albumimage}}" alt="Spotify Image Link to {{this.trackname}} track"></a>
+                </div>
+            </article>
+            {{/each}}
         </div>
-        <div class="book-form-area">
+    </section>
+
+
+    <section class="book-form-area" id="booksection">
+            <div class="booksection_card">
+            <p class="card-bar"></p>
+            <h3>Title</h3>
+            </div>
             <h2 class="sub-headline">Marilyn Manson by Perou: 21 Years in Hell</h2>
             <h3>Order Now</h3>
             <p>Subheading</p>
@@ -160,9 +166,8 @@
                 <textarea name="" id="" cols="30" rows="10"></textarea>
                 <button type="submit">Place Order</button>
             </form>
-        </div>
-{{!--         subtitle area with guarantee: Money-back guarantee. If Deskpass doesn’t work for you, just let us know. --}}
-        <form action="#">
+        </section>
+        <form action="">
             <input type="radio" name="something" id="cards-area" checked>
             <input type="radio" name="something" id="form-area">
         </form>
