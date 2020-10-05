@@ -25,21 +25,21 @@ let spotify = new SpotifyAPI({
 //constants
 const spotifyInfo = [];
 const SpotifyTotalFollowers = [];
-const SpotifyCountryCode = [];
+/* const SpotifyCountryCode = [];
 const SpotifyMansonAlbums = [];
-
+ */
 // get the users location for spotify market specific data
 
 // get NZ album data from spotify
 
-spotify.request(`https://api.spotify.com/v1/artists/${process.env.SPOTIFYMARILYNMANSONID}/albums?include_groups=album&market=${process.env.SPOTIFYCOUNTRYCODE}`)
+/* spotify.request(`https://api.spotify.com/v1/artists/${process.env.SPOTIFYMARILYNMANSONID}/albums?include_groups=album&market=${process.env.SPOTIFYCOUNTRYCODE}`)
 .then(function(data){
     //mansonAlbumData(data.items);
 })
 .catch(function(err){
     console.error('Error occurred: ' + err);
 });
-
+ */
 
 // get top ten marilyn manson tracks for NZ
 
@@ -84,7 +84,7 @@ function totalFollowers(data) {
     }
 }
 // Available Markets - use to populate select form element
-spotify
+/* spotify
   .search({ type: 'album', query: 'Marilyn Manson' })
   .then(function(data) {
     //console.log(data.albums.items[1].name, data.albums.items[1]);
@@ -92,7 +92,7 @@ spotify
   .catch(function(err) {
     console.log(err);
   });
-
+ */
 
 // Homepage Route
 app.get('/', (req, res) => res.render('homepage', {
