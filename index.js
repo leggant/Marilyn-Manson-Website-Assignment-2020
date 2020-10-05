@@ -97,8 +97,8 @@ function totalFollowers(data) {
 // Homepage Route
 app.get('/', (req, res) => res.render('homepage', {
     preorderalbum,
-    spotifyInfo, 
-    SpotifyTotalFollowers
+    spotifyInfo/* , 
+    SpotifyTotalFollowers */
 }));
 
 // Set Static Path
