@@ -1,4 +1,5 @@
 const express = require('express');
+const cors = require('cors');
 const path = require('path');
 const exphbs = require('express-handlebars');
 const preorderalbum = require('./Preorders');
@@ -16,30 +17,68 @@ app.set('view engine', 'handlebars');
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
+// cors middleware
+app.use(cors());
+
 // Spotify Middleware
 let spotify = new SpotifyAPI({
     id: process.env.SPOTIFY_APP_USER_ID,
     secret: process.env.SPOTIFY_APP_SECRET
 });
 
-//constants
+// spotify constants
 const spotifyInfo = [];
 const SpotifyTotalFollowers = [];
-/* const SpotifyCountryCode = [];
-const SpotifyMansonAlbums = [];
- */
-// get the users location for spotify market specific data
+let SpotifyMansonAlbums = [];
 
+// spotify functions
+function totalFollowers(data) {
+  SpotifyTotalFollowers[0] = {
+      followers: data
+  };
+};
+
+function returnInfo(data) {
+  data.forEach((element, index) => {
+      spotifyInfo[index] = {
+          rank: index + 1,
+          trackname: element.name,
+          albumname: element.album.name,
+          popularity: element.popularity,
+          releasedate: element.album.release_date,
+          albumimage: element.album.images[1].url,
+          spotifytrackurl: element.external_urls.spotify,
+          spotifyartisturl: element.artists[0].external_urls.spotify,
+          spotifyalbumurl: element.album.external_urls.spotify
+      };
+  });
+};
+
+function mansonAlbumData(data) {
+  data.forEach((element, index) => {
+    SpotifyMansonAlbums[index] = {
+          albumname: element.name,
+          numTracks: element.total_tracks,
+          releasedate: element.release_date,
+          albumimage: element.images[1].url,
+          spotifyartisturl: element.artists[0].href,
+          spotifyalbumurl: element.external_urls.spotify
+      };
+  });
+};
+
+
+// get the users location for spotify market specific data
 // get NZ album data from spotify
 
-/* spotify.request(`https://api.spotify.com/v1/artists/${process.env.SPOTIFYMARILYNMANSONID}/albums?include_groups=album&market=${process.env.SPOTIFYCOUNTRYCODE}`)
+spotify.request(`https://api.spotify.com/v1/artists/${process.env.SPOTIFYMARILYNMANSONID}/albums?include_groups=album&market=${process.env.SPOTIFYCOUNTRYCODE}`)
 .then(function(data){
-    //mansonAlbumData(data.items);
+    mansonAlbumData(data.items);
 })
 .catch(function(err){
     console.error('Error occurred: ' + err);
 });
- */
+
 
 // get top ten marilyn manson tracks for NZ
 
@@ -51,21 +90,7 @@ spotify.request(`https://api.spotify.com/v1/artists/${process.env.SPOTIFYMARILYN
         console.error('Error occurred: ' + err);
 });
 
-function returnInfo(data) {
-    data.forEach((element, index) => {
-        spotifyInfo[index] = {
-            rank: index + 1,
-            trackname: element.name,
-            albumname: element.album.name,
-            popularity: element.popularity,
-            releasedate: element.album.release_date,
-            albumimage: element.album.images[1].url,
-            spotifytrackurl: element.external_urls.spotify,
-            spotifyartisturl: element.artists[0].external_urls.spotify,
-            spotifyalbumurl: element.album.external_urls.spotify
-        };
-    });
-}
+
 
 // Get total manson Followers on spotify
 
@@ -78,13 +103,9 @@ spotify
     console.log(err);
   });
 
-function totalFollowers(data) {
-    SpotifyTotalFollowers[0] = {
-        followers: data
-    }
-}
+
 // Available Markets - use to populate select form element
-/* spotify
+spotify
   .search({ type: 'album', query: 'Marilyn Manson' })
   .then(function(data) {
     //console.log(data.albums.items[1].name, data.albums.items[1]);
@@ -92,13 +113,12 @@ function totalFollowers(data) {
   .catch(function(err) {
     console.log(err);
   });
- */
 
 // Homepage Route
-app.get('/', (req, res) => res.render('homepage', {
+app.get('/', (req, res, next) => res.render('homepage', {
     preorderalbum,
-    spotifyInfo/* , 
-    SpotifyTotalFollowers */
+    spotifyInfo, 
+    SpotifyTotalFollowers
 }));
 
 // Set Static Path
