@@ -14,4 +14,4 @@ router.get('/:option', (request, response) => {
         response.status(400).json({msg: `Album #${request.params.option} Not Found`});
     }
 });
-module.exports = router;
+module.exports = router; 

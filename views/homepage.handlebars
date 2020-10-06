@@ -57,10 +57,10 @@
             <div>
                 <h2 class="cta-headline">We Are<br>Chaos<span class="chaos"></span><span class="chaos-mobile"></span></h2>
                 <h3 class="cta-subheadline">New Album Unleashed<br>Sept 11, 2020</h3>
-                <form id="hero-form">
+                <form action="/users/signup" id="hero-form" method="post">
                     <div>
-                        <input type="email" class="email-input" id="email" required value="Email Address" onfocus="this.value=''" placeholder="Email Address">
-                        <input type="text" id="Name" value="Your Name" onfocus="this.value=''" placeholder="Your Name" required>
+                        <input type="email" name="usersEmail" class="email-input" id="email" required value="Email Address" onfocus="this.value=''" placeholder="Email Address">
+                        <input type="text" name="usersName" id="Name" value="Your Name" onfocus="this.value=''" placeholder="Your Name" required>
                         <button class="cta-signup-btn">Sign-Up</button>
                     </div>
                 </form>
@@ -159,8 +159,8 @@
             <h2 class="sub-headline">Marilyn Manson by Perou: 21 Years in Hell</h2>
             <h3>Order Now</h3>
             <p>Subheading</p>
-            <form action="">
-                <input type="text" name="" placeholder="Your Name">
+            <form action="" method="">
+{{!--                 <input type="text" name="" placeholder="Your Name">
                 <input type="text" name="" placeholder="Company Name">
                 <input type="email" name="" id="">
                 <input type="radio" name="" id="">
@@ -168,7 +168,7 @@
                 <input type="radio" name="" id="">
                 <input type="radio" name="" id="">
                 <textarea name="" id="" cols="30" rows="10"></textarea>
-                <button type="submit">Place Order</button>
+                <button type="submit">Place Order</button> --}}
             </form>
         </section>
         <form action="">
@@ -267,15 +267,24 @@
             <button class="backcatalog-buy-albums">Order Today</button>
         </div>
     </section>
-    <section class="section-home-page" id="signupform">
+    <section class="section-home-page" id="tour-updates-form">
         section area has a thick border 
         image on the left side only appears on desktop versions
         <div>
-            <h3 class="headline">Lorem ipsum dolor, sit amet consectetur <span class="content-underline">adipisicing elit.</span></h3>
-            <p class="subheading">Lorem ipsum dolor sit amet consectetur adipisicing elit. SAmet consectetur adipisicing elit.</p>
-            <input type="email" class="signup-input">
-            <input type="number" class="signup-input">
-            <button class="signup-btn"></button>
+            <div>
+                <h3 class="headline">2020/21 Tour Updates <span class="content-underline">Covid-19.</span></h3>
+                <p class="subheading">Lorem ipsum dolor sit amet consectetur adipisicing elit. SAmet consectetur adipisicing elit.</p>
+            </div>
+            <div>
+                <img src="" alt="">
+            </div>
+            <div>
+                <form action="" method="post">
+                <input type="email" class="signup-input">
+                <input type="number" class="signup-input">
+                <button class="signup-btn"></button>
+                </form>
+            </div>
         </div>
     </section>
 </main>
@@ -344,6 +353,10 @@
     <div class="popup-form">
         <div class="popup-icon"><i class="fas fa-info-circle" aria-hidden="true"></i></div>
         <form action="" class="floating-info-form">
+            <input type="text">
+            <input type="text">
+            <input type="email" name="" id="">
+            <textarea name="" id="" cols="30" rows="20"></textarea>
             <button><i class="fas fa-at"></i>Submit</button>
         </form>
     </div>

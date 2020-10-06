@@ -1,24 +1,41 @@
+// Modules
 const express = require('express');
 const cors = require('cors');
 const path = require('path');
+const mongoose = require('mongoose');
 const exphbs = require('express-handlebars');
-const preorderalbum = require('./Preorders');
 const SpotifyAPI = require('node-spotify-api');
-
+const SpotifyStrategy = require('passport-spotify').Strategy;
 require('dotenv/config');
 
+// Mongo DB
+/* mongoose.connect('mongodb://localhost/fanSignupDB', { useNewUrlParser: true, useUnifiedTopology: true });
+let db = mongoose.connection;
+
+// check connection
+db.once('open', () => {
+  console.log('Connected to mongo');
+})
+
+db.on('error', (err) => {
+  console.log(err);
+}) */
+
+// declare the express app
 const app = express();
 
-// Handlebars Middleware
+// Middlewares
+
+// cors middleware
+app.use(cors());
+
+// Handlebars
 app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
 app.set('view engine', 'handlebars');
 
 // body parser middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-
-// cors middleware
-app.use(cors());
 
 // Spotify Middleware
 let spotify = new SpotifyAPI({
@@ -29,7 +46,7 @@ let spotify = new SpotifyAPI({
 // spotify constants
 const spotifyInfo = [];
 const SpotifyTotalFollowers = [];
-let SpotifyMansonAlbums = [];
+const SpotifyMansonAlbums = [];
 
 // spotify functions
 function totalFollowers(data) {
@@ -54,34 +71,33 @@ function returnInfo(data) {
   });
 };
 
-function mansonAlbumData(data) {
-  data.forEach((element, index) => {
-    SpotifyMansonAlbums[index] = {
+/* function mansonAlbumData(data) {
+  data.forEach(element => {
+    SpotifyMansonAlbums = {
           albumname: element.name,
           numTracks: element.total_tracks,
           releasedate: element.release_date,
           albumimage: element.images[1].url,
           spotifyartisturl: element.artists[0].href,
           spotifyalbumurl: element.external_urls.spotify
-      };
+      }
   });
-};
-
+}
+ */
 
 // get the users location for spotify market specific data
 // get NZ album data from spotify
 
-spotify.request(`https://api.spotify.com/v1/artists/${process.env.SPOTIFYMARILYNMANSONID}/albums?include_groups=album&market=${process.env.SPOTIFYCOUNTRYCODE}`)
+/* spotify.request(`https://api.spotify.com/v1/artists/${process.env.SPOTIFYMARILYNMANSONID}/albums?include_groups=album&market=${process.env.SPOTIFYCOUNTRYCODE}`)
 .then(function(data){
     mansonAlbumData(data.items);
 })
 .catch(function(err){
     console.error('Error occurred: ' + err);
-});
-
+}); */
+ 
 
 // get top ten marilyn manson tracks for NZ
-
 spotify.request(`https://api.spotify.com/v1/artists/${process.env.SPOTIFYMARILYNMANSONID}/top-tracks?market=${process.env.SPOTIFYCOUNTRYCODE}`)
     .then(function(data) {
         returnInfo(data.tracks);
@@ -91,9 +107,7 @@ spotify.request(`https://api.spotify.com/v1/artists/${process.env.SPOTIFYMARILYN
 });
 
 
-
 // Get total manson Followers on spotify
-
 spotify
   .search({ type: 'artist', query: 'Marilyn Manson' })
   .then(function(data) {
@@ -105,7 +119,7 @@ spotify
 
 
 // Available Markets - use to populate select form element
-spotify
+/* spotify
   .search({ type: 'album', query: 'Marilyn Manson' })
   .then(function(data) {
     //console.log(data.albums.items[1].name, data.albums.items[1]);
@@ -113,9 +127,9 @@ spotify
   .catch(function(err) {
     console.log(err);
   });
-
+ */
 // Homepage Route
-app.get('/', (req, res, next) => res.render('homepage', {
+app.get('/', (req, res) => res.render('homepage', {
     preorderalbum,
     spotifyInfo, 
     SpotifyTotalFollowers
@@ -124,8 +138,12 @@ app.get('/', (req, res, next) => res.render('homepage', {
 // Set Static Path
 app.use(express.static('public'));
 
+// Route files
+const preorderalbum = require('./Preorders');
+
 // Set routes, API routes.
 app.use('/api/preorder', require('./routes/preorders'));
+
 
 // Set Ports
 const PORT = process.env.PORT || 666;
