@@ -5,7 +5,6 @@ const path = require('path');
 const exphbs = require('express-handlebars');
 const SpotifyAPI = require('node-spotify-api');
 const SpotifyStrategy = require('passport-spotify').Strategy;
-require('dotenv/config');
 
 // declare the express app
 const app = express();
