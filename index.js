@@ -5,6 +5,7 @@ const path = require('path');
 const exphbs = require('express-handlebars');
 const SpotifyAPI = require('node-spotify-api');
 const SpotifyStrategy = require('passport-spotify').Strategy;
+require('dotenv/config');
 
 // declare the express app
 const app = express();
@@ -23,7 +24,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 // Spotify Middleware
-let spotify = new SpotifyAPI({
+/* let spotify = new SpotifyAPI({
     id: process.env.SPOTIFY_APP_USER_ID,
     secret: process.env.SPOTIFY_APP_SECRET
 });
@@ -39,8 +40,8 @@ function totalFollowers(data) {
       followers: data
   };
 };
-
-function returnInfo(data) {
+ */
+/* function returnInfo(data) {
   data.forEach((element, index) => {
       spotifyInfo[index] = {
           rank: index + 1,
@@ -54,9 +55,9 @@ function returnInfo(data) {
           spotifyalbumurl: element.album.external_urls.spotify
       };
   });
-};
+}; */
  
-// get top ten marilyn manson tracks for NZ
+/* // get top ten marilyn manson tracks for NZ
 spotify.request(`https://api.spotify.com/v1/artists/${process.env.SPOTIFYMARILYNMANSONID}/top-tracks?market=${process.env.SPOTIFYCOUNTRYCODE}`)
     .then(function(data) {
         returnInfo(data.tracks);
@@ -76,13 +77,13 @@ spotify
     console.log(err);
   });
 
-
+ */
 // Homepage Route
 app.get('/', (req, res) => res.render('homepage', {
     title: "Marilyn Manson || WE ARE CHAOS",
-    preorderalbum,
+    preorderalbum/* ,
     spotifyInfo, 
-    SpotifyTotalFollowers
+    SpotifyTotalFollowers */
 }));
 
 app.get('/signup', (req, res) => res.render('signup', {
