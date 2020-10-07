@@ -1,5 +1,4 @@
 .main-footer {
-    position: relative;
     height: 90vh;
     padding: 15rem 0;
     background-color: transparent;
@@ -68,9 +67,8 @@
     margin-bottom: 1.2rem;
 }
 .footer-copyright {
-    position: absolute;
-    bottom: 2rem;
-    left: 0px;
+    height: 150px;
+    padding: 2rem 2rem 4rem 0;
     width: fit-content;
     text-align: center;
 }

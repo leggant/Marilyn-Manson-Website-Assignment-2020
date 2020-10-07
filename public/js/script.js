@@ -22,56 +22,7 @@ const headerImageDivs = document.querySelectorAll('.col-img-item');
  gsap.fromTo(".chaos-mobile", {width: 0, x:10}, {width:"80%", x:10, duration: 0.5, delay:0.5})
  gsap.fromTo(".cta-subheadline", {opacity: 0, y:-20}, {opacity: 1, y: 0,  duration: 0.5, delay:0.5})
 
-/* -------------------------------------------------------------------------- */
-/*                         ALBUM PREORDER SECTION DATA                        */
-/* -------------------------------------------------------------------------- */
-/* 
-const preorderHeadlineArea = document.getElementById("preorderTitles");
-let albumPreorderData = [];
 
-async function preorderHeadline(headline, option) {
-  let h2tag = document.createElement("H2");
-  h2tag.innerHTML = headline;
-  h2tag.className = "album-title preorder-title";
-  h2tag.id = "preorderid-"+ option;
-  preorderHeadlineArea.appendChild(h2tag);
-}
-
-
-// No longer getting data from the api address
-async function loadAlbumPreorderInfo() {
-  const preorderDataJSON = 'https://marilynmanson.herokuapp.com/api/preorder';
-  const preorder = await fetch(preorderDataJSON);
-  console.log(preorder);
-  const preorderinfo = await preorder.json();
-  createPreorder(preorderinfo.WEARECHAOSALBUM_PREORDER_INFO);
-}
-loadAlbumPreorderInfo();
-
-
-async function createPreorder(preorderinfo) {
-  preorderinfo.forEach((item, index) => {
-    createPreorderAlbum("homepage-preorder", item.edition, item.image, index+1)
-    preorderHeadline(item.edition, item.option)
-  });
-}
-
-async function createPreorderAlbum(containerid, title, image, index){
-  let preorderSection = document.getElementById(containerid);
-  let divtag = document.createElement("DIV");
-  divtag.id = `preorderAlbum${index}`;
-  let imgWrapper = document.createElement("DIV");
-  let h4tag = document.createElement("H4");
-  let imageTag = document.createElement("IMG");
-  preorderSection.appendChild(divtag).className = "album";
-  divtag.appendChild(imgWrapper);
-  imgWrapper.className = "album-img-wrapper";
-  imgWrapper.appendChild(imageTag).src = image;
-  imageTag.className = "album-img";
-  divtag.appendChild(h4tag).innerHTML = title;
-  h4tag.className = "album-title";
-}
- */
 /* -------------------------------------------------------------------------- */
 /*                      PREORDER SECTION STICKY SCROLLING                     */
 /* -------------------------------------------------------------------------- */
@@ -98,7 +49,6 @@ function changeBGclr(col)
   const quotesection = document.getElementById('famousQuotes');
 	quotesection.style.backgroundColor=col.value;
 }
-
 
 
 /* -------------------------------------------------------------------------- */
@@ -172,3 +122,16 @@ window.addEventListener("scroll", (xevent) =>{
   }
   currentScroll = window.scrollY;
 });
+
+
+/* -------------------------- HEADER BURGER BUTTON -------------------------- */
+const burgerBtn = document.getElementsByClassName('menu-btn');
+/* burgerBtn.addEventListener('click', (e) => {
+  
+}); */
+const mediaQuery = window.matchMedia( '( max-width: 700px )' )
+
+// Note the `matches` property
+if ( mediaQuery.matches ) {
+  console.log('Media Query Matched!')
+}

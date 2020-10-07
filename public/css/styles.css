@@ -31,11 +31,6 @@ li {
   list-style: none;
 }
 
-.content-inner-wrapper {
-  width: 90vw;
-  margin: 0 auto;
-}
-
 h1, h2, h3, h4, h5 {
   font-family: "Montserrat", sans-serif;
   font-size: 3rem;
@@ -879,7 +874,6 @@ input[name="quotes"]:checked + .quotes-card {
     font-size: 2rem; 
 } */
 .main-footer {
-  position: relative;
   height: 90vh;
   padding: 15rem 0;
   background-color: transparent;
@@ -949,15 +943,63 @@ input[name="quotes"]:checked + .quotes-card {
 }
 
 .footer-copyright {
-  position: absolute;
-  bottom: 2rem;
-  left: 0px;
+  height: 150px;
+  padding: 2rem 2rem 4rem 0;
   width: fit-content;
   text-align: center;
 }
 
 .floating-popup {
-  background-color: aqua;
+  position: relative;
+  width: 80%;
+  --scale: 1;
+  background-color: inherit;
+  display: flex;
+  flex-direction: column;
+  align-content: flex-end;
+  align-items: flex-end;
+}
+
+.floating-popup .popup-form {
+  width: 20%;
+  transform: scale(var(--scale));
+  transform-origin: bottom right;
+  transition: 1s ease-in-out;
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+}
+
+.floating-popup .popup-icon {
+  display: flex;
+  align-items: flex-end;
+  align-content: flex-end;
+  width: 50px;
+  height: 50px;
+}
+
+.floating-popup .popup-icon i {
+  cursor: pointer;
+  font-size: 4rem;
+  padding: 1rem;
+}
+
+.floating-popup .popup-icon i.form-open {
+  position: static;
+  bottom: 20px;
+  color: #ED33B9;
+  transform: rotate(0deg);
+}
+
+.floating-popup .popup-icon i.form-closed {
+  color: #ED33B9;
+  transform: rotate(90deg);
+}
+
+.signup-content {
+  height: 80vh;
+  width: 80%;
+  margin: 200px auto 0 auto;
 }
 
 /* -------------------------------------------------------------------------- */
@@ -994,13 +1036,13 @@ input[name="quotes"]:checked + .quotes-card {
   }
   .site-main-header a.logo-link .logo-accent {
     display: block;
-    width: 10px;
+    width: 40px;
     height: 4px;
     background-color: #E5478C;
     position: absolute;
     border-radius: 5px;
     left: 3px;
-    top: -2px;
+    top: -5px;
   }
   .site-main-header .menu-btn {
     position: relative;
@@ -1304,8 +1346,8 @@ input[name="quotes"]:checked + .quotes-card {
     width: 100%;
   }
   #Manson-Albums-Catalog .album .album-img-wrapper img {
-    width: 100%;
-    height: 25vh;
+    width: 150px;
+    height: 150px;
   }
 }
 

@@ -1,3 +1,41 @@
 .floating-popup {
-    background-color: aqua;
+    position: relative;
+    width: 80%;
+    --scale: 1;
+    background-color: inherit;
+    display: flex;
+    flex-direction: column;
+    align-content: flex-end;
+    align-items: flex-end;
+    .popup-form {
+        width: 20%;
+        transform: scale(var(--scale));
+        transform-origin: bottom right;
+        transition: 1s ease-in-out;
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+    }
+    .popup-icon {
+        display: flex;
+        align-items: flex-end;
+        align-content: flex-end;
+        width: 50px; 
+        height: 50px;
+        i {
+            cursor: pointer;
+            font-size: 4rem;
+            padding: 1rem;
+        }
+        i.form-open {
+            position: static;
+            bottom: 20px;
+            color:$mansonPink-color;
+            transform: rotate(0deg);
+        }
+        i.form-closed {
+            color:$mansonPink-color;
+            transform: rotate(90deg);
+        }
+    }
 }

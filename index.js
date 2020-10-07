@@ -2,24 +2,10 @@
 const express = require('express');
 const cors = require('cors');
 const path = require('path');
-const mongoose = require('mongoose');
 const exphbs = require('express-handlebars');
 const SpotifyAPI = require('node-spotify-api');
 const SpotifyStrategy = require('passport-spotify').Strategy;
 require('dotenv/config');
-
-// Mongo DB
-/* mongoose.connect('mongodb://localhost/fanSignupDB', { useNewUrlParser: true, useUnifiedTopology: true });
-let db = mongoose.connection;
-
-// check connection
-db.once('open', () => {
-  console.log('Connected to mongo');
-})
-
-db.on('error', (err) => {
-  console.log(err);
-}) */
 
 // declare the express app
 const app = express();
@@ -44,9 +30,9 @@ let spotify = new SpotifyAPI({
 });
 
 // spotify constants
+
 const spotifyInfo = [];
 const SpotifyTotalFollowers = [];
-const SpotifyMansonAlbums = [];
 
 // spotify functions
 function totalFollowers(data) {
@@ -70,33 +56,7 @@ function returnInfo(data) {
       };
   });
 };
-
-/* function mansonAlbumData(data) {
-  data.forEach(element => {
-    SpotifyMansonAlbums = {
-          albumname: element.name,
-          numTracks: element.total_tracks,
-          releasedate: element.release_date,
-          albumimage: element.images[1].url,
-          spotifyartisturl: element.artists[0].href,
-          spotifyalbumurl: element.external_urls.spotify
-      }
-  });
-}
- */
-
-// get the users location for spotify market specific data
-// get NZ album data from spotify
-
-/* spotify.request(`https://api.spotify.com/v1/artists/${process.env.SPOTIFYMARILYNMANSONID}/albums?include_groups=album&market=${process.env.SPOTIFYCOUNTRYCODE}`)
-.then(function(data){
-    mansonAlbumData(data.items);
-})
-.catch(function(err){
-    console.error('Error occurred: ' + err);
-}); */
  
-
 // get top ten marilyn manson tracks for NZ
 spotify.request(`https://api.spotify.com/v1/artists/${process.env.SPOTIFYMARILYNMANSONID}/top-tracks?market=${process.env.SPOTIFYCOUNTRYCODE}`)
     .then(function(data) {
@@ -118,22 +78,19 @@ spotify
   });
 
 
-// Available Markets - use to populate select form element
-/* spotify
-  .search({ type: 'album', query: 'Marilyn Manson' })
-  .then(function(data) {
-    //console.log(data.albums.items[1].name, data.albums.items[1]);
-  })
-  .catch(function(err) {
-    console.log(err);
-  });
- */
 // Homepage Route
 app.get('/', (req, res) => res.render('homepage', {
+    title: "Marilyn Manson || WE ARE CHAOS",
     preorderalbum,
     spotifyInfo, 
     SpotifyTotalFollowers
 }));
+
+app.get('/signup', (req, res) => res.render('signup', {
+  title: "Marilyn Manson || Register",
+  registered: true
+}));
+
 
 // Set Static Path
 app.use(express.static('public'));
