@@ -123,9 +123,24 @@ window.addEventListener("scroll", (xevent) =>{
   currentScroll = window.scrollY;
 });
 
+/* --------------------------- FOOTER FORM POP-UP --------------------------- */
+const formDivWrapper = document.getElementsByClassName('floating-popup');
+const formButton = document.getElementById('formPopup');
+const formInputWrapper = document.getElementById('popup-form');
+const closebtn = document.getElementById('float-form-close-button');
+
+formButton.addEventListener('click', () => {
+  formInputWrapper.classList.add('form-open');
+  formButton.classList.add('form-open');
+  closebtn.addEventListener('click', () => {
+    formInputWrapper.classList.remove('form-open');
+    formButton.classList.remove('form-open');
+  });
+});
 
 /* -------------------------- HEADER BURGER BUTTON -------------------------- */
 const burgerBtn = document.getElementsByClassName('menu-btn');
+
 /* burgerBtn.addEventListener('click', (e) => {
   
 }); */

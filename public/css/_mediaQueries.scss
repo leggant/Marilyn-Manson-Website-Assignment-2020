@@ -5,7 +5,6 @@
 
 /* ------------------------------- BREAKPOINTS ------------------------------ */
 
-$smallMobile: 250px;
 $largeMobile: 500px;
 $xLargeMobile: 501px;
 $tablet: 1024px;
@@ -13,11 +12,7 @@ $laptop: 1440px;
 $desktop: 1920px;
 $largeDesktop: 3840px;
 
-
-/* -------------------------------------------------------------------------- */
-/*                  SITE HEADER AND NAVIGATION MEDIA QUERIES                  */
-/* -------------------------------------------------------------------------- */
-@media only screen and (min-width: $smallMobile) and (max-width: $largeMobile) {
+@media only screen and (min-width: 200px) and (max-width: $largeMobile) {
     .site-main-header, .main-footer, .home-page {
         width: 100%;
         overflow: hidden;
@@ -381,9 +376,11 @@ $largeDesktop: 3840px;
         }
     }
 }
+
 @media only screen and (min-width: $xLargeMobile) and (max-width: 700px) {
 
 }
+
 @media only screen and (min-width: 440px) and (max-width: 700px) {
     .hero-container {
         display: grid;
@@ -556,5 +553,3 @@ $largeDesktop: 3840px;
         }
     }
 }
-
-//end of mobile styles

@@ -951,23 +951,93 @@ input[name="quotes"]:checked + .quotes-card {
 
 .floating-popup {
   position: relative;
-  width: 80%;
-  --scale: 1;
+  width: 20%;
   background-color: inherit;
   display: flex;
-  flex-direction: column;
-  align-content: flex-end;
-  align-items: flex-end;
 }
 
-.floating-popup .popup-form {
-  width: 20%;
-  transform: scale(var(--scale));
-  transform-origin: bottom right;
-  transition: 1s ease-in-out;
+.floating-popup #popup-form {
+  width: 100%;
+  transform: scale(0, 0);
+  transform-origin: bottom left;
+  transition: .5s ease-in-out;
   position: absolute;
   bottom: 10px;
-  right: 10px;
+  left: 60px;
+  padding: 2rem;
+  border: 0.5rem solid #D5D5D5;
+  border-radius: 2rem;
+  background-color: #000C19;
+}
+
+.floating-popup #popup-form #formPopup {
+  display: flex;
+  align-content: space-between;
+  align-items: center;
+  height: fit-content;
+  width: fit-content;
+}
+
+.floating-popup #popup-form #formPopup h3 {
+  font-size: 3rem;
+}
+
+.floating-popup #popup-form #formPopup button {
+  background-color: transparent;
+  border: none;
+  padding: .5rem;
+  font-size: 3rem;
+  color: #ED33B9;
+  outline: none;
+  cursor: pointer;
+  transition: transform .2s ease-in;
+}
+
+.floating-popup #popup-form #formPopup button:hover {
+  transform-origin: center center;
+  transform: rotate(30deg) scale3d(2.5, 1.6, 2.5) perspective(15px) skewY(1.07rad);
+}
+
+.floating-popup #popup-form #floating-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.floating-popup #popup-form #floating-form label {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 300;
+  font-size: 2rem;
+}
+
+.floating-popup #popup-form #floating-form input {
+  padding: 1rem;
+  color: black;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  font-size: 1.6rem;
+  outline: none;
+  margin-bottom: 1rem;
+}
+
+.floating-popup #popup-form #floating-form textarea {
+  outline: none;
+  padding: 1rem;
+  color: black;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.floating-popup #popup-form #floating-form button {
+  font-family: "Montserrat", sans-serif;
+  padding: 2rem;
+  font-weight: 600;
+  font-size: 3rem;
+  background-color: #2B2D42;
+  outline: none;
+  border: none;
+  cursor: pointer;
 }
 
 .floating-popup .popup-icon {
@@ -976,24 +1046,35 @@ input[name="quotes"]:checked + .quotes-card {
   align-content: flex-end;
   width: 50px;
   height: 50px;
+  padding: 1rem;
+  bottom: 20px;
 }
 
 .floating-popup .popup-icon i {
   cursor: pointer;
   font-size: 4rem;
-  padding: 1rem;
-}
-
-.floating-popup .popup-icon i.form-open {
-  position: static;
-  bottom: 20px;
   color: #ED33B9;
+  transform-origin: center center;
+  transition: .3s ease-in-out;
   transform: rotate(0deg);
 }
 
-.floating-popup .popup-icon i.form-closed {
+.floating-popup .popup-icon i:hover {
+  transition: .5s;
+  transform: rotate(450deg);
+  transform-origin: center center;
+}
+
+#popup-form.form-open {
+  transition-delay: .2s;
+  transform: scale(1, 1);
+}
+
+.popup-icon.form-open {
   color: #ED33B9;
-  transform: rotate(90deg);
+  transform-origin: center center;
+  transition: .3s ease-in-out;
+  transform: rotate(0deg);
 }
 
 .signup-content {
@@ -1006,10 +1087,7 @@ input[name="quotes"]:checked + .quotes-card {
 /*                                MEDIA QUERIES                               */
 /* -------------------------------------------------------------------------- */
 /* ------------------------------- BREAKPOINTS ------------------------------ */
-/* -------------------------------------------------------------------------- */
-/*                  SITE HEADER AND NAVIGATION MEDIA QUERIES                  */
-/* -------------------------------------------------------------------------- */
-@media only screen and (min-width: 250px) and (max-width: 500px) {
+@media only screen and (min-width: 200px) and (max-width: 500px) {
   .site-main-header, .main-footer, .home-page {
     width: 100%;
     overflow: hidden;
