@@ -1087,7 +1087,7 @@ input[name="quotes"]:checked + .quotes-card {
 /*                                MEDIA QUERIES                               */
 /* -------------------------------------------------------------------------- */
 /* ------------------------------- BREAKPOINTS ------------------------------ */
-@media only screen and (min-width: 200px) and (max-width: 500px) {
+@media (min-width: 200px) and (max-width: 500px) {
   .site-main-header, .main-footer, .home-page {
     width: 100%;
     overflow: hidden;
@@ -1429,7 +1429,7 @@ input[name="quotes"]:checked + .quotes-card {
   }
 }
 
-@media only screen and (min-width: 440px) and (max-width: 700px) {
+@media (min-width: 440px) and (max-width: 700px) {
   .hero-container {
     display: grid;
     grid-template-columns: repeat(2, minmax(100px, 50%));

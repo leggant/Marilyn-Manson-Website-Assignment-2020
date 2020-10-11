@@ -144,9 +144,9 @@ const burgerBtn = document.getElementsByClassName('menu-btn');
 /* burgerBtn.addEventListener('click', (e) => {
   
 }); */
-const mediaQuery = window.matchMedia( '( max-width: 700px )' )
+/* const mediaQuery = window.matchMedia( '( max-width: 700px )' )
 
 // Note the `matches` property
 if ( mediaQuery.matches ) {
   console.log('Media Query Matched!')
-}
+} */

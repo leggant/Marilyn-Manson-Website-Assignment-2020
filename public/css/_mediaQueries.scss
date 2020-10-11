@@ -12,7 +12,7 @@ $laptop: 1440px;
 $desktop: 1920px;
 $largeDesktop: 3840px;
 
-@media only screen and (min-width: 200px) and (max-width: $largeMobile) {
+@media (min-width: 200px) and (max-width: 500px) {
     .site-main-header, .main-footer, .home-page {
         width: 100%;
         overflow: hidden;
@@ -377,11 +377,15 @@ $largeDesktop: 3840px;
     }
 }
 
-@media only screen and (min-width: $xLargeMobile) and (max-width: 700px) {
+@media (min-width: 200px) and (max-width: 700px) {
+    
+}
+
+@media (min-width: 501px) and (max-width: 700px) {
 
 }
 
-@media only screen and (min-width: 440px) and (max-width: 700px) {
+@media (min-width: 440px) and (max-width: 700px) {
     .hero-container {
         display: grid;
         grid-template-columns: repeat(2, minmax(100px, 50%));
