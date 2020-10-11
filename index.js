@@ -1,12 +1,13 @@
 // Modules
+require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const path = require('path');
 const exphbs = require('express-handlebars');
 const nedb = require('nedb');
-const SpotifyNode = require('spotify-web-api-node');
+const Spotify = require('node-spotify-api');
 const SpotifyStrategy = require('passport-spotify').Strategy;
-require('dotenv/config');
+
 
 // declare the express app
 const app = express();
