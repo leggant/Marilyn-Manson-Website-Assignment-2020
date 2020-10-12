@@ -7,7 +7,8 @@ const express = require('express');
 const cors = require('cors');
 const path = require('path');
 const exphbs = require('express-handlebars');
-const nedb = require('nedb');
+const mongoose = require('mongoose');
+const User = require('./models/users');
 const SpotifyAPI = require('node-spotify-api');
 const SpotifyStrategy = require('passport-spotify').Strategy;
 
@@ -15,14 +16,37 @@ const SpotifyStrategy = require('passport-spotify').Strategy;
 const app = express();
 // Set Static Path
 app.use(express.static('public'));
+// Set Ports
+const PORT = process.env.PORT || 666;
+
+// Mongo DB
+const DBURI = `mongodb+srv://${process.env.DBUSER}:${process.env.DBPASS}@mansondb.cnnfy.mongodb.net/MansonDB?retryWrites=true&w=majority`;
+mongoose.connect(DBURI, { useNewUrlParser: true, useUnifiedTopology: true })
+  .then((result) => app.listen(PORT))
+  .catch((err) => { console.log(err)});
+
+// test adding to db
+app.get('/add-user', (req, res) => {
+  const newuser = new User({
+    name: 'Antz',
+    email: 'test1@email.com',
+    country: 'New Zealand',
+    city: 'CHCH'
+  });
+  newuser.save()
+  .then((result) => {
+    res.send(result);
+  })
+  .catch((err) => {
+    console.log(err)
+  });
+});
+
 // cors middleware
 app.use(cors());
 // body parser middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-// Set Ports
-const PORT = process.env.PORT || 666;
-app.listen(PORT, () => console.log(`listening at ${PORT}`));
 
 // Middlewares
 
