@@ -1,4 +1,7 @@
 // Modules
+
+// https://developer.spotify.com/documentation/general/guides/authorization-guide/
+
 require('dotenv').config();
 const express = require('express');
 const cors = require('cors');

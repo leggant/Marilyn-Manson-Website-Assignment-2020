@@ -31,15 +31,15 @@ const headerImageDivs = document.querySelectorAll('.col-img-item');
 }
 let preorderScrollObserver = new IntersectionObserver(preorderScroll, preorderOptions);
 let preorderSectionTarget = document.getElementById('NewAlbumPreOrder');
-preorderScrollObserver.observe(preorderSectionTarget) */
-//console.log(preorderScrollObserver)
+preorderScrollObserver.observe(preorderSectionTarget)
+console.log(preorderScrollObserver)
 
-/* async function preorderScroll(entries, preorderScrollObserver){
+async function preorderScroll(entries, preorderScrollObserver){
   let pretitles = await preorderHeadlineArea.getElementsByClassName('preorder-title');
   let preordertarget = await document.querySelectorAll('.album');
   let preorderarray = await Array.prototype.slice.call(preordertarget)
-} */
-
+}
+ */
 /* -------------------------------------------------------------------------- */
 /*                               QUOTES SECTION                               */
 /* -------------------------------------------------------------------------- */

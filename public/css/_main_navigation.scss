@@ -105,21 +105,21 @@
             padding-bottom: -1px;
         }
     }
-        li:nth-child(3){
-            display: flex;
-            gap: .5rem;
-            align-items: center;
-            .menu-alert{
-                line-height: 1.5;
-                font-size: 1rem;
-                color: $DKBlue_BG;
-                background-color: $mansonLessPink;
-                border-radius: .5rem;
-                padding: 0 0.4rem;
-                margin-bottom: .7rem;
-            }
-        }   
-        li:nth-child(4){
-            border-left: 1px solid $mansonLessPink;
+    li:nth-child(3){
+        display: flex;
+        gap: .5rem;
+        align-items: center;
+        .menu-alert{
+            line-height: 1.5;
+            font-size: 1rem;
+            color: $DKBlue_BG;
+            background-color: $mansonLessPink;
+            border-radius: .5rem;
+            padding: 0 0.4rem;
+            margin-bottom: .7rem;
         }
+    }   
+    li:nth-child(4){
+        border-left: 1px solid $mansonLessPink;
+    }
 }
