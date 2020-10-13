@@ -18,9 +18,9 @@ const app = express();
 app.use(express.static('public'));
 // Set Ports
 const PORT = process.env.PORT || 666;
-
+app.listen(PORT);
 // Mongo DB
-const DBURI = `mongodb+srv://${process.env.DBUSER}:${process.env.DBPASS}@mansondb.cnnfy.mongodb.net/MansonDB?retryWrites=true&w=majority`;
+/* const DBURI = `mongodb+srv://${process.env.DBUSER}:${process.env.DBPASS}@mansondb.cnnfy.mongodb.net/MansonDB?retryWrites=true&w=majority`;
 mongoose.connect(DBURI, { useNewUrlParser: true, useUnifiedTopology: true })
   .then((result) => app.listen(PORT))
   .catch((err) => { console.log(err)});
@@ -41,7 +41,7 @@ app.get('/add-user', (req, res) => {
     console.log(err)
   });
 });
-
+ */
 // cors middleware
 app.use(cors());
 // body parser middleware

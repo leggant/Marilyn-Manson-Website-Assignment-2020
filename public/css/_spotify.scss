@@ -3,6 +3,7 @@
 #spotify-section {
     width: 90vw;
     margin: 0 auto;
+
     .spotify-cards-area {
 
         display: flex;
@@ -11,4 +12,8 @@
             width: 200px;
         }
     }
+}
+.spotify-headline h2 {
+    font-weight: 600;
+    font-size: 4rem;
 }
