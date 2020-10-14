@@ -15,6 +15,12 @@ const userSchema = new Schema({
     },
     city: {
         type: String
+    },
+    longitude: {
+        type: String
+    },
+    latitude: {
+        type: String
     }
 }, { timestamps: true });
 

@@ -1,0 +1,83 @@
+#tour-updates-form {
+    background-color: $bgGreen;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    .tour-form-wrapper {
+        width: 60%;
+        height: 80%;
+        border: 15px solid $GRYBlue;
+        padding: 60px;
+        display: flex;
+        .tour-form-col {
+            width: 50%;
+            height: 100%;
+            .tour-form-img-wrapper {
+                height: 100%;
+                width: 90%;
+                img {
+                    object-fit: cover;
+                    object-position: center center;
+                    height: 100%;
+                    width: 100%;
+                }
+            }
+        }
+        .update-right {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            h3.headline {
+                font-family: $songTitles;
+                font-size: 9rem;
+                line-height: 1.3;
+                color: $preorder_BG;
+                text-align: center;
+                span {
+                    color: inherit;
+                }
+            }
+            p.subheading {
+                text-align: center;
+                font-family: $defaultBodyFont;
+                font-weight: 300;
+                font-size: 3rem;
+            }
+            form {
+                display: flex;
+                flex-direction: column;
+                input {
+                    font-family: $defaultBodyFont;
+                    font-weight: 600;
+                    font-size: 1.5rem;
+                    color: #000;
+                    margin-bottom: 1rem;
+                    outline: none;
+                    border-radius: 5rem;
+                    padding: 2rem;
+                }
+                button.signup-btn {
+                    background-color: $preorder_BG;
+                    font-family: $defaultBodyFont;
+                    font-weight: 600;
+                    font-size: 1.5rem;
+                    color: $xgray;
+                    outline: none;
+                    border: none;
+                    border-radius: 5rem;
+                    padding: 1.5rem;
+                    cursor: pointer;
+                    transform: translateY(0);
+                    transition: transform 0.3s, background-color 0.1s, ease-in-out;
+                }
+                button.signup-btn:hover {
+                    transform: translateY(5px);
+                    background-color: $GRYBlue;
+                    transition: transform 0.3s, background-color 0.1s, ease-in-out;
+                }
+            }
+        }
+    }
+}

@@ -1,112 +1,89 @@
-// Modules
-
-// https://developer.spotify.com/documentation/general/guides/authorization-guide/
-
 require('dotenv').config();
 const express = require('express');
+const Querystring = require('querystring');
 const cors = require('cors');
 const path = require('path');
 const exphbs = require('express-handlebars');
+const parser = require('body-parser');
+const axios = require('axios');
 const mongoose = require('mongoose');
+
+// Database models
 const User = require('./models/users');
-const SpotifyAPI = require('node-spotify-api');
-const SpotifyStrategy = require('passport-spotify').Strategy;
+const Tour = require('./models/tour');
+const FeedbackForm = require('./models/userFeedback');
+
+// Website Routes
+const preorderalbum = require('./Preorders');
+const spotify = require('./routes/spotify');
+const tourdates = require('./routes/tour-update');
+const feedbackForm = require('./routes/feedbackForm');
 
 // declare the express app
 const app = express();
 // Set Static Path
 app.use(express.static('public'));
 // Set Ports
-const PORT = process.env.PORT || 666;
+const PORT = process.env.PORT || 3000;
 app.listen(PORT);
-// Mongo DB
-/* const DBURI = `mongodb+srv://${process.env.DBUSER}:${process.env.DBPASS}@mansondb.cnnfy.mongodb.net/MansonDB?retryWrites=true&w=majority`;
-mongoose.connect(DBURI, { useNewUrlParser: true, useUnifiedTopology: true })
-  .then((result) => app.listen(PORT))
-  .catch((err) => { console.log(err)});
 
-// test adding to db
-app.get('/add-user', (req, res) => {
-  const newuser = new User({
-    name: 'Antz',
-    email: 'test1@email.com',
-    country: 'New Zealand',
-    city: 'CHCH'
-  });
-  newuser.save()
-  .then((result) => {
-    res.send(result);
-  })
-  .catch((err) => {
-    console.log(err)
-  });
-});
- */
 // cors middleware
 app.use(cors());
 // body parser middleware
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
-
-// Middlewares
+app.use(parser.json());
+app.use(parser.urlencoded({ extended: false }));
+app.use ((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers",
+  "Origin, X-Requested-With, Content-Type, Accept, Authorization");
+  if(req.method === 'OPTIONS'){
+    res.header('Access-Control-Allow-Methods', 'PUT POST PATCH DELETE GET');
+    return res.status(200).json({});
+  }
+  next();
+});
 
 // Handlebars
 app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
 app.set('view engine', 'handlebars');
 
-// Spotify API middleware
-let spotify = new SpotifyAPI({
-    id: process.env.SPOTIFY_APP_USER_ID,
-    secret: process.env.SPOTIFY_APP_SECRET
-});
-
-// spotify constants
-
+// Spotify
 const spotifyInfo = [];
 const SpotifyTotalFollowers = [];
 
-// spotify functions
-function totalFollowers(data) {
-  SpotifyTotalFollowers[0] = {
-      followers: data
-  };
-};
- 
-function returnInfo(data) {
-  data.forEach((element, index) => {
-      spotifyInfo[index] = {
-          rank: index + 1,
-          trackname: element.name,
-          albumname: element.album.name,
-          popularity: element.popularity,
-          releasedate: element.album.release_date,
-          albumimage: element.album.images[1].url,
-          spotifytrackurl: element.external_urls.spotify,
-          spotifyartisturl: element.artists[0].external_urls.spotify,
-          spotifyalbumurl: element.album.external_urls.spotify
-      };
-  });
-};
- 
-// get top ten marilyn manson tracks for NZ
-spotify.request(`https://api.spotify.com/v1/artists/${process.env.SPOTIFYMARILYNMANSONID}/top-tracks?market=${process.env.SPOTIFYCOUNTRYCODE}`)
-    .then(function(data) {
-        returnInfo(data.tracks);
+let config = {
+  headers: {
+    "Authorization" : `Basic ${process.env.BASE64}`,
+    'Content-Type': 'application/x-www-form-urlencoded'
+  }
+}
+let body = {
+  "grant_type" : "client_credentials",
+}
+let key;
+app.get('/test', (req, res) => {
+  axios.post('https://accounts.spotify.com/api/token',Querystring.stringify(body), config)
+  .then(apires => {
+    console.log(apires.data);
+    let reqConfig = {
+      headers: {
+        "Authorization" : `${apires.data.token_type} ${apires.data.access_token}`
+      }
+    }
+    axios.get(`https://api.spotify.com/v1/artists/${process.env.SPOTIFYMARILYNMANSONID}/top-tracks?market=${process.env.SPOTIFYCOUNTRYCODE}`,{},reqConfig)
+    .then(response => {
+      console.log(response)
     })
-    .catch(function(err) {
-        console.error('Error occurred: ' + err);
+    .catch(err => {
+      console.log(err);
+    })
+  }).catch(error => {
+    console.log(error);
+  })
 });
 
 
-// Get total manson Followers on spotify
-spotify
-  .search({ type: 'artist', query: 'Marilyn Manson' })
-  .then(function(data) {
-    totalFollowers(data.artists.items[0].followers.total);
-  })
-  .catch(function(err) {
-    console.log(err);
-  });
+
 
 // Homepage Route
 app.get('/', (req, res) => res.render('homepage', {
@@ -119,11 +96,10 @@ app.get('/signup', (req, res) => res.render('signup', {
   registered: true
 }));
 
-// Route files
-const preorderalbum = require('./Preorders');
+
 
 // Set routes, API routes.
-app.use('/api/preorder', require('./routes/preorders'));
+//app.use('/api/preorder', require('./routes/preorders'));
 
 //404 page || No Page Found
 app.use((req, res) => {

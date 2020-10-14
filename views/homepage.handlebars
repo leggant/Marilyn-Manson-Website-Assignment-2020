@@ -40,11 +40,11 @@
             <div>
                 <h2 class="cta-headline">We Are<br>Chaos<span class="chaos"></span><span class="chaos-mobile"></span></h2>
                 <h3 class="cta-subheadline">New Album Unleashed<br>Sept 11, 2020</h3>
-                <form action="/users/signup" id="hero-form" method="post">
+                <form action="/users/signup" id="hero-form" method="POST">
                     <div>
                         <input type="email" name="usersEmail" class="email-input" id="email" required value="Email Address" onfocus="this.value=''" placeholder="Email Address">
                         <input type="text" name="usersName" id="Name" value="Your Name" onfocus="this.value=''" placeholder="Your Name" required>
-                        <button class="cta-signup-btn">Sign-Up</button>
+                        <button class="cta-signup-btn" onclick="getLocation()">Sign-Up</button>
                     </div>
                 </form>
                 <p class="cta-text">Pre-Order your copy of <span><a href="#preorderTitles">We Are Chaos<span></span> today.<i class="fa fa-chevron-circle-right" aria-hidden="true"></i></a></p>
@@ -106,17 +106,15 @@
             </ol>
         </section>
     </div>
-
-
     <section class="section-home-page" id="spotify-section">
         <h2 class="spotify-headline">Top 10 Marilyn Manson <i class="fa fa-spotify" aria-hidden="true"></i>Spotify Tracks</h2>
         {{#each SpotifyTotalFollowers}}
-        <h3 class="spotify-sub-headline">Spotify Followers: <span>{{this.followers}}</span></h3>
+        <h3 class="spotify-sub-headline">Spotify Followers: <span class="followers">{{this.followers}}</span></h3>
         {{/each}}
-        <select name="" id="">
+{{!--         <select name="" id="">
             <option value=""></option>
             <option value="nz" >New Zealand</option>
-        </select>
+        </select> --}}
         <div class="spotify-cards-area">
             {{#each spotifyInfo}}
             <article class="spotify-top-track-item" id="spotify-track-{{this.rank}}">
@@ -252,24 +250,24 @@
             <button class="backcatalog-buy-albums">Order Today</button>
         </div>
     </section>
-    {{!-- <section class="section-home-page" id="tour-updates-form">
-        section area has a thick border 
-        image on the left side only appears on desktop versions
-        <div>
-            <div>
-                <h3 class="headline">2020/21 Tour Updates <span class="content-underline">Covid-19.</span></h3>
-                <p class="subheading">Lorem ipsum dolor sit amet consectetur adipisicing elit. SAmet consectetur adipisicing elit.</p>
+    <section class="section-home-page" id="tour-updates-form">
+{{!--         section area has a thick border 
+        image on the left side only appears on desktop versions --}}
+        <div class="tour-form-wrapper">
+            <div class="tour-form-col update-left">
+                <div class="tour-form-img-wrapper">
+                    <img src="/img/copy_tourUpdateIMG.png" alt="Marilyn Manson 2020 Tour Promotional Image">
+                </div>
             </div>
-            <div>
-                <img src="" alt="">
-            </div>
-            <div>
-                <form action="" method="post">
-                <input type="email" class="signup-input">
-                <input type="number" class="signup-input">
-                <button class="signup-btn"></button>
+            <div class="tour-form-col update-right">
+                <h3 class="headline">2020/21 Tour <span class="content-underline">Updates</span></h3>
+                <p class="subheading">Lorem ipsum dolor sit ameting<br>elit.....</p>
+                <form action="" method="">
+                    <input type="email" class="signup-input" placeholder="Email Address" name="email">
+                    <input type="text" class="signup-input" placeholder="City" name="city">
+                    <button class="signup-btn">Let's Go</button>
                 </form>
             </div>
         </div>
-    </section> --}}
+    </section>
 </main>
