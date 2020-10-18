@@ -106,33 +106,34 @@ async function createCard(containerid, title, image, year){
   }
 }
 
-/* Scroll Up Menu Bar */
-/*
-    
-const header = document.querySelector("header");
-const sectionOne = document.querySelector(".home-intro");
+/* -------------------------------------------------------------------------- */
+/*                     HEADER MENU CLASS CHANGE ON SCROLL                     */
+/* -------------------------------------------------------------------------- */
 
-const sectionOneOptions = {
+
+    
+const header = document.querySelector("#main-header");
+const maincontent = document.querySelector("main");
+const mainOptions = {
   rootMargin: "-200px 0px 0px 0px"
 };
 
-const sectionOneObserver = new IntersectionObserver(function(
+const mainObserver = new IntersectionObserver(function(
   entries,
-  sectionOneObserver
+  mainObserver
 ) {
   entries.forEach(entry => {
-    if (!entry.isIntersecting) {
-      header.classList.add("nav-scrolled");
+    if (entry.isIntersecting) {
+      header.classList.remove("scroll-up");
     } else {
-      header.classList.remove("nav-scrolled");
+      header.classList.add("scroll-up");
     }
   });
 },
-sectionOneOptions);
+mainOptions);
+mainObserver.observe(maincontent);
 
-sectionOneObserver.observe(sectionOne);
-*/
-let currentScroll = 0;
+/* let currentScroll = 0;
 window.addEventListener("scroll", (xevent) =>{
   let menuBar = document.getElementById("main-header");
   if (window.scrollY > currentScroll) {
@@ -145,7 +146,7 @@ window.addEventListener("scroll", (xevent) =>{
     }
   }
   currentScroll = window.scrollY;
-});
+}); */
 
 /* --------------------------- FOOTER FORM POP-UP --------------------------- */
 const formDivWrapper = document.getElementsByClassName('floating-popup');
@@ -165,12 +166,21 @@ formButton.addEventListener('click', () => {
 /* -------------------------- HEADER BURGER BUTTON -------------------------- */
 const burgerBtn = document.getElementsByClassName('menu-btn');
 
-/* burgerBtn.addEventListener('click', (e) => {
-  
-}); */
-/* const mediaQuery = window.matchMedia( '( max-width: 700px )' )
+const mediaQuery = window.matchMedia( '( max-width: 700px )' );
 
 // Note the `matches` property
-if ( mediaQuery.matches ) {
+/* if ( mediaQuery.matches ) {
+  burgerBtn.style.display = "flex";
   console.log('Media Query Matched!')
+  function myFunction(x) {
+  if (x.matches) { // If media query matches
+    document.body.style.backgroundColor = "yellow";
+  } else {
+    document.body.style.backgroundColor = "pink";
+  }
+}
+
+var x = window.matchMedia("(max-width: 700px)")
+myFunction(x) // Call listener function at run time
+x.addListener(myFunction) // Attach listener function on state changes
 } */
