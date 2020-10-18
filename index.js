@@ -32,7 +32,7 @@ app.use(cors());
 // body parser middleware
 app.use(parser.json());
 app.use(parser.urlencoded({ extended: true }));
-app.use((req, res, next) => {
+/* app.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*");
   res.header(
     "Access-Control-Allow-Headers",
@@ -43,7 +43,7 @@ app.use((req, res, next) => {
     return res.status(200).json({});
   }
   next();
-});
+}); */
 
 // Handlebars
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
@@ -72,11 +72,11 @@ const authConfig = {
 
 axios(authConfig)
   .then((auth) => {
-    console.log(auth.data.access_token, 'Auth Key returned');
+    //console.log(auth.data.access_token, 'Auth Key returned');
     authKey = auth.data.access_token;
   })
   .then(() => {
-    console.log('top tracks auth key', authKey)
+    //console.log('top tracks auth key', authKey)
     getTopTenTracks(authKey);
   })
   .catch((err) => {
@@ -101,18 +101,50 @@ await axios(topTenTracksConfig)
   .then((res) => {
     let spotifyNum = 1;
     res.data.tracks.forEach((track) => {
-      spotifyTopTracks.push({
-        trackid: `topTrack-${spotifyNum}`,
-        rank: spotifyNum,
-        trackTitle: track.name,
-        fromAlbum: track.album.name,
-        albumTrackNumber: track.track_number,
-        trackSpotifyLink: track.external_urls.spotify,
-        albumSpotifyLink: track.album.external_urls.spotify,
-        trackPopularity: track.popularity,
-        albumImage: track.album.images[1].url,
-      });
-      spotifyNum++;
+      if(!track.external_urls.spotify) 
+      {
+        spotifyTopTracks.push({
+          trackid: `topTrack-${spotifyNum}`,
+          rank: spotifyNum,
+          trackTitle: track.name,
+          fromAlbum: track.album.name,
+          albumTrackNumber: track.track_number,
+          trackSpotifyLink: false,
+          albumSpotifyLink: track.album.external_urls.spotify,
+          trackPopularity: track.popularity,
+          albumImage: track.album.images[1].url,
+        });
+          spotifyNum++;
+      }
+      else if(!track.album.external_urls.spotify)
+      {
+        spotifyTopTracks.push({
+          trackid: `topTrack-${spotifyNum}`,
+          rank: spotifyNum,
+          trackTitle: track.name,
+          fromAlbum: track.album.name,
+          albumTrackNumber: track.track_number,
+          trackSpotifyLink: track.external_urls.spotify,
+          albumSpotifyLink: false,
+          trackPopularity: track.popularity,
+          albumImage: track.album.images[1].url,
+        });
+          spotifyNum++;
+      } 
+      else {
+        spotifyTopTracks.push({
+          trackid: `topTrack-${spotifyNum}`,
+          rank: spotifyNum,
+          trackTitle: track.name,
+          fromAlbum: track.album.name,
+          albumTrackNumber: track.track_number,
+          trackSpotifyLink: track.external_urls.spotify,
+          albumSpotifyLink: track.album.external_urls.spotify,
+          trackPopularity: track.popularity,
+          albumImage: track.album.images[1].url,
+        });
+          spotifyNum++;
+      }
     });
     console.log(spotifyTopTracks)
     return spotifyTopTracks;
@@ -153,7 +185,7 @@ app.get("/", (req, res) => {
   res.render("homepage", {
     title: "Marilyn Manson || WE ARE CHAOS",
     preorderalbum,
-    SpotifyTotalFollowers,
+    //SpotifyTotalFollowers,
     spotifyTopTracks,
   });
 });
