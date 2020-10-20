@@ -184,3 +184,8 @@ var x = window.matchMedia("(max-width: 700px)")
 myFunction(x) // Call listener function at run time
 x.addListener(myFunction) // Attach listener function on state changes
 } */
+
+
+/* -------------- GET THE USERS LOCATION TO SEND TO THE SERVER -------------- */
+/* ----------------------- TO USE WITH THE SPOTIFY API ---------------------- */
+

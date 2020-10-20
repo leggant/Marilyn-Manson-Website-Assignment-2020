@@ -79,6 +79,16 @@ axios(authConfig)
     //console.log('top tracks auth key', authKey)
     getTopTenTracks(authKey);
   })
+  .then(() => {
+    //console.log('top tracks auth key', authKey)
+    getSpotifyFollowers(authKey);
+    //console.log(SpotifyTotalFollowers)
+  })
+  .then(() => {
+    //console.log('top tracks auth key', authKey)
+    getBackCatalog(authKey);
+    //console.log()
+  })
   .catch((err) => {
     console.log(err)
   }
@@ -146,7 +156,6 @@ await axios(topTenTracksConfig)
           spotifyNum++;
       }
     });
-    console.log(spotifyTopTracks)
     return spotifyTopTracks;
   })
   .then(console.log('top ten tracks returned'))
@@ -157,27 +166,105 @@ await axios(topTenTracksConfig)
 
 let SpotifyTotalFollowers;
 
-
-const spotifyFollowersConfig = {
-  method: "get",
-  url: `https://api.spotify.com/v1/artists/${process.env.SPOTIFYMARILYNMANSONID}/top-tracks?market=${process.env.SPOTIFYCOUNTRYCODE}`,
-  headers: {
-    'Authorization': `Bearer ${authKey}`
+async function getSpotifyFollowers(authKey) {
+  const spotifyFollowersConfig = {
+    method: "get",
+    url: `https://api.spotify.com/v1/artists/${process.env.SPOTIFYMARILYNMANSONID}`,
+    headers: {
+      'Authorization': `Bearer ${authKey}`
+    }
   }
-};
+await axios(spotifyFollowersConfig)
+  .then((res) => {
+    SpotifyTotalFollowers = res.data.followers.total
+  })
+  .then(console.log('Total Spotify Followers Returned'))
+  .catch((error) => console.log(error));
+}
 
 /* --------------------- GET MARILYN MANSON BACK CATALOG -------------------- */
 
 let mansonBackCatalog = [];
+async function getBackCatalog(authKey) {
+  const backCatalogConfig = {
+    method: "get",
+    url: `https://api.spotify.com/v1/artists/${process.env.SPOTIFYMARILYNMANSONID}/albums?limit=50&include_groups=album&market=NZ`,
+    headers: {
+      'Authorization': `Bearer ${authKey}`
+    }
+  };
+  await axios(backCatalogConfig)
+  .then((res) => {
+    res.data.items.forEach((album) => {
+      mansonBackCatalog.push({
+        albumTitle: album.name,
+        released: album.release_date.split('-')[0],
+        albumLink: album.external_urls.spotify,
+        albumImage: album.images[1].url
+      })
+    })
+    console.log(mansonBackCatalog.length)
+    return mansonBackCatalog
+  })
+  .catch((error) => console.log(error))
+}
 
-const backCatalogConfig = {
-  method: "get",
-  url: `https://api.spotify.com/v1/artists/${process.env.SPOTIFYMARILYNMANSONID}/top-tracks?market=${process.env.SPOTIFYCOUNTRYCODE}`,
-  headers: {
-    'Authorization': `Bearer ${authKey}`
+/*
+
+USING THE AUDIO DB API FOR BACK CATALOG
+getAlbumData();
+let albumInfo = [];
+
+async function getAlbumData() {
+	const dataUrl = 'https://theaudiodb.com/api/v1/json/1/album.php?i=112122';
+	const response = await fetch(dataUrl);
+  const dataalbum = await response.json();
+  dataalbum.album.sort(compare);
+  createArrayAlbums(dataalbum.album);
+}
+
+function createArrayAlbums(data){
+  for(let item of data){
+  	if((item.strReleaseFormat === "Album") || (item.strReleaseFormat === "EP") || (item.strReleaseFormat === "Live")){
+      albumInfo.push(item);
+      createCard("Manson-Albums-Catalog", item.strAlbum, item.strAlbumThumb, item.intYearReleased);
+  	}
   }
-};
+}
 
+function compare( a, b ) {
+  if ( a.intYearReleased < b.intYearReleased ){
+    return -1;
+  }
+  if ( a.intYearReleased > b.intYearReleased ){
+    return 1;
+  }
+  return 0;
+}
+
+async function createCard(containerid, title, image, year){
+  let catalogSection = document.getElementById(containerid);
+  let divtag = document.createElement("DIV");
+  let imgWrapper = document.createElement("DIV");
+  let h4tag = document.createElement("H4");
+  let imageTag = document.createElement("IMG");
+  catalogSection.appendChild(divtag).className = "album";
+  divtag.appendChild(imgWrapper);
+  imgWrapper.className = "album-img-wrapper";
+  imgWrapper.appendChild(imageTag).src = image;
+  imageTag.className = "album-img";
+  divtag.appendChild(h4tag).innerHTML = title;
+  h4tag.className = "album-title";
+  if(year){
+    let yeartag = document.createElement("P");
+    yeartag.classList = "yearReleased";
+    divtag.appendChild(yeartag).innerHTML = year;
+    yeartag.className = "year-of-release";
+  }
+}
+
+
+*/
 
 
 // Homepage Route
@@ -185,7 +272,7 @@ app.get("/", (req, res) => {
   res.render("homepage", {
     title: "Marilyn Manson || WE ARE CHAOS",
     preorderalbum,
-    //SpotifyTotalFollowers,
+    SpotifyTotalFollowers,
     spotifyTopTracks,
   });
 });

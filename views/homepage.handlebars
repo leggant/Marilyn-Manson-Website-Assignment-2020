@@ -119,7 +119,7 @@
             {{#each spotifyTopTracks}}
             <article class="spotify-top-track-item" id="{{this.trackid}}">
                 <div>
-                    <h2><i class="fa fa-volume-up" aria-hidden="true"></i> #{{this.rank}} {{this.trackTitle}}</h2>
+                    <h2><a href="{{this.trackSpotifyLink}}" target="_blank"><i class="fa fa-volume-up" aria-hidden="true"></i></a> #{{this.rank}} {{this.trackTitle}}</h2>
                     <img src={{this.albumImage}} class="spotify-album-image" alt="Marilyn Manson Album Cover For {{this.fromAlbum}}">
                     <a href="{{this.trackSpotifyLink}}" target="_blank">Listen to: {{this.trackTitle}} here <i class="fa fa-spotify" aria-hidden="true"></i></a>
                 </div>
