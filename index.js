@@ -72,30 +72,26 @@ const authConfig = {
 
 axios(authConfig)
   .then((auth) => {
-    //console.log(auth.data.access_token, 'Auth Key returned');
     authKey = auth.data.access_token;
   })
   .then(() => {
-    //console.log('top tracks auth key', authKey)
     getTopTenTracks(authKey);
+    getSpotifyFollowers(authKey)
+      .then((res) => {
+        SpotifyTotalFollowers = res;
+      })
+      .catch((error) => console.log(error));
+    getBackCatalog(authKey)
+      .then((res) => {
+        console.log(res)
+        // save globally?
+      })
+      .catch((error) => console.log(error));
   })
-  .then(() => {
-    //console.log('top tracks auth key', authKey)
-    getSpotifyFollowers(authKey);
-    //console.log(SpotifyTotalFollowers)
-  })
-  .then(() => {
-    //console.log('top tracks auth key', authKey)
-    getBackCatalog(authKey);
-    //console.log()
-  })
-  .catch((err) => {
-    console.log(err)
-  }
-);
+  .catch((error) => console.log(error));
+
 
 /* ------------------------ GET SPOTIFY TOP 10 TRACKS ----------------------- */
-
 
 let spotifyTopTracks = [];
 async function getTopTenTracks(authKey) {
@@ -158,7 +154,6 @@ await axios(topTenTracksConfig)
     });
     return spotifyTopTracks;
   })
-  .then(console.log('top ten tracks returned'))
   .catch((error) => console.log(error));
 }
 
@@ -174,17 +169,15 @@ async function getSpotifyFollowers(authKey) {
       'Authorization': `Bearer ${authKey}`
     }
   }
-await axios(spotifyFollowersConfig)
-  .then((res) => {
-    SpotifyTotalFollowers = res.data.followers.total
-  })
-  .then(console.log('Total Spotify Followers Returned'))
-  .catch((error) => console.log(error));
+  const response = await axios(spotifyFollowersConfig)
+  return response.data.followers.total
 }
 
 /* --------------------- GET MARILYN MANSON BACK CATALOG -------------------- */
 
+let mansonSpotifyBackCatalogRawData = [];
 let mansonBackCatalog = [];
+
 async function getBackCatalog(authKey) {
   const backCatalogConfig = {
     method: "get",
@@ -193,54 +186,29 @@ async function getBackCatalog(authKey) {
       'Authorization': `Bearer ${authKey}`
     }
   };
-  await axios(backCatalogConfig)
-  .then((res) => {
-    res.data.items.forEach((album) => {
-      mansonBackCatalog.push({
-        albumTitle: album.name,
-        released: album.release_date.split('-')[0],
-        albumLink: album.external_urls.spotify,
-        albumImage: album.images[1].url
-      })
-    })
-    console.log(mansonBackCatalog.length)
-    return mansonBackCatalog
+  const response = await axios(backCatalogConfig)
+  const albums = await saveBackCatalog(response.data.items)
+  albums.forEach((album, index) => {
+    mansonBackCatalog[index] = album
   })
-  .catch((error) => console.log(error))
+
+  return mansonBackCatalog
+}
+
+async function saveBackCatalog(albums) {
+  const data = await albums
+  data.forEach((album) => {
+    mansonSpotifyBackCatalogRawData.push({
+      albumTitle: album.name,
+      released: album.release_date.split('-')[0],
+      albumLink: album.external_urls.spotify,
+      albumImage: album.images[1].url
+    })
+  })
+  return mansonSpotifyBackCatalogRawData
 }
 
 /*
-
-USING THE AUDIO DB API FOR BACK CATALOG
-getAlbumData();
-let albumInfo = [];
-
-async function getAlbumData() {
-	const dataUrl = 'https://theaudiodb.com/api/v1/json/1/album.php?i=112122';
-	const response = await fetch(dataUrl);
-  const dataalbum = await response.json();
-  dataalbum.album.sort(compare);
-  createArrayAlbums(dataalbum.album);
-}
-
-function createArrayAlbums(data){
-  for(let item of data){
-  	if((item.strReleaseFormat === "Album") || (item.strReleaseFormat === "EP") || (item.strReleaseFormat === "Live")){
-      albumInfo.push(item);
-      createCard("Manson-Albums-Catalog", item.strAlbum, item.strAlbumThumb, item.intYearReleased);
-  	}
-  }
-}
-
-function compare( a, b ) {
-  if ( a.intYearReleased < b.intYearReleased ){
-    return -1;
-  }
-  if ( a.intYearReleased > b.intYearReleased ){
-    return 1;
-  }
-  return 0;
-}
 
 async function createCard(containerid, title, image, year){
   let catalogSection = document.getElementById(containerid);
@@ -263,7 +231,6 @@ async function createCard(containerid, title, image, year){
   }
 }
 
-
 */
 
 
@@ -274,6 +241,7 @@ app.get("/", (req, res) => {
     preorderalbum,
     SpotifyTotalFollowers,
     spotifyTopTracks,
+    mansonBackCatalog
   });
 });
 
