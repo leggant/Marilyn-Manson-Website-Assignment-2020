@@ -3,96 +3,152 @@ const Querystring = require('querystring');
 require('dotenv').config();
 const parser = require('body-parser');
 const axios = require('axios');
+const Handlebars = require("handlebars");
 
 const router = express.Router();
 
-/* 
-// // Spotify
-const spotifyInfo = [];
-const SpotifyTotalFollowers = [];
-
-let config = {
-  headers: {
-    "Authorization" : `Basic ${process.env.BASE64}`,
-    'Content-Type': 'application/x-www-form-urlencoded'
-  }
-}
-let body = {
-  "grant_type" : "client_credentials",
-}
-let key;
-app.get('/test', (req, res) => {
-  axios.post('https://accounts.spotify.com/api/token',Querystring.stringify(body), config)
-  .then(apires => {
-    console.log(apires.data);
-    let reqConfig = {
-      headers: {
-        "Authorization" : `${apires.data.token_type} ${apires.data.access_token}`
-      }
-    }
-    axios.get(`https://api.spotify.com/v1/artists/${process.env.SPOTIFYMARILYNMANSONID}/top-tracks?market=${process.env.SPOTIFYCOUNTRYCODE}`,{},reqConfig)
-    .then(response => {
-      console.log(response)
+router.get('/', (request, response) => {
+axios(authConfig)
+.then((auth) => {
+  authKey = auth.data.access_token;
+})
+.then(() => {
+  getTopTenTracks(authKey)
+  .then(topTracks => {
+  getSpotifyFollowers(authKey)
+    .then((followerRes) => {
+      getBackCatalog(authKey)
+      .then((backCat) => {
+        response.render('partials/toptracks',{"spotifyTopTracks":topTracks, "spotifyFollowers":followerRes, layout:false}, 
+        (err, html, followerRes) => {
+          response.render('partials/backCatalog',{"backCatalog":backCat,layout:false} , (err,html2) => {
+            let allData = {'followers':followerRes,'backCatalog':html2,'topTracks':html};   
+            response.send(allData)
+          })
+        })
+      })
+      .catch((error) => console.log(error));
     })
-    .catch(err => {
-      console.log(err);
-    })
-  }).catch(error => {
-    console.log(error);
-  })
-});
-
- */
-
-
-
-
-// Spotify API middleware
-
-// spotify constants
-
-
-
-// spotify functions
-/* function totalFollowers(data) {
-  SpotifyTotalFollowers[0] = {
-      followers: data
-  };
-};
- 
-function returnInfo(data) {
-  data.forEach((element, index) => {
-      spotifyInfo[index] = {
-          rank: index + 1,
-          trackname: element.name,
-          albumname: element.album.name,
-          popularity: element.popularity,
-          releasedate: element.album.release_date,
-          albumimage: element.album.images[1].url,
-          spotifytrackurl: element.external_urls.spotify,
-          spotifyartisturl: element.artists[0].external_urls.spotify,
-          spotifyalbumurl: element.album.external_urls.spotify
-      };
+    .catch((error) => console.log(error));
   });
-}; */
- 
-// get top ten marilyn manson tracks for NZ
-/* spotify.request(`https://api.spotify.com/v1/artists/${process.env.SPOTIFYMARILYNMANSONID}/top-tracks?market=${process.env.SPOTIFYCOUNTRYCODE}`)
-    .then(function(data) {
-        returnInfo(data.tracks);
-    })
-    .catch(function(err) {
-        console.error('Error occurred: ' + err);
+})
+.catch((error) => console.log(error));
 });
 
 
-// Get total manson Followers on spotify
-spotify
-  .search({ type: 'artist', query: 'Marilyn Manson' })
-  .then(function(data) {
-    totalFollowers(data.artists.items[0].followers.total);
+
+/* ------------------------ GET SPOTIFY AUTHETICATION ----------------------- */
+
+let authKey;
+
+const body = Querystring.stringify({
+  grant_type: "client_credentials"
+});
+const authConfig = {
+  method: "post",
+  url: "https://accounts.spotify.com/api/token",
+  headers: {
+    'Authorization': `Basic ${process.env.BASE64}`,
+    "Content-Type": "application/x-www-form-urlencoded"
+  },
+  data: body
+};
+
+/* ------------------------ GET SPOTIFY TOP 10 TRACKS ----------------------- */
+
+
+
+async function getTopTenTracks(authKey) {
+  const topTenTracksConfig = {
+    method: "get",
+    url: `https://api.spotify.com/v1/artists/${process.env.SPOTIFYMARILYNMANSONID}/top-tracks?market=${process.env.SPOTIFYCOUNTRYCODE}`,
+    headers: {
+      Authorization: `Bearer ${authKey}`,
+    },
+  };
+
+const ttRes = await axios(topTenTracksConfig)
+  .then((res) => {
+    let spotifyTopTracks = [];
+    let spotifyNum = 1;
+    res.data.tracks.forEach((track) => {
+      console.log(track);
+      spotifyTopTracks.push({
+        trackid: `topTrack-${spotifyNum}`,
+        albumid: track.id,
+        rank: spotifyNum,
+        trackTitle: track.name,
+        fromAlbum: track.album.name,
+        albumTrackNumber: track.track_number,
+        trackSpotifyLink: false,
+        albumSpotifyLink: track.album.external_urls.spotify,
+        trackPopularity: track.popularity,
+        albumImage: track.album.images[1].url
+      });
+        spotifyNum++;
+    });
+    return spotifyTopTracks;
   })
-  .catch(function(err) {
-    console.log(err);
-  }); */
-  module.exports = router; 
+  .catch((error) => console.log(error));
+  return ttRes;
+}
+
+/* ------------------ GET MARILYN MANSON SPOTIFY FOLLOWERS ------------------ */
+
+//let SpotifyTotalFollowers;
+
+async function getSpotifyFollowers(authKey) {
+  const spotifyFollowersConfig = {
+    method: "get",
+    url: `https://api.spotify.com/v1/artists/${process.env.SPOTIFYMARILYNMANSONID}`,
+    headers: {
+      'Authorization': `Bearer ${authKey}`
+    }
+  }
+  const response = await axios(spotifyFollowersConfig)
+  return response.data.followers.total
+}
+
+/* --------------------- GET MARILYN MANSON BACK CATALOG -------------------- */
+
+
+
+
+async function getBackCatalog(authKey) {
+  const backCatalogConfig = {
+    method: "get",
+    url: `https://api.spotify.com/v1/artists/${process.env.SPOTIFYMARILYNMANSONID}/albums?limit=50&include_groups=album&market=NZ`,
+    headers: {
+      'Authorization': `Bearer ${authKey}`
+    }
+  };
+  const response = await axios(backCatalogConfig);
+  const albums = await saveBackCatalog(response.data.items);
+  let mansonBackCatalog = [];
+  albums.forEach((album, index) => {
+    mansonBackCatalog[index] = album
+  })
+  return mansonBackCatalog
+}
+
+async function saveBackCatalog(albums) {
+  let mansonSpotifyBackCatalogRawData = [];
+  const data = await albums
+  data.forEach((album) => {
+    mansonSpotifyBackCatalogRawData.push({
+      albumTitle: album.name,
+      released: album.release_date.split('-')[0],
+      albumLink: album.external_urls.spotify,
+      albumImage: album.images[1].url
+    })
+  })
+  return mansonSpotifyBackCatalogRawData
+}
+
+/* CALL SPOTIFY FUNCTIONS */
+
+const calldata = async (authKey) => {
+
+}
+
+module.exports = router; 

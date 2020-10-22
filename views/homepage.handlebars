@@ -108,27 +108,10 @@
     </div>
     <section class="section-home-page" id="spotify-section">
         <h2 class="spotify-headline">Top 10 Marilyn Manson <i class="fa fa-spotify" aria-hidden="true"></i>Spotify Tracks</h2>
-        {{#each SpotifyTotalFollowers}}
-        <h3 class="spotify-sub-headline">Spotify Followers: <span class="followers">{{this.followers}}</span></h3>
-        {{/each}}
-{{!--         <select name="" id="">
-            <option value=""></option>
-            <option value="nz" >New Zealand</option>
-        </select> --}}
+        <img src="img/loading.gif" class="preloading" alt="loading">
+
         <div class="spotify-cards-area">
-            {{#each spotifyTopTracks}}
-            <article class="spotify-top-track-item" id="{{this.trackid}}">
-                <div>
-                    <h2><a href="{{this.trackSpotifyLink}}" target="_blank"><i class="fa fa-volume-up" aria-hidden="true"></i></a> #{{this.rank}} {{this.trackTitle}}</h2>
-                    <img src={{this.albumImage}} class="spotify-album-image" alt="Marilyn Manson Album Cover For {{this.fromAlbum}}">
-                    <a href="{{this.trackSpotifyLink}}" target="_blank">Listen to: {{this.trackTitle}} here <i class="fa fa-spotify" aria-hidden="true"></i></a>
-                </div>
-                <div>
-                    <h4>From: {{this.fromAlbum}}</h4>
-                    <a href="{{this.albumSpotifyLink}}" target="_blank">Listen to: {{this.fromAlbum}} here <i class="fa fa-spotify" aria-hidden="true"></i></a>
-                </div>
-            </article>
-            {{/each}}
+            
         </div>
     </section>
 
@@ -246,7 +229,11 @@
     <section class="section-home-page back-catalog">
         <h3 class="backcatalog-headline"><i class="fas fa-record-vinyl"></i>Marilyn Manson Back Catalog</h3>
         <p>Need space for your team?<br>You’re in luck! We’ve just launched Deskpass for Teams to provide the same amazing Deskpass experience for entire organizations.</p>
-        <div id="Manson-Albums-Catalog"></div>
+        {{!-- INSERT BACKCATALOG HERE --}}
+        <img src="img/loading.gif" class="preloading" alt="loading">
+        <div id="Manson-Albums-Catalog">
+            
+        </div>
         <div class="backcatalog-cta">
             <button class="backcatalog-buy-albums">Order Today</button>
         </div>

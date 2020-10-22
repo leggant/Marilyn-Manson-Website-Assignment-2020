@@ -1,0 +1,11 @@
+{{#each backCatalog}}
+<div class="album" id="backCatalogAlbum{{@index}}">
+    <div class="album-img-wrapper">
+        <a href={{this.albumLink}} target="_blank">
+            <img src="{{this.albumImage}}" class="back-catalog-album-img">
+        </a>
+    </div>
+    <h4 class="album-title">{{this.albumTitle}}</h4>
+    <p class="year-of-release">{{this.released}}</p>
+</div>
+{{/each}}

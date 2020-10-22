@@ -52,61 +52,6 @@ function changeBGclr(col)
 
 
 /* -------------------------------------------------------------------------- */
-/*               Album Cover Information from theaudiodb API                  */
-/* -------------------------------------------------------------------------- */
-
-getAlbumData();
-let albumInfo = [];
-
-async function getAlbumData() {
-	const dataUrl = 'https://theaudiodb.com/api/v1/json/1/album.php?i=112122';
-	const response = await fetch(dataUrl);
-  const dataalbum = await response.json();
-  dataalbum.album.sort(compare);
-  createArrayAlbums(dataalbum.album);
-}
-
-function createArrayAlbums(data){
-  for(let item of data){
-  	if((item.strReleaseFormat === "Album") || (item.strReleaseFormat === "EP") || (item.strReleaseFormat === "Live")){
-      albumInfo.push(item);
-      createCard("Manson-Albums-Catalog", item.strAlbum, item.strAlbumThumb, item.intYearReleased);
-  	}
-  }
-}
-
-function compare( a, b ) {
-  if ( a.intYearReleased < b.intYearReleased ){
-    return -1;
-  }
-  if ( a.intYearReleased > b.intYearReleased ){
-    return 1;
-  }
-  return 0;
-}
-
-async function createCard(containerid, title, image, year){
-  let catalogSection = document.getElementById(containerid);
-  let divtag = document.createElement("DIV");
-  let imgWrapper = document.createElement("DIV");
-  let h4tag = document.createElement("H4");
-  let imageTag = document.createElement("IMG");
-  catalogSection.appendChild(divtag).className = "album";
-  divtag.appendChild(imgWrapper);
-  imgWrapper.className = "album-img-wrapper";
-  imgWrapper.appendChild(imageTag).src = image;
-  imageTag.className = "album-img";
-  divtag.appendChild(h4tag).innerHTML = title;
-  h4tag.className = "album-title";
-  if(year){
-    let yeartag = document.createElement("P");
-    yeartag.classList = "yearReleased";
-    divtag.appendChild(yeartag).innerHTML = year;
-    yeartag.className = "year-of-release";
-  }
-}
-
-/* -------------------------------------------------------------------------- */
 /*                     HEADER MENU CLASS CHANGE ON SCROLL                     */
 /* -------------------------------------------------------------------------- */
 
@@ -189,3 +134,22 @@ x.addListener(myFunction) // Attach listener function on state changes
 /* -------------- GET THE USERS LOCATION TO SEND TO THE SERVER -------------- */
 /* ----------------------- TO USE WITH THE SPOTIFY API ---------------------- */
 
+const getSpotifyData = async () => {
+  const response = await fetch('/spotify');
+  const returnData = await response.json()
+  return returnData;
+}
+
+getSpotifyData()
+  .then((data) => {
+    document.querySelector(".spotify-cards-area").innerHTML = data.topTracks;
+    document.querySelector("#Manson-Albums-Catalog").innerHTML = data.backCatalog;
+  })
+  .then(()=> {
+    let preloadimage = document.querySelectorAll(".preloading");
+    preloadimage.forEach(image => {
+      image.remove();
+    })
+    
+  })
+  .catch(err => console.log(err));
