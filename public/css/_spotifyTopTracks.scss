@@ -1,0 +1,37 @@
+//NEW ALBUM HOMEPAGE SECTION
+#spotify-section {
+    width: 90vw;
+    margin: 0 auto;
+    padding: 5rem 0;
+}
+
+h2.spotify-headline {
+    padding: 3rem 0;
+    font-family: $boldHeading;
+    font-weight: 600;
+    font-size: 8rem;
+    .fa-spotify {
+        color:$spotifyGreen;
+    }
+}
+h3.spotify-sub-headline {
+    font-family: $boldHeading;
+    font-weight: 600;
+    font-size: 4rem;
+    span {
+        color:$spotifyGreen;
+    }
+}
+.spotify-cards-area {
+    display: grid;
+}
+.spotify-cards-area article {
+    display: flex;
+    flex-wrap: wrap;
+    width: 30%;
+}
+
+.spotify-top-track-item div {
+    display: flex;
+    flex-direction: column;
+}

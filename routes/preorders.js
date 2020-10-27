@@ -1,17 +1,16 @@
 const express = require('express');
 const router = express.Router();
-const preorders = require('../Preorders');
+const mongoose = require('mongoose');
+require("dotenv").config();
+const dbURI = `mongodb+srv://${process.env.DBUSER}:${process.env.DBPASS}@MansonDB.cnnfy.mongodb.net/albumPreorders?retryWrites=true&w=majority`;
 
 router.get('/', (request, response) => {
-    response.json(preorders);
+    mongoose.connect(dbURI, {useNewUrlParser: true, useUnifiedTopology: true})
+    .then((response) => {
+        console.log(response)
+    })
+    .catch();
 });
 
-router.get('/:option', (request, response) => {
-    const found = preorders.some(preorders => preorders.option === request.params.option);
-    if(found) {
-        response.json(preorders.filter(preorders => preorders.option === request.params.option));
-    } else {
-        response.status(400).json({msg: `Album #${request.params.option} Not Found`});
-    }
-});
+
 module.exports = router; 

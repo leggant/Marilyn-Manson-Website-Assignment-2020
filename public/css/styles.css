@@ -830,23 +830,52 @@ p {
 #spotify-section {
   width: 90vw;
   margin: 0 auto;
+  padding: 5rem 0;
 }
 
-#spotify-section .spotify-cards-area {
+h2.spotify-headline {
+  padding: 3rem 0;
+  font-family: "Raleway", sans-serif;
+  font-weight: 600;
+  font-size: 8rem;
+}
+
+h2.spotify-headline .fa-spotify {
+  color: #1DB954;
+}
+
+h3.spotify-sub-headline {
+  font-family: "Raleway", sans-serif;
+  font-weight: 600;
+  font-size: 4rem;
+}
+
+h3.spotify-sub-headline span {
+  color: #1DB954;
+}
+
+.spotify-cards-area {
+  display: -ms-grid;
+  display: grid;
+}
+
+.spotify-cards-area article {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
+  width: 30%;
 }
 
-#spotify-section .spotify-cards-area .spotify-top-track-item img {
-  width: 200px;
-}
-
-.spotify-headline h2 {
-  font-weight: 600;
-  font-size: 4rem;
+.spotify-top-track-item div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 /* -------------------------------------------------------------------------- */

@@ -1,0 +1,437 @@
+[{
+        "city": "New York City",
+        "State": "New York",
+        "venue": "Roseland Ballroom",
+        "longitude": "-73.935242",
+        "latitude": "40.730610",
+        "ticketReleaseDate": "01-11-2020",
+        "numberOfShows": 2,
+        "dates": {
+            "show-1": { "date": "23/10/2020", "soldOut": true },
+            "show-2": { "date": "24/10/2020", "soldOut": true }
+        },
+        "extraShowPlanned": false,
+        "ticketsOnSale": false
+    },
+    {
+        "city": "San Francisco",
+        "State": "California",
+        "venue": "The Fillmore",
+        "longitude": "-122.431297",
+        "latitude": "37.773972",
+        "ticketReleaseDate": "12-11-2020",
+        "numberOfShows": 3,
+        "dates": {
+            "show-1": {
+                "date": "10/11/2020",
+                "soldOut": true
+            },
+            "show-2": {
+                "date": "11/11/2020",
+                "soldOut": false
+            },
+            "show-3": {
+                "date": "12/11/2020",
+                "soldOut": false
+            }
+        },
+        "extraShowPlanned": false,
+        "ticketsOnSale": false
+    },
+    {
+        "city": "Las Vegas",
+        "State": "Nevada",
+        "venue": "Mandalay Bay Events Center",
+        "longitude": "-115.172813",
+        "latitude": "36.114647",
+        "ticketReleaseDate": "15-11-2020",
+        "numberOfShows": 2,
+        "dates": {
+            "show-1": {
+                "date": "20/11/2020",
+                "soldOut": true
+            },
+            "show-2": {
+                "date": "21/11/2020",
+                "soldOut": true
+            }
+        },
+        "extraShowPlanned": true,
+        "ticketsOnSale": false
+    }
+    ,
+    {
+        "city": "Los Angeles",
+        "State": "Nevada",
+        "venue": "Mandalay Bay Events Center",
+        "longitude": "-115.172813",
+        "latitude": "36.114647",
+        "ticketReleaseDate": "15-11-2020",
+        "numberOfShows": 2,
+        "dates": {
+            "show-1": {
+                "date": "20/11/2020",
+                "soldOut": true
+            },
+            "show-2": {
+                "date": "21/11/2020",
+                "soldOut": true
+            }
+        },
+        "extraShowPlanned": true,
+        "ticketsOnSale": false
+    }
+    ,
+    {
+        "city": "Denver",
+        "State": "Nevada",
+        "venue": "Mandalay Bay Events Center",
+        "longitude": "-115.172813",
+        "latitude": "36.114647",
+        "ticketReleaseDate": "15-11-2020",
+        "numberOfShows": 2,
+        "dates": {
+            "show-1": {
+                "date": "20/11/2020",
+                "soldOut": true
+            },
+            "show-2": {
+                "date": "21/11/2020",
+                "soldOut": true
+            }
+        },
+        "extraShowPlanned": true,
+        "ticketsOnSale": false
+    }
+    ,
+    {
+        "city": "Orlando",
+        "State": "Nevada",
+        "venue": "Mandalay Bay Events Center",
+        "longitude": "-115.172813",
+        "latitude": "36.114647",
+        "ticketReleaseDate": "15-11-2020",
+        "numberOfShows": 2,
+        "dates": {
+            "show-1": {
+                "date": "20/11/2020",
+                "soldOut": true
+            },
+            "show-2": {
+                "date": "21/11/2020",
+                "soldOut": true
+            }
+        },
+        "extraShowPlanned": true,
+        "ticketsOnSale": false
+    }
+    ,
+    {
+        "city": " Miami",
+        "State": "Nevada",
+        "venue": "Mandalay Bay Events Center",
+        "longitude": "-115.172813",
+        "latitude": "36.114647",
+        "ticketReleaseDate": "15-11-2020",
+        "numberOfShows": 2,
+        "dates": {
+            "show-1": {
+                "date": "20/11/2020",
+                "soldOut": true
+            },
+            "show-2": {
+                "date": "21/11/2020",
+                "soldOut": true
+            }
+        },
+        "extraShowPlanned": true,
+        "ticketsOnSale": false
+    }
+    ,
+    {
+        "city": "San Diego",
+        "State": "Nevada",
+        "venue": "Mandalay Bay Events Center",
+        "longitude": "-115.172813",
+        "latitude": "36.114647",
+        "ticketReleaseDate": "15-11-2020",
+        "numberOfShows": 2,
+        "dates": {
+            "show-1": {
+                "date": "20/11/2020",
+                "soldOut": true
+            },
+            "show-2": {
+                "date": "21/11/2020",
+                "soldOut": true
+            }
+        },
+        "extraShowPlanned": true,
+        "ticketsOnSale": false
+    }
+    ,
+    {
+        "city": "Atlanta",
+        "State": "Nevada",
+        "venue": "Mandalay Bay Events Center",
+        "longitude": "-115.172813",
+        "latitude": "36.114647",
+        "ticketReleaseDate": "15-11-2020",
+        "numberOfShows": 2,
+        "dates": {
+            "show-1": {
+                "date": "20/11/2020",
+                "soldOut": true
+            },
+            "show-2": {
+                "date": "21/11/2020",
+                "soldOut": true
+            }
+        },
+        "extraShowPlanned": true,
+        "ticketsOnSale": false
+    }
+    ,
+    {
+        "city": "Seattle",
+        "State": "Nevada",
+        "venue": "Mandalay Bay Events Center",
+        "longitude": "-115.172813",
+        "latitude": "36.114647",
+        "ticketReleaseDate": "15-11-2020",
+        "numberOfShows": 2,
+        "dates": {
+            "show-1": {
+                "date": "20/11/2020",
+                "soldOut": true
+            },
+            "show-2": {
+                "date": "21/11/2020",
+                "soldOut": true
+            }
+        },
+        "extraShowPlanned": true,
+        "ticketsOnSale": false
+    }
+    ,
+    {
+        "city": "Houston",
+        "State": "Nevada",
+        "venue": "Mandalay Bay Events Center",
+        "longitude": "-115.172813",
+        "latitude": "36.114647",
+        "ticketReleaseDate": "15-11-2020",
+        "numberOfShows": 2,
+        "dates": {
+            "show-1": {
+                "date": "20/11/2020",
+                "soldOut": true
+            },
+            "show-2": {
+                "date": "21/11/2020",
+                "soldOut": true
+            }
+        },
+        "extraShowPlanned": true,
+        "ticketsOnSale": false
+    }
+    ,
+    {
+        "city": "Dallas",
+        "State": "Nevada",
+        "venue": "Mandalay Bay Events Center",
+        "longitude": "-115.172813",
+        "latitude": "36.114647",
+        "ticketReleaseDate": "15-11-2020",
+        "numberOfShows": 2,
+        "dates": {
+            "show-1": {
+                "date": "20/11/2020",
+                "soldOut": true
+            },
+            "show-2": {
+                "date": "21/11/2020",
+                "soldOut": true
+            }
+        },
+        "extraShowPlanned": true,
+        "ticketsOnSale": false
+    }
+    ,
+    {
+        "city": "Boston",
+        "State": "Nevada",
+        "venue": "Mandalay Bay Events Center",
+        "longitude": "-115.172813",
+        "latitude": "36.114647",
+        "ticketReleaseDate": "15-11-2020",
+        "numberOfShows": 2,
+        "dates": {
+            "show-1": {
+                "date": "20/11/2020",
+                "soldOut": true
+            },
+            "show-2": {
+                "date": "21/11/2020",
+                "soldOut": true
+            }
+        },
+        "extraShowPlanned": true,
+        "ticketsOnSale": false
+    },
+    {
+        "city": "Washington D.C",
+        "State": "Nevada",
+        "venue": "Mandalay Bay Events Center",
+        "longitude": "-115.172813",
+        "latitude": "36.114647",
+        "ticketReleaseDate": "15-11-2020",
+        "numberOfShows": 2,
+        "dates": {
+            "show-1": {
+                "date": "20/11/2020",
+                "soldOut": true
+            },
+            "show-2": {
+                "date": "21/11/2020",
+                "soldOut": true
+            }
+        },
+        "extraShowPlanned": true,
+        "ticketsOnSale": false
+    },
+    {
+        "city": "Jacksonville",
+        "State": "Nevada",
+        "venue": "Mandalay Bay Events Center",
+        "longitude": "-115.172813",
+        "latitude": "36.114647",
+        "ticketReleaseDate": "15-11-2020",
+        "numberOfShows": 2,
+        "dates": {
+            "show-1": {
+                "date": "20/11/2020",
+                "soldOut": true
+            },
+            "show-2": {
+                "date": "21/11/2020",
+                "soldOut": true
+            }
+        },
+        "extraShowPlanned": true,
+        "ticketsOnSale": false
+    },
+    {
+        "city": "Philadelphia",
+        "State": "Nevada",
+        "venue": "Mandalay Bay Events Center",
+        "longitude": "-115.172813",
+        "latitude": "36.114647",
+        "ticketReleaseDate": "15-11-2020",
+        "numberOfShows": 2,
+        "dates": {
+            "show-1": {
+                "date": "20/11/2020",
+                "soldOut": true
+            },
+            "show-2": {
+                "date": "21/11/2020",
+                "soldOut": true
+            }
+        },
+        "extraShowPlanned": true,
+        "ticketsOnSale": false
+    },
+    {
+        "city": "Portland",
+        "State": "Nevada",
+        "venue": "Mandalay Bay Events Center",
+        "longitude": "-115.172813",
+        "latitude": "36.114647",
+        "ticketReleaseDate": "15-11-2020",
+        "numberOfShows": 2,
+        "dates": {
+            "show-1": {
+                "date": "20/11/2020",
+                "soldOut": true
+            },
+            "show-2": {
+                "date": "21/11/2020",
+                "soldOut": true
+            }
+        },
+        "extraShowPlanned": true,
+        "ticketsOnSale": false
+    },
+    {
+        "city": "Detroit",
+        "State": "Nevada",
+        "venue": "Mandalay Bay Events Center",
+        "longitude": "-115.172813",
+        "latitude": "36.114647",
+        "ticketReleaseDate": "15-11-2020",
+        "numberOfShows": 2,
+        "dates": {
+            "show-1": {
+                "date": "20/11/2020",
+                "soldOut": true
+            },
+            "show-2": {
+                "date": "21/11/2020",
+                "soldOut": true
+            }
+        },
+        "extraShowPlanned": true,
+        "ticketsOnSale": false
+    },
+    {
+        "city": "Phoenix",
+        "State": "Nevada",
+        "venue": "Mandalay Bay Events Center",
+        "longitude": "-115.172813",
+        "latitude": "36.114647",
+        "ticketReleaseDate": "15-11-2020",
+        "numberOfShows": 2,
+        "dates": {
+            "show-1": {
+                "date": "20/11/2020",
+                "soldOut": true
+            },
+            "show-2": {
+                "date": "21/11/2020",
+                "soldOut": true
+            }
+        },
+        "extraShowPlanned": true,
+        "ticketsOnSale": false
+    },
+    {
+        "city": "Baltimore",
+        "State": "Nevada",
+        "venue": "Mandalay Bay Events Center",
+        "longitude": "-115.172813",
+        "latitude": "36.114647",
+        "ticketReleaseDate": "15-11-2020",
+        "numberOfShows": 2,
+        "dates": {
+            "show-1": {
+                "date": "20/11/2020",
+                "soldOut": true
+            },
+            "show-2": {
+                "date": "21/11/2020",
+                "soldOut": true
+            }
+        },
+        "extraShowPlanned": true,
+        "ticketsOnSale": false
+    }
+]
+
+
+
+
+
+
+ 
+ 

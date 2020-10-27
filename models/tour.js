@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const tourSchema = new Schema({
-    name: {
+    venue: {
         type: String,
         required: true
     },
@@ -10,7 +10,7 @@ const tourSchema = new Schema({
         type: String,
         required: true
     },
-    city:{
+    city: {
         type: String,
         required: true
     },

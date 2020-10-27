@@ -35,8 +35,6 @@ axios(authConfig)
 .catch((error) => console.log(error));
 });
 
-
-
 /* ------------------------ GET SPOTIFY AUTHETICATION ----------------------- */
 
 let authKey;
@@ -56,8 +54,6 @@ const authConfig = {
 
 /* ------------------------ GET SPOTIFY TOP 10 TRACKS ----------------------- */
 
-
-
 async function getTopTenTracks(authKey) {
   const topTenTracksConfig = {
     method: "get",
@@ -72,7 +68,6 @@ const ttRes = await axios(topTenTracksConfig)
     let spotifyTopTracks = [];
     let spotifyNum = 1;
     res.data.tracks.forEach((track) => {
-      console.log(track);
       spotifyTopTracks.push({
         trackid: `topTrack-${spotifyNum}`,
         albumid: track.id,
@@ -80,7 +75,7 @@ const ttRes = await axios(topTenTracksConfig)
         trackTitle: track.name,
         fromAlbum: track.album.name,
         albumTrackNumber: track.track_number,
-        trackSpotifyLink: false,
+        trackSpotifyLink: track.external_urls.spotify,
         albumSpotifyLink: track.album.external_urls.spotify,
         trackPopularity: track.popularity,
         albumImage: track.album.images[1].url
@@ -111,9 +106,6 @@ async function getSpotifyFollowers(authKey) {
 
 /* --------------------- GET MARILYN MANSON BACK CATALOG -------------------- */
 
-
-
-
 async function getBackCatalog(authKey) {
   const backCatalogConfig = {
     method: "get",
@@ -143,12 +135,6 @@ async function saveBackCatalog(albums) {
     })
   })
   return mansonSpotifyBackCatalogRawData
-}
-
-/* CALL SPOTIFY FUNCTIONS */
-
-const calldata = async (authKey) => {
-
 }
 
 module.exports = router; 
