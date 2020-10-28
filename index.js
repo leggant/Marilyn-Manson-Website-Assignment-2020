@@ -7,8 +7,6 @@ const parser = require("body-parser");
 const axios = require("axios");
 const mongoose = require("mongoose");
 
-
-
 // Database models
 const User = require("./models/users");
 const PreorderModel = require('./models/preorder');
