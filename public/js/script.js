@@ -43,14 +43,17 @@ async function preorderScroll(entries, preorderScrollObserver){
 
 const getPreorderData = async () => {
     const response = await fetch('/preorders');
-    const preorderData = await response.body;
+    const preorderData = await response.json();
     return preorderData;
 }
 
 getPreorderData()
-  .then((data) => console.log(data.object, " Fuck you"))
-  .catch();
+  .then((data) => {
+    console.log(data)
+  })
+  .catch(err => console.log(err));
  
+
 /* -------------------------------------------------------------------------- */
 /*                               QUOTES SECTION                               */
 /* -------------------------------------------------------------------------- */
@@ -118,40 +121,10 @@ formButton.addEventListener('click', () => {
     });
 });
 
-/* -------------------------- HEADER BURGER BUTTON -------------------------- */
-const burgerBtn = document.getElementsByClassName('menu-btn');
-
-const mediaQuery = window.matchMedia('( max-width: 700px )');
-
-// Note the `matches` property
-/* if ( mediaQuery.matches ) {
-  burgerBtn.style.display = "flex";
-  console.log('Media Query Matched!')
-  function myFunction(x) {
-  if (x.matches) { // If media query matches
-    document.body.style.backgroundColor = "yellow";
-  } else {
-    document.body.style.backgroundColor = "pink";
-  }
-}
-
-var x = window.matchMedia("(max-width: 700px)")
-myFunction(x) // Call listener function at run time
-x.addListener(myFunction) // Attach listener function on state changes
-} */
-
 
 /* -------------- GET THE USERS LOCATION TO SEND TO THE SERVER -------------- */
 /* ----------------------- TO USE WITH THE SPOTIFY API ---------------------- */
 
-// const locationSuccessCallback = (position) => {
-//     console.log(position);
-// }
-
-// const locationErrorCallback = (error) => {
-//     console.error(error);
-// }
-// navigator.geolocation.getCurrentPosition(locationSuccessCallback, locationErrorCallback);
 
 
 const getSpotifyData = async() => {
