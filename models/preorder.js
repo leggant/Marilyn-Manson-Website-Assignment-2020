@@ -41,5 +41,5 @@ const preorderSchema = new Schema({
 
 }, { timestamps: true });
 
-const PreorderModel = mongoose.model('preorders', preorderSchema);
-module.exports = PreorderModel;
+const Preorders = mongoose.model('albumPreorders', preorderSchema);
+module.exports = Preorders;

@@ -41,16 +41,15 @@ async function preorderScroll(entries, preorderScrollObserver){
 }
 */
 
-const getPreorderData = async() => {
+const getPreorderData = async () => {
     const response = await fetch('/preorders');
-    const returnData = await response.json()
-    return returnData;
+    const preorderData = await response.body;
+    return preorderData;
 }
 
 getPreorderData()
-  .then((data) => {
-    console.log(data)
-  }).catch();
+  .then((data) => console.log(data.object, " Fuck you"))
+  .catch();
  
 /* -------------------------------------------------------------------------- */
 /*                               QUOTES SECTION                               */
@@ -145,14 +144,14 @@ x.addListener(myFunction) // Attach listener function on state changes
 /* -------------- GET THE USERS LOCATION TO SEND TO THE SERVER -------------- */
 /* ----------------------- TO USE WITH THE SPOTIFY API ---------------------- */
 
-const locationSuccessCallback = (position) => {
-    console.log(position);
-}
+// const locationSuccessCallback = (position) => {
+//     console.log(position);
+// }
 
-const locationErrorCallback = (error) => {
-    console.error(error);
-}
-navigator.geolocation.getCurrentPosition(locationSuccessCallback, locationErrorCallback);
+// const locationErrorCallback = (error) => {
+//     console.error(error);
+// }
+// navigator.geolocation.getCurrentPosition(locationSuccessCallback, locationErrorCallback);
 
 
 const getSpotifyData = async() => {
