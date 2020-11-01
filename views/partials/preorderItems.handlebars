@@ -1,0 +1,24 @@
+<section class="section-home-page" id="PreorderHeadlines">
+    <div class="headlineinnerarea">
+        <h2 class="preorder-main-heading">Pre-order<br>We Are Chaos.</h2>
+        <div id="preorderTitles">
+            {{#each preorders}}
+            <h2 id="preorderid-{{@key}}" class="album-title preorder-title">{{this.edition}}</h2>
+            {{/each}}
+        </div>
+    </div>
+</section>
+<section class="section-home-page" id="NewAlbumPreOrder">
+    <div id="homepage-preorder">
+        {{#each preorders}}
+        <div id="preorderAlbum{{@key}}" class="album">
+            <h4 class="album-title">{{this.edition}}</h4>
+            <div class="album-img-wrapper">
+                <img src="{{this.image}}" class="album-img">
+            </div>
+            <h5 class="album-shipping"><span>Est. Shipping Date: </span>{{this.shipping}}</h5>
+            <h6 class="album-price">{{this.price}}</h6>
+            <p><a class="preorderBTN" href="{{this.url}}">Order Now</a></p>
+        </div>
+        {{/each}}
+</section>

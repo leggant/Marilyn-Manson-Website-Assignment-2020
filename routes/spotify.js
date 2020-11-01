@@ -1,7 +1,6 @@
 const express = require('express');
 const Querystring = require('querystring');
 require('dotenv').config();
-const parser = require('body-parser');
 const axios = require('axios');
 const Handlebars = require("handlebars");
 

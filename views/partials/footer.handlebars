@@ -67,17 +67,17 @@
             <h3>Send Us Your Feedback</h3>
             <button id="float-form-close-button" class="close-btn">&times;</button>
         </header>
-        <form action="/feedback-form" id="floating-form" method="POST">
+        <form action="/feedback" id="feedback-form" method="POST">
             <label for="footer-name">Name</label>
-            <input id="footer-name" type="text">
-            <label for="footer-city">City</label>
-            <input id="footer-city" type="text">
+            <input id="footer-name" type="text" name="name">
+
             <label for="footer-email">Email</label>
-            <input id="footer-email" type="email" name="">
-            <textarea name="" id="" cols="30" rows="20">
+            <input id="footer-email" type="email" name="email">
+
+            <label for="footer-feedback">Feedback</label>
+            <textarea name="comments" id="footer-feedback" cols="30" rows="20">
             </textarea>
             <button type="submit"><i class="fas fa-at"></i> Send</button>
         </form>
     </div>
 </div>
-<div id="overlay"></div>

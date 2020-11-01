@@ -22,6 +22,12 @@ gsap.fromTo(".chaos", { width: 0, x: 10 }, { width: "60%", x: 10, duration: 0.5,
 gsap.fromTo(".chaos-mobile", { width: 0, x: 10 }, { width: "80%", x: 10, duration: 0.5, delay: 0.5 })
 gsap.fromTo(".cta-subheadline", { opacity: 0, y: -20 }, { opacity: 1, y: 0, duration: 0.5, delay: 0.5 })
 
+const headerForm = document.querySelector('#hero-form');
+
+headerForm.addEventListener('click', (e) => {
+  e.preventDefault();
+});
+
 
 /* -------------------------------------------------------------------------- */
 /*                      PREORDER SECTION STICKY SCROLLING                     */
@@ -43,15 +49,15 @@ async function preorderScroll(entries, preorderScrollObserver){
 
 const getPreorderData = async () => {
     const response = await fetch('/preorders');
-    const preorderData = await response.json();
-    return preorderData;
+    const preorderData = await response.json()
+    .then(() => {
+      // post back to website server from browser
+      document.querySelector(".album-preorder-area").innerHTML = preorderData;
+    })
+    .catch(err => console.log(err));
 }
 
-getPreorderData()
-  .then((data) => {
-    console.log(data)
-  })
-  .catch(err => console.log(err));
+getPreorderData();
  
 
 /* -------------------------------------------------------------------------- */
@@ -143,6 +149,27 @@ getSpotifyData()
         preloadimage.forEach(image => {
             image.remove();
         })
-
     })
     .catch(err => console.log(err));
+
+
+/* -------------------------------------------------------------------------- */
+/*                                FEEDBACK FORM                               */
+/* -------------------------------------------------------------------------- */
+
+const feedbackForm = document.querySelector('#feedback-form');
+
+feedbackForm.addEventListener('click', (e) => {
+  //e.preventDefault();
+});
+
+
+/* -------------------------------------------------------------------------- */
+/*                              TOUR UPDATE FORM                              */
+/* -------------------------------------------------------------------------- */
+
+const tourUpdateForm = document.querySelector('#tourUpdate-Form');
+
+tourUpdateForm.addEventListener('click', (e) => {
+  e.preventDefault();
+});

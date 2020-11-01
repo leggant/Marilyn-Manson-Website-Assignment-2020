@@ -1,18 +1,19 @@
 const express = require('express');
 const router = express.Router();
-
+require('dotenv').config();
 const albumPreorder = require('../models/preorder');
-
 
 router.get('/', async (req, res) => {
     try {
-        const presales = await albumPreorder.find();
-        console.log(presales)
-        return res.json(presales);
-    } catch(err){
-        res.json({message: err});
+        const data = await albumPreorder.find();
+        const preorderData = await res.json(data);
+        return preorderData;
+    } 
+    catch (error) {
+        res.json({message: error});
     }
 });
+
 
 // create a function to send each item to a partial, then add to the home page
 

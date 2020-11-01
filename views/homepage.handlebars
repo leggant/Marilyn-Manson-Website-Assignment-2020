@@ -40,11 +40,11 @@
             <div>
                 <h2 class="cta-headline">We Are<br>Chaos<span class="chaos"></span><span class="chaos-mobile"></span></h2>
                 <h3 class="cta-subheadline">New Album Unleashed<br>Sept 11, 2020</h3>
-                <form action="/users/signup" id="hero-form" method="POST">
+                <form action="/signup" id="hero-form" method="POST">
                     <div>
                         <input type="email" name="usersEmail" class="email-input" id="email" required value="Email Address" onfocus="this.value=''" placeholder="Email Address">
                         <input type="text" name="usersName" id="Name" value="Your Name" onfocus="this.value=''" placeholder="Your Name" required>
-                        <button class="cta-signup-btn" onclick="getLocation()">Sign-Up</button>
+                        <button class="cta-signup-btn">Sign-Up</button>
                     </div>
                 </form>
                 <p class="cta-text">Pre-Order your copy of <span><a href="#preorderTitles">We Are Chaos<span></span> today.<i class="fa fa-chevron-circle-right" aria-hidden="true"></i></a></p>
@@ -52,29 +52,7 @@
         </div>
     </section>
     <div class="album-preorder-area">
-        <section class="section-home-page" id="PreorderHeadlines">
-            <div class="headlineinnerarea">
-                <h2 class="preorder-main-heading">Pre-order<br>We Are Chaos.</h2>
-                <div id="preorderTitles">
-                    {{#each preorderalbum}}
-                    <h2 id="preorderid-{{@key}}" class="album-title preorder-title">{{this.edition}}</h2>
-                    {{/each}}
-                </div>
-            </div>
-        </section>
-        <section class="section-home-page" id="NewAlbumPreOrder">
-            <div id="homepage-preorder">
-                {{#each preorderalbum}}
-                <div id="preorderAlbum{{@key}}" class="album">
-                    <h4 class="album-title">{{this.edition}}</h4>
-                    <div class="album-img-wrapper">
-                        <img src="{{this.image}}" class="album-img">
-                    </div>
-                    <h5 class="album-shipping"><span>Est. Shipping Date: </span>{{this.shipping}}</h5>
-                    <h6 class="album-price">{{this.price}}</h6>
-                </div>
-                {{/each}}
-        </section>
+        {{!-- Insert Album Preorders Items Here --}}
     </div>
     <div class="video-wrapper">
         <div class="song-title-section-wrapper" id="song-titles">
@@ -249,9 +227,9 @@
             <div class="tour-form-col update-right">
                 <h3 class="headline">2020/21 Tour <span class="content-underline">Updates</span></h3>
                 <p class="subheading">Lorem ipsum dolor sit ameting<br>elit.....</p>
-                <form action="" method="">
+                <form action="" method="post" id="tourUpdate-Form">
                     <input type="email" class="signup-input" placeholder="Email Address" name="email">
-                    <input type="text" class="signup-input" placeholder="City" name="city">
+                    <input type="text" class="signup-input" placeholder="Name" name="name">
                     <button class="signup-btn">Let's Go</button>
                 </form>
             </div>

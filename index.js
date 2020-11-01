@@ -10,10 +10,7 @@ const home = require('./routes/home');
 const preorderalbum = require("./routes/preorders");
 const spotify = require("./routes/spotify");
 //const tourdates = require("./routes/tour-update");
-//const feedbackForm = require("./routes/feedbackForm");
-
-// db models
-const preorder = require('./models/preorder');
+const feedbackForm = require("./routes/feedbackForm");
 
 // declare the express app
 const app = express();
@@ -45,6 +42,7 @@ app.set("view engine", "handlebars");
 app.use('/', home);
 app.use('/spotify', spotify);
 app.use('/preorders', preorderalbum);
+app.use('/feedback', feedbackForm);
 
 //404 page || No Page Found
 app.use((req, res) => {
