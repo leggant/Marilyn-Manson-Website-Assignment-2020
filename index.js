@@ -11,6 +11,8 @@ const preorderalbum = require("./routes/preorders");
 const spotify = require("./routes/spotify");
 //const tourdates = require("./routes/tour-update");
 const feedbackForm = require("./routes/feedbackForm");
+const tourUpdateForm = require("./routes/tour-update");
+const releaseUpdateForm = require("./routes/releaseUpdate");
 
 // declare the express app
 const app = express();
@@ -43,6 +45,8 @@ app.use('/', home);
 app.use('/spotify', spotify);
 app.use('/preorders', preorderalbum);
 app.use('/feedback', feedbackForm);
+app.use('/tourUpdate', tourUpdateForm);
+app.use('/releaseUpdate', releaseUpdateForm);
 
 //404 page || No Page Found
 app.use((req, res) => {

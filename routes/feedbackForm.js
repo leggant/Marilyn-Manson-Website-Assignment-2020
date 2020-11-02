@@ -3,14 +3,16 @@ const router = express.Router();
 const feedback = require('../models/userFeedback');
 
 router.post('/', async (req, res) => {
+    const userfeedback = new feedback({
+        name: req.body.name,
+        email: req.body.email,
+        comments: req.body.comments
+    });
     try {
-        const userfeedback = new feedback({
-            name: req.params.name,
-            email: req.params.email,
-            comments: req.params.comments
-        });
-        userfeedback.save()
-    } catch(err){
+        const savedFeedback = await userfeedback.save();
+        res.json(savedFeedback);
+    } 
+    catch(err){
         res.json({message: err});
     }
 });

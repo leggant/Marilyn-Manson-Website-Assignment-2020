@@ -22,11 +22,6 @@ gsap.fromTo(".chaos", { width: 0, x: 10 }, { width: "60%", x: 10, duration: 0.5,
 gsap.fromTo(".chaos-mobile", { width: 0, x: 10 }, { width: "80%", x: 10, duration: 0.5, delay: 0.5 })
 gsap.fromTo(".cta-subheadline", { opacity: 0, y: -20 }, { opacity: 1, y: 0, duration: 0.5, delay: 0.5 })
 
-const headerForm = document.querySelector('#hero-form');
-
-headerForm.addEventListener('click', (e) => {
-  e.preventDefault();
-});
 
 
 /* -------------------------------------------------------------------------- */
@@ -47,18 +42,66 @@ async function preorderScroll(entries, preorderScrollObserver){
 }
 */
 
+/* -------------------------------------------------------------------------- */
+/*          PREORDER SECTION CONTENT CALLED FROM MONGO ATLAS DATABASE         */
+/* -------------------------------------------------------------------------- */
+
 const getPreorderData = async () => {
     const response = await fetch('/preorders');
     const preorderData = await response.json()
-    .then(() => {
-      // post back to website server from browser
-      document.querySelector(".album-preorder-area").innerHTML = preorderData;
+    .then((data) => {
+      createPreorderHeadlines(data);
+      createPreorderAlbums(data);
     })
     .catch(err => console.log(err));
 }
 
 getPreorderData();
- 
+
+const preTitle = document.getElementById('preorderTitles');
+const createPreorderHeadlines = async (data) => {
+  data.forEach((item) => {
+    const h2 = document.createElement('h2');
+    h2.id = "preorderid-" + item.option;
+    h2.classList = "album-title preorder-title";
+    h2.innerText = item.edition;
+    preTitle.appendChild(h2);
+  })
+}
+
+const preAlbum = document.getElementById('homepage-preorder');
+const createPreorderAlbums = async (data) => {
+  data.forEach((item) => {
+    const wrapper = document.createElement('div');
+    wrapper.id = `preorderAlbum${item.option}`;
+    wrapper.className = "album";
+    const albumTitle = document.createElement('h4');
+    albumTitle.className = "album-title";
+    albumTitle.textContent = item.edition;
+    const imgwrapper = document.createElement('div');
+    imgwrapper.className = "album-img-wrapper";
+    const albumimg = document.createElement('img');
+    albumimg.className = "album-img";
+    albumimg.src = item.image;
+    albumimg.alt = `Image of We Are Chaos ${item.edition}`;
+    imgwrapper.appendChild(albumimg);
+    const albumshipping = document.createElement('h5');
+    albumshipping.className = "album-shipping";
+    albumshipping.innerHTML = `<span>Est. Shipping Date: </span> ${item.shipping}`;
+    const albumprice = document.createElement('h6');
+    albumprice.className = "album-price";  
+    const link = document.createElement('a');
+    link.className = "preorderBTN";
+    link.href = item.url;
+    link.textContent = "Order Now";
+    wrapper.appendChild(albumTitle);
+    wrapper.appendChild(imgwrapper);
+    wrapper.appendChild(albumshipping);
+    wrapper.appendChild(albumprice);
+    wrapper.appendChild(link);
+    preAlbum.appendChild(wrapper);
+  })
+}
 
 /* -------------------------------------------------------------------------- */
 /*                               QUOTES SECTION                               */
@@ -150,8 +193,18 @@ getSpotifyData()
             image.remove();
         })
     })
-    .catch(err => console.log(err));
+  .catch(err => console.log(err));
 
+
+/* -------------------------------------------------------------------------- */
+/*                  HEADER SECTION ALBUM RELEASE UPDATE FORM                  */
+/* -------------------------------------------------------------------------- */
+
+const headerForm = document.querySelector('#hero-form');
+
+headerForm.addEventListener('click', (e) => {
+  //e.preventDefault();
+});
 
 /* -------------------------------------------------------------------------- */
 /*                                FEEDBACK FORM                               */
@@ -160,7 +213,7 @@ getSpotifyData()
 const feedbackForm = document.querySelector('#feedback-form');
 
 feedbackForm.addEventListener('click', (e) => {
-  //e.preventDefault();
+
 });
 
 
@@ -171,5 +224,5 @@ feedbackForm.addEventListener('click', (e) => {
 const tourUpdateForm = document.querySelector('#tourUpdate-Form');
 
 tourUpdateForm.addEventListener('click', (e) => {
-  e.preventDefault();
+
 });
