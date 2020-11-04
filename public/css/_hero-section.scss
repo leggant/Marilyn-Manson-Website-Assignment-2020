@@ -108,6 +108,11 @@
 .userInput{
     margin-top: 4rem;
 }
+.success-alert {
+    &__{
+       font-size: 2rem; 
+    }
+}
 
 .col-img-item {
     position: relative;

@@ -43,6 +43,12 @@ p {
   font-size: 2rem;
 }
 
+.success-alert {
+  color: #ED33B9;
+  font-size: 3rem;
+  font-weight: 500;
+}
+
 /* -------------------------------------------------------------------------- */
 /*                   WEBSITE MAIN HEADER AND NAVIGATION AREA                  */
 /* -------------------------------------------------------------------------- */
@@ -302,6 +308,10 @@ p {
 
 .userInput {
   margin-top: 4rem;
+}
+
+.success-alert__ {
+  font-size: 2rem;
 }
 
 .col-img-item {

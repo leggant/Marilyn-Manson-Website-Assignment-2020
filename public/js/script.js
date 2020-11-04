@@ -92,6 +92,7 @@ const createPreorderAlbums = async (data) => {
     albumprice.className = "album-price";  
     const link = document.createElement('a');
     link.className = "preorderBTN";
+    link.setAttribute("target", "_blank");
     link.href = item.url;
     link.textContent = "Order Now";
     wrapper.appendChild(albumTitle);
@@ -174,8 +175,6 @@ formButton.addEventListener('click', () => {
 /* -------------- GET THE USERS LOCATION TO SEND TO THE SERVER -------------- */
 /* ----------------------- TO USE WITH THE SPOTIFY API ---------------------- */
 
-
-
 const getSpotifyData = async() => {
     const response = await fetch('/spotify');
     const returnData = await response.json()
@@ -201,19 +200,46 @@ getSpotifyData()
 /* -------------------------------------------------------------------------- */
 
 const headerForm = document.querySelector('#hero-form');
+const headerFormSubmitBtn = document.querySelector('.cta-signup-btn');
 
-headerForm.addEventListener('click', (e) => {
-  //e.preventDefault();
+headerForm.addEventListener('submit', (e) => {
+  e.preventDefault();
 });
+
+headerFormSubmitBtn.addEventListener('click', (e) => {
+  let userEmail = document.querySelector('#hero-form #email');
+  let userName = document.querySelector('#hero-form #Name');
+  const postReq = {
+    name: userName.value,
+    email: userEmail.value
+  };
+  fetch('/releaseUpdate', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(postReq)
+  })
+  .then(() => {
+    headerForm.reset();
+    const currentP = document.querySelector('.cta-text');
+    currentP.insertAdjacentHTML('afterend', '<p class="cta-text success-alert">Success!!</p>');
+  })
+  .catch((error) => {
+    console.error('Error:', error);
+  });
+});
+
 
 /* -------------------------------------------------------------------------- */
 /*                                FEEDBACK FORM                               */
 /* -------------------------------------------------------------------------- */
 
 const feedbackForm = document.querySelector('#feedback-form');
+//const feedbackFormSubmit = document.querySelector('#feedback-form .signup-btn');
 
-feedbackForm.addEventListener('click', (e) => {
-
+feedbackForm.addEventListener('submit', (e) => {
+  e.preventDefault();
 });
 
 
@@ -222,7 +248,33 @@ feedbackForm.addEventListener('click', (e) => {
 /* -------------------------------------------------------------------------- */
 
 const tourUpdateForm = document.querySelector('#tourUpdate-Form');
+const tourUpdateBTN = document.querySelector('#tourUpdate-Form .signup-btn');
 
-tourUpdateForm.addEventListener('click', (e) => {
 
+tourUpdateForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+});
+
+tourUpdateBTN.addEventListener('click', (e) => {
+  let userEmail = document.querySelector('#tour-update-email');
+  let userName = document.querySelector('#tour-update-name');
+  const postReq = {
+    name: userName.value,
+    email: userEmail.value
+  };
+  fetch('/tourUpdate', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(postReq)
+  })
+  .then(() => {
+    tourUpdateForm.reset();
+    const xP = document.querySelector('.tour-form-col .subheading');
+    xP.innerHTML = '<p class="cta-text success-alert">Success!!</p>';
+  })
+  .catch((error) => {
+    console.error('Error:', error);
+  });
 });

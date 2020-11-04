@@ -115,35 +115,6 @@
             {{!-- Insert Top Tracks Partial Here --}}
         </div>
     </section>
-
-
-{{!--     <section class="book-form-area" id="booksection">
-            <div class="booksection_card">
-            <p class="card-bar"></p>
-            <h3>Title</h3>
-            </div>
-            <h2 class="sub-headline">Marilyn Manson by Perou: 21 Years in Hell</h2>
-            <h3>Order Now</h3>
-            <p>Subheading</p>
-            <form action="" method="">
-            <input type="text" name="" placeholder="Your Name">
-                <input type="text" name="" placeholder="Company Name">
-                <input type="email" name="" id="">
-                <input type="radio" name="" id="">
-                <input type="radio" name="" id="">
-                <input type="radio" name="" id="">
-                <input type="radio" name="" id="">
-                <textarea name="" id="" cols="30" rows="10"></textarea>
-                <button type="submit">Place Order</button>
-            </form>
-        </section>
-        <form action="">
-            <input type="radio" name="something" id="cards-area" checked>
-            <input type="radio" name="something" id="form-area">
-        </form>
-    </section> 
-    --}}
-
     <section class="section-home-page" id="famousQuotes">
         <div class="quotes">
             <div class="quotes-inner-wrapper">
@@ -230,18 +201,15 @@
     <section class="section-home-page back-catalog">
         <h3 class="backcatalog-headline"><i class="fas fa-record-vinyl"></i>Marilyn Manson Back Catalog</h3>
         <p>Need space for your team?<br>You’re in luck! We’ve just launched Deskpass for Teams to provide the same amazing Deskpass experience for entire organizations.</p>
-        {{!-- INSERT BACKCATALOG HERE --}}
         <img src="img/loading.gif" class="preloading" alt="loading">
         <div id="Manson-Albums-Catalog">
-            
+            {{!-- INSERT BACKCATALOG HERE --}}
         </div>
         <div class="backcatalog-cta">
             <button class="backcatalog-buy-albums">Order Today</button>
         </div>
     </section>
     <section class="section-home-page" id="tour-updates-form">
-{{!--         section area has a thick border 
-        image on the left side only appears on desktop versions --}}
         <div class="tour-form-wrapper">
             <div class="tour-form-col update-left">
                 <div class="tour-form-img-wrapper">
@@ -252,8 +220,8 @@
                 <h3 class="headline">2020/21 Tour <span class="content-underline">Updates</span></h3>
                 <p class="subheading">Lorem ipsum dolor sit ameting<br>elit.....</p>
                 <form action="/tourUpdate" method="post" id="tourUpdate-Form">
-                    <input type="email" class="signup-input" placeholder="Email Address" name="email">
-                    <input type="text" class="signup-input" placeholder="Name" name="name">
+                    <input type="email" required id="tour-update-email" class="signup-input" placeholder="Email Address" name="email">
+                    <input type="text" required id="tour-update-name" class="signup-input" placeholder="Name" name="name">
                     <button class="signup-btn">Let's Go</button>
                 </form>
             </div>
