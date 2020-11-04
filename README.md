@@ -1,5 +1,5 @@
 # Otago Polytechnic Web Development Fundamentals Assignment 2020.
-
+![Marilyn Manson Revolver Interview](https://www.revolvermag.com/sites/default/files/styles/banner/public/media/images/article/mamson_rev_cropped.jpg?itok=p5-6HIoc&timestamp=1598647997)
 ## Marilyn Manson Website for New Album, We Are Chaos.
 
 :musical_note: :musical_note::musical_note::musical_note::musical_note:
@@ -15,3 +15,5 @@ User can sign-up for updates on future tour dates
 3. Responive website styles not yet completed
 4. Website needs a Intersection Observer implemented to handle scrolling which occurs below the hero section
 5. User signup forms return and displays JSON data object to the user. This needs to only return handlebars partial html 
+
+[Image Src](https://www.revolvermag.com/music/marilyn-manson-chaos-collaboration-how-elton-john-made-him-cry)
