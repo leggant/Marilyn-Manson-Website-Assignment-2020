@@ -10,7 +10,7 @@ const feedbackSchema = new Schema({
         type: String,
         required: true
     },
-    comments: {
+    comment: {
         type: String,
         required: true
     }

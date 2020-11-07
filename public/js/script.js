@@ -90,6 +90,7 @@ const createPreorderAlbums = async (data) => {
     albumshipping.innerHTML = `<span>Est. Shipping Date: </span> ${item.shipping}`;
     const albumprice = document.createElement('h6');
     albumprice.className = "album-price";  
+    albumprice.innerHTML = "<h6>" + item.price + "</h6>";
     const link = document.createElement('a');
     link.className = "preorderBTN";
     link.setAttribute("target", "_blank");
@@ -141,20 +142,6 @@ const mainObserver = new IntersectionObserver(function(
     mainOptions);
 mainObserver.observe(maincontent);
 
-/* let currentScroll = 0;
-window.addEventListener("scroll", (xevent) =>{
-  let menuBar = document.getElementById("main-header");
-  if (window.scrollY > currentScroll) {
-    menuBar.classList.remove("scroll-up");
-  } else if(window.scrollY < currentScroll) {
-    if(window.scrollY > 1500){
-      menuBar.classList.add("scroll-up");
-    } else if(window.scrollY < 1000){
-      menuBar.classList.remove("scroll-up");
-    }
-  }
-  currentScroll = window.scrollY;
-}); */
 
 /* --------------------------- FOOTER FORM POP-UP --------------------------- */
 const formDivWrapper = document.getElementsByClassName('floating-popup');
@@ -201,6 +188,9 @@ getSpotifyData()
 
 const headerForm = document.querySelector('#hero-form');
 const headerFormSubmitBtn = document.querySelector('.cta-signup-btn');
+const headerSuccess = document.querySelector('.header-form-success');
+
+headerSuccess.style.display = 'none';
 
 headerForm.addEventListener('submit', (e) => {
   e.preventDefault();
@@ -222,8 +212,7 @@ headerFormSubmitBtn.addEventListener('click', (e) => {
   })
   .then(() => {
     headerForm.reset();
-    const currentP = document.querySelector('.cta-text');
-    currentP.insertAdjacentHTML('afterend', '<p class="cta-text success-alert">Success!!</p>');
+    headerSuccess.style.display = 'block';
   })
   .catch((error) => {
     console.error('Error:', error);
@@ -236,19 +225,44 @@ headerFormSubmitBtn.addEventListener('click', (e) => {
 /* -------------------------------------------------------------------------- */
 
 const feedbackForm = document.querySelector('#feedback-form');
-//const feedbackFormSubmit = document.querySelector('#feedback-form .signup-btn');
+const feedbackFormSubmit = document.querySelector('.feedback-submit-btn');
+const feedbackSuccess = document.querySelector('.feedback-success');
 
 feedbackForm.addEventListener('submit', (e) => {
   e.preventDefault();
 });
 
+feedbackFormSubmit.addEventListener('click', (e) => {
+  let userEmail = document.querySelector('#footer-email');
+  let userName = document.querySelector('#footer-name');
+  let userComments = document.querySelector('#footer-feedback');
+  const postReq = {
+    name: userName.value,
+    email: userEmail.value,
+    comment: userComments.value
+  };
+  fetch('/feedback', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(postReq)
+  })
+  .then(() => {
+    feedbackForm.style.display = "none";
+    feedbackSuccess.style.display = "block";
+  })
+  .catch((error) => {
+    console.error('Error:', error);
+  });
+});
 
 /* -------------------------------------------------------------------------- */
 /*                              TOUR UPDATE FORM                              */
 /* -------------------------------------------------------------------------- */
 
 const tourUpdateForm = document.querySelector('#tourUpdate-Form');
-const tourUpdateBTN = document.querySelector('#tourUpdate-Form .signup-btn');
+const tourUpdateBTN = document.querySelector('.tour-signup');
 
 
 tourUpdateForm.addEventListener('submit', (e) => {

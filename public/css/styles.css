@@ -274,12 +274,8 @@ p {
 }
 
 .hero-cta form input[type=email] {
-  width: 200px;
+  width: 250px;
   border-radius: 1.2rem 0 0 1.2rem;
-}
-
-.hero-cta form input[type=email]:focus, .hero-cta form input[type=email]:focus-within, .hero-cta form input[type=text]:focus, .hero-cta form input[type=text]:focus-within {
-  width: 400px;
 }
 
 .hero-cta form input[type=email]:hover, .hero-cta form input[type=text]:hover, .hero-cta form button.cta-signup-btn:hover, .hero-cta form button.cta-signup-btn:active {
@@ -289,7 +285,7 @@ p {
 }
 
 .hero-cta form input[type=text] {
-  width: 150px;
+  width: 200px;
   border-radius: 0 1.2rem 1.2rem 0;
   border-left: 1px dashed rgba(0, 0, 0, 0.8);
 }
@@ -624,20 +620,35 @@ p {
 #NewAlbumPreOrder #homepage-preorder .album .album-shipping {
   width: 90%;
   text-align: right;
-  font-size: 1.5rem;
+  font-size: 2.5rem;
   font-weight: 300;
+  line-height: 2;
 }
 
 #NewAlbumPreOrder #homepage-preorder .album .album-shipping span {
-  font-weight: 200;
+  font-weight: 300;
 }
 
 #NewAlbumPreOrder #homepage-preorder .album .album-price {
   font-family: "Raleway", sans-serif;
-  width: 90%;
-  font-size: 2rem;
+  font-size: 4rem;
   text-align: right;
   line-height: 2;
+}
+
+#NewAlbumPreOrder #homepage-preorder .album .preorderBTN {
+  margin-top: 2rem;
+  font-family: "Montserrat", sans-serif;
+  font-size: 2rem;
+  display: inline-block;
+  padding: 1rem;
+  border: 1px solid white;
+}
+
+#NewAlbumPreOrder #homepage-preorder .album .preorderBTN:hover {
+  border: 1px solid #ED33B9;
+  color: #ED33B9;
+  font-weight: 300;
 }
 
 #song-titles {
@@ -742,19 +753,11 @@ h3.spotify-sub-headline span {
   color: #1DB954;
 }
 
-.spotify-cards-area {
+.tracks-wrapper {
   display: grid;
-}
-
-.spotify-cards-area article {
-  display: flex;
-  flex-wrap: wrap;
-  width: 30%;
-}
-
-.spotify-top-track-item div {
-  display: flex;
-  flex-direction: column;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-rows: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
 }
 
 /* -------------------------------------------------------------------------- */
@@ -1199,6 +1202,10 @@ input[name="quotes"]:checked + .quotes-card {
   transform-origin: center center;
   transition: .3s ease-in-out;
   transform: rotate(0deg);
+}
+
+.feedback-success {
+  display: none;
 }
 
 .signup-content {

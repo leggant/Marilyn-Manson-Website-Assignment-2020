@@ -1,16 +1,16 @@
 const express = require('express');
 const router = express.Router();
-const feedback = require('../models/userFeedback');
+const Model = require('../models/userFeedback');
 
 router.post('/', async (req, res) => {
-    const userfeedback = new feedback({
+    const userfeedback = new Model({
         name: req.body.name,
         email: req.body.email,
-        comments: req.body.comments
+        comment: req.body.comments
     });
     try {
-        const savedFeedback = await userfeedback.save();
-        res.json(savedFeedback);
+        const save = await userfeedback.save();
+        res.json(userfeedback);
     } 
     catch(err){
         res.json({message: err});

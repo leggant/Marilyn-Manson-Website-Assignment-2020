@@ -22,16 +22,19 @@ h3.spotify-sub-headline {
         color:$spotifyGreen;
     }
 }
-.spotify-cards-area {
+
+.tracks-wrapper {
     display: grid;
-}
-.spotify-cards-area article {
-    display: flex;
-    flex-wrap: wrap;
-    width: 30%;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr) );
+    grid-template-rows: repeat(auto-fit, minmax(300px, 1fr) );
+    gap: 2rem;
 }
 
-.spotify-top-track-item div {
-    display: flex;
-    flex-direction: column;
-}
+// .spotify-cards-area article {
+//     display: flex;
+// }
+
+// .spotify-top-track-item div {
+//     display: flex;
+//     flex-direction: column;
+// }

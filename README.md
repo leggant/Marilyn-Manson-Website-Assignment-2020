@@ -8,6 +8,9 @@ Website allows users to signup for updates on the albums release.
 Signup details are added to a database file on a remote MongoDB server/service (Mongo Atlas).
 User can sign-up for updates on future tour dates
 
+# Marilyn Manson Heroku Deployment Link
+[Mariyn Manson Heroku](https://marilynmanson.herokuapp.com/)
+
 ### Current Issues
 
 1. ~~Spotify API calls break the site when deployed to Heroku~~

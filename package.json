@@ -21,14 +21,11 @@
     "axios": "^0.20.0",
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
-    "countries-list": "^2.5.6",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "express-handlebars": "^5.1.0",
     "mongoose": "^5.10.9",
-    "node-fetch": "^2.6.1",
-    "node-spotify-api": "^1.1.1",
-    "passport-spotify": "^1.1.0"
+    "node-fetch": "^2.6.1"
   },
   "devDependencies": {
     "nodemon": "^2.0.4"

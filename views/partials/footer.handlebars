@@ -67,16 +67,15 @@
             <h3>Send Us Your Feedback</h3>
             <button id="float-form-close-button" class="close-btn">&times;</button>
         </header>
+        <p class="cta-text feedback-success success-alert">Thank you for your feedback!!</p>
         <form action="/feedback" id="feedback-form" method="POST">
             <label for="footer-name">Name</label>
             <input id="footer-name" type="text" name="name">
-
             <label for="footer-email">Email</label>
             <input id="footer-email" type="email" name="email">
-
             <label for="footer-feedback">Feedback</label>
             <textarea name="comments" id="footer-feedback" cols="30" rows="20"></textarea>
-            <button type="submit" onclick=""><i class="fas fa-at"></i> Send</button>
+            <button type="submit" class="feedback-submit-btn"><i class="fas fa-at"></i> Send</button>
         </form>
     </div>
 </div>

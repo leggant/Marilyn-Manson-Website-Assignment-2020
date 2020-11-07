@@ -47,6 +47,7 @@
                         <button class="cta-signup-btn">Sign-Up</button>
                     </div>
                 </form>
+                <p class="cta-text header-form-success success-alert">Success!!</p>
                 <p class="cta-text">Pre-Order your copy of <span><a href="#preorderTitles">We Are Chaos<span></span> today.<i class="fa fa-chevron-circle-right" aria-hidden="true"></i></a></p>
             </div>
         </div>
@@ -73,7 +74,7 @@
                     </div>
                     <h5 class="album-shipping"><span>Est. Shipping Date: </span>{{this.shipping}}</h5>
                     <h6 class="album-price">{{this.price}}</h6>
-                    <p><a class="preorderBTN" href="{{this.url}}">Order Now</a></p>
+                    <a class="preorderBTN" href="{{this.url}}">Order Now</a>
                 </div>
                 {{/each}}
         </section>
@@ -222,7 +223,7 @@
                 <form action="/tourUpdate" method="post" id="tourUpdate-Form">
                     <input type="email" required id="tour-update-email" class="signup-input" placeholder="Email Address" name="email">
                     <input type="text" required id="tour-update-name" class="signup-input" placeholder="Name" name="name">
-                    <button class="signup-btn">Let's Go</button>
+                    <button class="tour-signup signup-btn">Let's Go</button>
                 </form>
             </div>
         </div>

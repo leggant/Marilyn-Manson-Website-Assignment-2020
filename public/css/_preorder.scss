@@ -51,18 +51,31 @@
             .album-shipping {
                 width: 90%;
                 text-align: right;
-                font-size: 1.5rem;
+                font-size: 2.5rem;
                 font-weight: 300;
+                line-height: 2;
                 span {
-                    font-weight: 200;
+                    font-weight: 300;
                 }
             }
             .album-price {
                 font-family: $boldHeading;
-                width: 90%;
-                font-size: 2rem;
+                font-size: 4rem;
                 text-align: right;
                 line-height: 2;
+            }
+            .preorderBTN {
+                margin-top: 2rem;
+                font-family: $defaultBodyFont;
+                font-size: 2rem;
+                display: inline-block;
+                padding: 1rem;
+                border: 1px solid white;
+                &:hover {
+                    border: 1px solid $mansonPink-color;
+                    color: $mansonPink-color;
+                    font-weight: 300;
+                }
             }
         }
     }

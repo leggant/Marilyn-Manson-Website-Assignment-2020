@@ -78,11 +78,8 @@
             }
         }
         input[type=email] {
-            width: 200px;
+            width: 250px;
             border-radius: 1.2rem 0 0 1.2rem;
-        }
-        input[type=email]:focus, input[type=email]:focus-within, input[type=text]:focus, input[type=text]:focus-within {
-            width: 400px;
         }
         input[type=email]:hover, input[type=text]:hover, button.cta-signup-btn:hover, button.cta-signup-btn:active {
             color: $mansonPink-color;
@@ -90,7 +87,7 @@
             outline: none;
         }
         input[type=text] {
-            width: 150px;
+            width: 200px;
             border-radius: 0 1.2rem 1.2rem 0;
             border-left: 1px dashed rgba($color: #000000, $alpha: 0.8);
         }
